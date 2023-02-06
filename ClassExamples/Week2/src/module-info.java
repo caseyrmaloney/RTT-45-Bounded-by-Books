@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author caseymaloney
+ *
+ */
+module ClassExamples {
+}

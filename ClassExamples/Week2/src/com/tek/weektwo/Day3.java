@@ -62,7 +62,7 @@ public class Day3 {
 			
 		}
 		
-		/
+		
 		
 		System.out.println();
 		List<Integer> ints = new ArrayList<Integer>(); 

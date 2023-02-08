@@ -1,5 +1,7 @@
 package com.tek.weektwo;
 
+import java.util.*;
+
 public class Day3 {
 
 	public static void main(String[] args) {
@@ -39,6 +41,55 @@ public class Day3 {
 			
 			
 		}
+		
+		
+		List<String> list = new ArrayList<>(); 
+		list.add("String 1"); 
+		list.add("String 2");
+		list.add("String 3"); 
+		
+		
+		//used for when you need to know the position 
+		for(int position = 0; position< list.size(); position++) { 
+			System.out.println(list.get(position));
+		}
+		
+		//short hand for for list 
+		//for each element in the list do something 
+		for (String element : list  ) { 
+			
+			System.out.println(element);
+			
+		}
+		
+		/
+		
+		System.out.println();
+		List<Integer> ints = new ArrayList<Integer>(); 
+		
+		
+		//example of autoboxing 
+		
+		for ( int i = 1; i<= 10; i++) { 
+			ints.add(i); 
+		}
+		
+		for (Integer element : ints){ 
+			System.out.println(element);
+		}
+		
+		
+		
+		
+		System.out.println();
+		
+		for (Integer element : ints) { 
+			System.out.print(element + " "); 
+		}
+		
+		
+		
+		
 
 	}
 

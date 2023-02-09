@@ -243,29 +243,43 @@ public class Arrays {
 	public static void Fave() { 
 		Scanner scan = new Scanner(System.in); 
 		
+		
+		//length of the array - user input 
 		int favoriteNum; 
 		
 		System.out.println("How many favorite things do you have?"); 
 		
+		
 		favoriteNum= scan.nextInt(); 
 		
+		
+		//array things length of the number they input 
 		String[] things = new String[favoriteNum];
 		
+		
+		//element what user inputs 
 		String element; 
 		
+		//looping to input multiple inputs from user
+		
+		//next line was giving weird problems idk 
 		for ( int i = 0; i < things.length; i++) { 
-			System.out.print("Enter your thing: ");
-			element = scan.nextLine(); 
+			System.out.println("Enter your thing: ");
+			element=scan.next(); 
+			
+			
+			//array (things) enter the element that user input in the index 
 			things[i]= element; 
 			
 		}
-		
+		//looping through the array 
 		System.out.println("your favorite things are; "); 
 		for (String elements: things) { 
-			System.out.println(things); 
+			System.out.println(elements); 
 		}
 		
 		
+		scan.close(); 
 	}
 
 	

@@ -18,7 +18,8 @@ public class Arrays {
 		//Swap(); 
 		//Ascending (); 
 		//ArrayWithDifypes(); 
-		Fave(); 
+		//Fave(); 
+		hackerRank(); 
 		
 	}
 	
@@ -281,6 +282,40 @@ public class Arrays {
 		
 		scan.close(); 
 	}
+	
+	
+	 public static void hackerRank() {
+	        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+	        
+	        
+	        Scanner scan = new Scanner(System.in); 
+	        
+	        System.out.println("How big is your array? ");
+	        
+	        int arrLenght= scan.nextInt(); 
+	        
+	        int[] arr= new int[arrLenght];
+	        
+	        scan.close();
+	        
+	       
+	        for (int i=0; i<arrLenght; i++){ 
+	            System.out.println("Enter your number: ");
+	            int element = scan.nextInt(); 
+	            arr[i]= element; 
+	        }
+	        
+	        scan.close(); 
+	        
+	        int sum = 0; 
+	        for (int i = 0; i<arrLenght; i++){ 
+	            sum= sum + arr[i]; 
+	        }
+	        
+	        System.out.println(sum); 
+	        
+	        
+	    }
 
 	
 	

@@ -104,6 +104,7 @@ public class Loops {
 		
 		
 		while (tuition < 20000.0) { 
+			
 			tuition *= increase; 
 			years++; 
 		}

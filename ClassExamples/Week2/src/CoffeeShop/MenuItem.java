@@ -29,7 +29,7 @@ public class MenuItem {
 		this.price = price;
 		this.quantityInStock = quantityInStock;
 	}
-
+//getters and setters 
 	public String getName() {
 		return name;
 	}

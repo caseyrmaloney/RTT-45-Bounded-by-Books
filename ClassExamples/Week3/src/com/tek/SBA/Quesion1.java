@@ -13,6 +13,7 @@ public class Quesion1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+	
 		// how to transfer an array into an array list
 		String[] arr = { "one", "two", "three", "four", "five" };
 		
@@ -20,7 +21,7 @@ public class Quesion1 {
 		q1.convert(arr); 
 		
 		q1.replace(2);// i have replaced two with the empty string  
-		q1.replace(4); // i have replaced four with the empty string 
+		//q1.replace(4); // i have replaced four with the empty string 
 		
 		List<String> compacted = q1.compact(); 
 		//zero one three five 
@@ -29,10 +30,10 @@ public class Quesion1 {
 	}
 	
 	//in the constructor create a new array list 
-	private ArrayList<String> list; 
+	public ArrayList<String> list; 
 	
 	 Quesion1() { 
-		//in the construct create a new array list 
+		
 		
 		
 		
@@ -40,10 +41,14 @@ public class Quesion1 {
 	
 	// know how to convert an array of strings to a list of strings 
 	public void convert(String[] arr) {
+//		
+//		
+//		for (String str : arr) {
+//			list.add(str);
+//		}
 		
-		
-		for (String str : arr) {
-			list.add(str);
+		for(int i = 0; i< arr.length;i++) { 
+			list.add(arr[i]); 
 		}
 
 		
@@ -58,8 +63,13 @@ public class Quesion1 {
 	//print a message saying what the value of the position in the lsit is and the value you are overwriting it with 
 	public void replace (int idx) { 
 		
-		System.out.println("The value of the ArrayList at position " + idx + "is " );
+		
+		
+		System.out.println("The value of the ArrayList at position " + idx + "is and replacing it with an empty string" );
 		list.set(idx, ""); 
+		
+
+		System.out.println("The value of the ArrayList at position " + idx + "is now: " );
 		
 	}
 	

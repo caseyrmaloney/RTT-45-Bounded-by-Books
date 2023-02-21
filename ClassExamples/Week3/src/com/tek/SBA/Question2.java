@@ -11,6 +11,7 @@ public class Question2 {
 	
 	//give you a number for a size into a constant 
 	private static final int ARRAY_SIZE =5; 
+	int [] array; 
 	
 	public static void main(String [] args ) { 
 		
@@ -20,12 +21,13 @@ public class Question2 {
 		
 		
 		int[] avg= {1,2,3,4,5,6}; 
+		
 		calculateAverage(avg); 
 		
-		q2.setValue(4); //value is -1 need to change 
-		q2.setValue(5); //print the first message setting value 
-		q2.setValue(4); //print 2nd message because it already been changed 
-		
+//		q2.setValue(4); //value is -1 need to change 
+//		q2.setValue(5); //print the first message setting value 
+//		q2.setValue(4); //print 2nd message because it already been changed 
+//		
 		
 		
 	}
@@ -41,8 +43,10 @@ public class Question2 {
 				
 				//initialize this entire array to a value......-1 can us Arrays.fill(this.arr, 1)
 				for (Integer i: arr) { 
-					arr[i]= -1; 
+					arr[i]= 1; 
 				}
+				
+				System.out.println("A new array has been created");
 		
 	}
 	
@@ -51,18 +55,40 @@ public class Question2 {
 		//print out a message using system.out format of the average with 
 		//decimal format this using %.2f 2 places to the right 
 		//include a new line character at the end of the message 
+		
+		double total = 0;  
+		
+		for (int i : arr) {
+			total += (double)i; 
+		}
+		
+		
+		double avg = (total / (double)arr.length); 
+		
+		System.out.printf("Average: %.2f \n", avg); 
+		
 	}
 	
 	
-	public static void setValue(int value) { 
+	public void setValue(int value) { 
 		//if the value at array[index] is == -1 then print a message saying that you set the value  to 1 
 		//otherwise print a message saying that it was already changed 
+		
+		if (array [value] == -1) { 
+			array [value] = 1; 
+			System.out.println("Index " + value + "value is set to 1");
+		}
+		else { 
+			System.out.println("Index " + value + "value is already set");
+		}
 	}
 	
 	public void move (int value, int id) { 
 		//if the value at array[id] != 1 then change the value to 1 ???? 
 		//if the value at array[id] == 1 then print a message saying "value with id: {id} is moved to {value}" 
 		//otherwise print a message saying "value us already -1" 
+		
+		
 		
 	}
 	

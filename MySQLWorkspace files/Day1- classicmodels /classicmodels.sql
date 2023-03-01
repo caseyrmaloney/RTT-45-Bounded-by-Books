@@ -137,6 +137,14 @@ ELSE "Out of our range" END AS priceStatus
 FROM products ORDER BY buyPrice DESC;
 
 
+select pay.amount, c.customerName, c.state
+from customers c, payments pay
+where pay.customerNumber = c.customerNumber
+and pay.amount > 10.00
+and c.state = 'MA'
+order by pay.amount desc ; 
+
+
 
 -- want to see the total profit for each item including the number of items purches 
 -- if product x was ordered 10 times and has 50 items ordered in each order i want to see the total gross margin 

@@ -14,7 +14,7 @@ public class Question2 {
 	//give you a number for a size into a constant 
 	private static final int ARRAY_SIZE =5; 
 	int [] array = {1,2,3,4,5,6}; 
-	int [] arr; 
+	
 	
 	public static void main(String [] args ) { 
 		
@@ -48,10 +48,10 @@ public class Question2 {
 				//however since we are one based we need 5 elements 1-5 - size of the array is size 6 
 				//ignore the 0th element of the array 
 				
-				arr = new int[ARRAY_SIZE+1];
+				array = new int[ARRAY_SIZE+1];
 				
 				//initialize this entire array to a value......-1 can us Arrays.fill(this.arr, 1)
-				Arrays.fill(this.arr, -1);
+				Arrays.fill(this.array, -1);
 				
 				System.out.println("A new array has been created");
 		
@@ -81,8 +81,8 @@ public class Question2 {
 		//if the value at array[index] is == -1 then print a message saying that you set the value  to 1 
 		//otherwise print a message saying that it was already changed 
 		
-		if (arr [value] == -1) { 
-			arr[value] = 1; 
+		if (array [value] == -1) { 
+			array[value] = 1; 
 			System.out.println("Index " + value + " value is set to 1");
 		}
 		else { 
@@ -94,12 +94,17 @@ public class Question2 {
 		//if the value at array[id] != 1 then change the value to 1 ???? 
 		//if the value at array[id] == 1 then print a message saying "value with id: {id} is moved to {value}" 
 		//otherwise print a message saying "value us already -1" 
+		
+		// if the value at array[id] == 1 then print a message saying "Value with id: {id} is moved to {value}" and set the value to -1
+				// otherwise print a message saying "Value is already -1"
+			
 
 		if(array[id] != 1) { 
 			array[id] = 1; 
 			System.out.println("the value is set to 1"); 
 		}
 		else if (array[id] == 1 ) { 
+			array[id] = -1; 
 			System.out.println("value with id: " + id + " is move to " + value);
 		}
 		

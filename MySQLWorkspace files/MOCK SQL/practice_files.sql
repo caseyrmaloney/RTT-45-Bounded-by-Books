@@ -49,3 +49,23 @@ from items i, order_items oi
 where i.item_id = oi.item_id
 group by i.name, i.price, oi.quantity ; 
 
+
+-- column 1 - store name 
+-- column 2 - the number of times an order has been made in this store 
+-- column 3 - if the store has been involved in more than 3 ordersl mark as high 
+		  -- if the store has < 3 but more than 1 mark as medium 
+          -- if the store is 1 or less mark as low 
+-- order by quantity in desc order 
+
+select distinct s.name, count(oi.ORDER_ID) as ORDER_QUANTITY, 
+CASE
+	WHEN count(oi.quantity)>= 3  THEN "HIGH"
+	WHEN count(oi.quantity) < 3 AND count(oi.quantity) > 1 THEN "MEDIUM"
+	WHEN count(oi.quantity) <= 1 THEN "LOW"
+ELSE "Out of our range" END AS SALES_FIGURE
+from stores s, orders o, order_items oi
+where 
+	s.store_id = o.store_id
+and o.order_id = oi.order_id
+group by s.name, oi.order_id
+order by order_quantity desc; 

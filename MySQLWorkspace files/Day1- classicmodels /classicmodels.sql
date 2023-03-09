@@ -127,7 +127,7 @@ group by pl.productLine;
 
 
 -- case statment if the price each < 50 pring low, price < 100 pring medium price >= then high 
-
+use classicmodels; 
 SELECT productName, buyPrice, 
 CASE
 	WHEN buyPrice >= 0 AND buyPrice <=  49 THEN "LOW"

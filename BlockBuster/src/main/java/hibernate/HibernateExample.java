@@ -94,6 +94,8 @@ public class HibernateExample {
 	}
 	
 	//checkOut( Movie, User )
+	public void 
+	
 	
 	
 

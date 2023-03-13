@@ -2,6 +2,9 @@ package hibernate;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -36,10 +38,6 @@ public class Course {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer cId;
-	
-	//FK constrant need to have insertable and updateable 
-	@Column(name = "student_id",insertable=false, updatable=false)
-	private Integer studentId;
 
 
 	@Column(name = "name")
@@ -48,11 +46,9 @@ public class Course {
 	@Column(name = "instructor")
 	private String cInstructorName;
 	
-	//mapping a many to one 
-	@ToString.Exclude
-	@ManyToOne(fetch = FetchType.EAGER, optional = true, cascade = CascadeType.ALL)
-    @JoinColumn(name = "student_id", nullable = true)
-    private Student student;
+	 @ToString.Exclude
+	    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	    private List<StudentCourse> studentCourse = new ArrayList<StudentCourse>();
 	
 
 }

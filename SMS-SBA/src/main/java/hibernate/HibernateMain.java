@@ -14,25 +14,27 @@ public class HibernateMain {
 		StudentDAO studentDAO = new StudentDAO(); 
 		Course course = new Course(); 
 		CourseDAO courseDAO = new CourseDAO(); 
+		StudentCourse studentCourse = new StudentCourse(); 
+		StudentCourseDAO studentCourseDAO = new StudentCourseDAO(); 
 		
 		//HIBERNATE WORKING WITH INSERTING AND NOT 
 		
 		//inserting a student
-//		student.setEmail("hibernate@email.com");
-//		student.setName("Testing Hibernate");
-//		student.setPassword("pass");
+//		student.setSEmail("hibernate@email.com");
+//		student.setSName("Testing Hibernate");
+//		student.setSPass("pass");
 //		studentDAO.insert(student);
 		
 		//inserting a new course 
-//		course.setName("Hibernate Checking");
-//		course.setInstructor("Hibernate");
+//		course.setCName("Hibernate Checking");
+//		course.setCInstructorName("Hibernate");
 //		courseDAO.insert(course);
 		
 		//deleting the hibernate test cases from database 
-//		course = courseDAO.findById(12); 
+//		course = courseDAO.findById(13); 
 //		courseDAO.delete(course);
-//		
-//		student = studentDAO.findById(12); 
+//	
+//		student = studentDAO.findById(15); 
 //		studentDAO.delete(student);
 		
 		//checking if the getAllCourses Print
@@ -50,6 +52,11 @@ public class HibernateMain {
 		//checking valid user 
 		
 		//System.out.println(studentDAO.validateStudent("test@testing", "pass")); 
+		
+		//checking if student course DAO works 
+		studentCourse.setCourseId(2);
+		studentCourse.setStudentId(11);
+		studentCourseDAO.insert(studentCourse);
 		 
 
 	}

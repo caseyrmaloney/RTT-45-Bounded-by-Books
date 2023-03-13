@@ -134,13 +134,10 @@ public class StudentDAO {
 		
 		return false;  
 		
-		
-		
-		
-		
-		
 
 	}
+	
+	//do I need another table ? confused 
 
 	public void registerStudentToCourse(Student student) {
 

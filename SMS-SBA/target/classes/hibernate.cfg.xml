@@ -26,6 +26,7 @@
         <!-- <mapping class="hibernate.User"/> --> 
         <mapping class="hibernate.Student"/>
         <mapping class="hibernate.Course"/>
+        <mapping class="hibernate.StudentCourse"/>
      
         
         

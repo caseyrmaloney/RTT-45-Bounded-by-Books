@@ -122,34 +122,30 @@ public class StudentDAO {
 		//set list with function 
 		studentList = sDAO.getAllStudents(); 
 		
+		boolean found = false; 
 		
 		//iterate through the list 
 		for(Student student : studentList) {
 			//use .equal to see if they match 
 			if(student.getSEmail().equals(email) && student.getSPass().equals(pass)) { 
-				return true; 
+				found = true; 
 			}
 			
 		}
 		
-		return false;  
+		
+		return found; 
+		
 		
 
 	}
 	
 	
 
-	public void registerStudentToCourse(int courseId, int studentId, String studentEmail) {
+	public void registerStudentToCourse(int courseId, int studentId) {
 		
-		CourseDAO courseDAO = new CourseDAO(); 
-		
-		//prompt for all the courses 
-		System.out.println("All Courses: ");
-		courseDAO.getAllCourses();
-		
-		//register for the course 
 		StudentCourse sc = new StudentCourse(); 
-		StudentCourseDAO dao = new StudentCourseDAO(); 
+		StudentCourseDAO scDAO = new StudentCourseDAO(); 
 		Student student = new Student(); 
 		StudentDAO sDAO = new StudentDAO(); 
 		Course course = new Course (); 
@@ -158,12 +154,38 @@ public class StudentDAO {
 		student = sDAO.findById(studentId); 
 		course = cDAO.findById(courseId); 
 		
-		
 		sc.setStudent(student);
-		sc.setCourse(course);		
-		dao.insert(sc);
+		sc.setCourse(course);	
 		
-		//printing out the student courses 
+		boolean found = false; 
+		
+		for(StudentCourse sCourse: student.getStudentCourse()) {
+			if(sCourse.getCourseId().equals(courseId)) { 
+				found = true; 
+				
+			}
+		}
+		
+		//if not found 
+		if(!found) { 
+			scDAO.insert(sc);
+			System.out.println(); 
+			System.out.println();
+			System.out.println("Thanks for registering!");
+		}
+		else {
+			System.out.println(); 
+			System.out.println();
+			System.out.println("Class is already registered");
+		}
+		
+	
+		
+		
+		//printing out the student courses
+		System.out.println();
+		System.out.println("My Classes");
+		System.out.println("COURSE ID \t COURSE NAME \t  \t  \t \t \t COURSE INSTRUCTOR");
 		getStudentCourses(studentId); 
 		
 
@@ -204,14 +226,16 @@ public class StudentDAO {
 		
 		
 		//System.out.println("Course ID \t Course Name \t Course Instructor");
+//		System.out.println(); 
+		System.out.println();
 		
 		for(StudentCourse sc: result) { 
 			for (Course course : courseList) { 
 				if(course.getCId() == sc.getCourseId()) { 
-					//studentCourses.add(course); 
+					studentCourses.add(course); 
 					
 					System.out.println(course.getCId() + " \t \t "+ course.getCName() + " \t "
-							+ "" + course.getCInstructorName());
+							+ " \t \t   " + course.getCInstructorName());
 				}
 			}
 		}

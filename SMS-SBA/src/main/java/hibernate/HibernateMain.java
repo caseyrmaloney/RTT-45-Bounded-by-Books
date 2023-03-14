@@ -75,18 +75,17 @@ public class HibernateMain {
 	
 		//StudentDAO sDAO = new StudentDAO(); 
 //		
-//		sDAO.registerStudentToCourse(3, 11, null);
+		//sDAO.registerStudentToCourse(4, 11);
 		
 		//checking is get all student course works
 		
 		//List<Student> student =  sDAO.getStudentByEmail("test@testing.com"); 
 		
 		
-		
-		
 		//System.out.println(id);
 		
 		
+		//System.out.println(sDAO.getStudentCourses(11)); 
 
 	}
 

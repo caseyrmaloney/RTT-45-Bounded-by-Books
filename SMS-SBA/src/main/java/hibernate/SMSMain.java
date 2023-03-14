@@ -41,9 +41,12 @@ public class SMSMain {
 	private int logInMenu() {
 		
 		System.out.println("Welcome to your School Management System!");
+		System.out.println();
 		System.out.println("Are you a(n)");
+		System.out.println();
 		System.out.println("1. Student");
 		System.out.println("2. Quit");
+		System.out.println();
 		System.out.print("Please enter a 1 or 2: ");
 		
 		int input = scanner.nextInt(); 
@@ -60,9 +63,11 @@ public class SMSMain {
 		
 		boolean retValue = false; 
 		
+		System.out.println();
 		System.out.println("Enter your email: ");
 		String email = scanner.next(); 
 		
+		System.out.println();
 		System.out.println("Enter your password: ");
 		String password = scanner.next(); 
 		
@@ -77,7 +82,11 @@ public class SMSMain {
 		
 		
 		if(currentStudent != null & studentDAO.validateStudent(email, password)) {
-			System.out.println("My Classes");
+			System.out.println(); 
+			System.out.println(); 
+			System.out.println("My Classes: ");
+			System.out.println();  
+			System.out.println("COURSE ID \t COURSE NAME \t \t COURSE INSTRUCTOR"); 
 			int id = currentStudent.getId(); 
 			List<Course> courses = studentDAO.getStudentCourses(id); 
 			
@@ -95,9 +104,13 @@ public class SMSMain {
 	
 	
 	private void registerMenu() { 
+		System.out.println(); 
+		System.out.println();
 		System.out.println("What would you like to do?");
+		System.out.println();
 		System.out.println("1. Register for a class ");
 		System.out.println("2. Logout");
+		System.out.println();
 		System.out.print("Please enter a 1 or 2: ");
 		
 		int input = scanner.nextInt(); 
@@ -108,6 +121,10 @@ public class SMSMain {
 			CourseDAO courseDAO = new CourseDAO(); 
 			List<Course> courseList = courseDAO.getAllCourses(); 
 			
+			System.out.println(); 
+			System.out.println();
+			System.out.println("All Courses: ");
+			System.out.println();
 			System.out.println("COURSE ID \t COURSE NAME \t  \t  \t \t \t COURSE INSTRUCTOR");
 
 			for (Course course : courseList) {
@@ -123,17 +140,20 @@ public class SMSMain {
 			Course newCourse = new Course(); 
 			newCourse = courseDAO.findById(courseNum); 
 			int id = currentStudent.getId();
-			String email = currentStudent.getSEmail(); 
+			
 			
 			if(newCourse != null) { 
 				StudentDAO studentDAO = new StudentDAO(); 
-				studentDAO.registerStudentToCourse(courseNum, id, email);
-				System.out.println("Thanks for registering!");
+				studentDAO.registerStudentToCourse(courseNum, id);
+				System.out.println(); 
+				System.out.println();
+				System.out.println("Goodbye!");
 			}
 			break; 
 			
 		case 2: 
 			default: 
+				System.out.println();
 				System.out.println("Goodbye!");
 			
 			

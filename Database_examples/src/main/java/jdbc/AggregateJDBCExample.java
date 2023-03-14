@@ -45,7 +45,7 @@ public static void main(String[] args) {
 					+ "where pay.customerNumber = c.customerNumber\n"
 					+ "and pay.amount > ?\n"
 					+ "and c.state = ?\n"
-					+ "order by pay.amount desc ;  ";;
+					+ "order by pay.amount desc ;  "; 
 			
 			//this is a JDBC class that creates the statement which will in turn run the SQL 
 			// this kind of statement isn't normally used want to use a prepared statement 

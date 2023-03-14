@@ -32,6 +32,7 @@ public class StudentCourse {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
+	
 
 	@Column(name = "student_id", insertable=false, updatable=false)
 	private Integer studentId;

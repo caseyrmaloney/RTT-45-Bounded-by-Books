@@ -137,14 +137,86 @@ public class StudentDAO {
 
 	}
 	
-	//do I need another table ? confused 
+	
 
-	public void registerStudentToCourse(Student student) {
+	public void registerStudentToCourse(int courseId, int studentId, String studentEmail) {
+		
+		CourseDAO courseDAO = new CourseDAO(); 
+		
+		//prompt for all the courses 
+		System.out.println("All Courses: ");
+		courseDAO.getAllCourses();
+		
+		//register for the course 
+		StudentCourse sc = new StudentCourse(); 
+		StudentCourseDAO dao = new StudentCourseDAO(); 
+		Student student = new Student(); 
+		StudentDAO sDAO = new StudentDAO(); 
+		Course course = new Course (); 
+		CourseDAO cDAO = new CourseDAO(); 
+		
+		student = sDAO.findById(studentId); 
+		course = cDAO.findById(courseId); 
+		
+		
+		sc.setStudent(student);
+		sc.setCourse(course);		
+		dao.insert(sc);
+		
+		//printing out the student courses 
+		getStudentCourses(studentId); 
+		
 
 	}
 
-	public void getStudentCourses(String email) {
+	public List<Course> getStudentCourses(int id) {
 		
+		
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+		
+		
+		// this is HQL which is hibernate query language
+		// also referred to as JPA
+		
+		 
+		
+		int studentId = id;  
+		
+		
+		String hql = "FROM StudentCourse sc where sc.studentId = :studentId";
+		
+		TypedQuery<StudentCourse> query = session.createQuery(hql, StudentCourse.class);
+		query.setParameter("studentId", studentId);
+		
+		// when we know we are getting 0 or more records we use getResultList
+		List<StudentCourse> result = query.getResultList();
+		
+		session.close();
+		
+		CourseDAO cDAO = new CourseDAO(); 
+		List<Course> courseList = new ArrayList<Course>(); 
+		
+		
+		courseList= cDAO.getAllCourses(); 
+		
+		List<Course> studentCourses = new ArrayList<Course>(); 
+		
+		
+		//System.out.println("Course ID \t Course Name \t Course Instructor");
+		
+		for(StudentCourse sc: result) { 
+			for (Course course : courseList) { 
+				if(course.getCId() == sc.getCourseId()) { 
+					//studentCourses.add(course); 
+					
+					System.out.println(course.getCId() + " \t \t "+ course.getCName() + " \t "
+							+ "" + course.getCInstructorName());
+				}
+			}
+		}
+		
+		return studentCourses; 
 		
 
 	}

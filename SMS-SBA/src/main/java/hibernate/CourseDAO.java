@@ -59,7 +59,7 @@ public class CourseDAO {
 	}
 
 	// ADDING THE FUNCTION GET ALL COURSES();
-	public void getAllCourses() {
+	public List<Course> getAllCourses() {
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		Session session = factory.openSession();
@@ -70,15 +70,17 @@ public class CourseDAO {
 
 		List<Course> courseList = query.getResultList();
 
-		System.out.println("COURSE ID \t COURSE NAME \t  \t  \t \t \t COURSE INSTRUCTOR");
+		//System.out.println("COURSE ID \t COURSE NAME \t  \t  \t \t \t COURSE INSTRUCTOR");
 
 		// iterate through the courselist to print all courses
-		for (Course course : courseList) {
-			System.out.println(course.getCId() + " \t \t --> " + course.getCName() + "          \t \t \t \t---> "
-					+ course.getCInstructorName());
-		}
-
+//		for (Course course : courseList) {
+//			System.out.println(course.getCId() + " \t \t "+ course.getCName() + " \t "
+//					+ "" + course.getCInstructorName());
+//		}
+//		
 		session.close();
+		
+		return courseList; 
 
 	}
 

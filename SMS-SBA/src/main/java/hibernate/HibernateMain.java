@@ -10,12 +10,11 @@ public class HibernateMain {
 		
 		//checking if DAO and connections are working 
 		
-		Student student = new Student(); 
-		StudentDAO studentDAO = new StudentDAO(); 
-		Course course = new Course(); 
-		CourseDAO courseDAO = new CourseDAO(); 
-		StudentCourse studentCourse = new StudentCourse(); 
-		StudentCourseDAO studentCourseDAO = new StudentCourseDAO(); 
+//		Student student = new Student(); 
+//		StudentDAO studentDAO = new StudentDAO(); 
+//		Course course = new Course(); 
+//		CourseDAO courseDAO = new CourseDAO(); 
+		 
 		
 		//HIBERNATE WORKING WITH INSERTING AND NOT 
 		
@@ -54,10 +53,40 @@ public class HibernateMain {
 		//System.out.println(studentDAO.validateStudent("test@testing", "pass")); 
 		
 		//checking if student course DAO works 
-		studentCourse.setCourseId(2);
-		studentCourse.setStudentId(11);
-		studentCourseDAO.insert(studentCourse);
-		 
+		
+		
+//		StudentCourse sc = new StudentCourse(); 
+//		StudentCourseDAO dao = new StudentCourseDAO(); 
+//		Student student = new Student(); 
+//		StudentDAO sDAO = new StudentDAO(); 
+//		Course course = new Course (); 
+//		CourseDAO cDAO = new CourseDAO(); 
+//		
+//		student = sDAO.findById(11); 
+//		course = cDAO.findById(2); 
+//		
+//		
+//		sc.setStudent(student);
+//		sc.setCourse(course);
+//		
+//		dao.insert(sc);
+		
+		//checking if register for class function is working
+	
+		//StudentDAO sDAO = new StudentDAO(); 
+//		
+//		sDAO.registerStudentToCourse(3, 11, null);
+		
+		//checking is get all student course works
+		
+		//List<Student> student =  sDAO.getStudentByEmail("test@testing.com"); 
+		
+		
+		
+		
+		//System.out.println(id);
+		
+		
 
 	}
 

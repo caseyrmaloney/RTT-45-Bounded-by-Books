@@ -71,32 +71,40 @@ public class SMSMain {
 		System.out.println("Enter your password: ");
 		String password = scanner.next(); 
 		
+		
 		StudentDAO studentDAO = new StudentDAO(); 
 		List<Student> student = new ArrayList<Student>(); 
 		student = studentDAO.getStudentByEmail(email); 
 		
-		if(student != null) { 
-			currentStudent = student.get(0); 
-		}
 		
-		
-		
-		if(currentStudent != null & studentDAO.validateStudent(email, password)) {
+		//while student is valid 
+		while(studentDAO.validateStudent(email, password)){ 
+			
+			if(student != null) { 
+				currentStudent = student.get(0); 
+			}
+			
 			System.out.println(); 
 			System.out.println(); 
 			System.out.println("My Classes: ");
 			System.out.println();  
 			System.out.println("COURSE ID \t COURSE NAME \t \t COURSE INSTRUCTOR"); 
+			//get the id of current student 
 			int id = currentStudent.getId(); 
 			List<Course> courses = studentDAO.getStudentCourses(id); 
 			
 			retValue = true; 
+			break; 
 			
 		}
 		
-		else { 
+		//if student is not valid 
+		if(studentDAO.validateStudent(email, password) == false) { 
 			System.out.println("User Valitdation failed. Goodbye!"); 
 		}
+		
+		
+		
 		
 		return retValue; 
 		

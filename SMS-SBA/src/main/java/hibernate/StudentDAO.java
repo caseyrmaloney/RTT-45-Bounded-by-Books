@@ -166,7 +166,7 @@ public class StudentDAO {
 			}
 		}
 		
-		//if not found 
+		//if the course is not found 
 		if(!found) { 
 			scDAO.insert(sc);
 			System.out.println(); 

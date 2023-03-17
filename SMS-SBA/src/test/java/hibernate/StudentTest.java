@@ -19,10 +19,10 @@ public class StudentTest {
 		
 		
 		//passes 
-		assertEquals("Test Name", student.getSName());
+		//assertEquals("Test Name", student.getSName());
 		
 		//fails 
-		//assertEquals("Wrong Name", student.getSName());
+		assertEquals("Wrong Name", student.getSName());
 	}
 	
 

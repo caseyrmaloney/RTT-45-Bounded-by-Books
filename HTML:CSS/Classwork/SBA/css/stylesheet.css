@@ -1,0 +1,35 @@
+
+div{ 
+    display:block; 
+}
+.header-title-nav-wrapper{ 
+     display: flex;
+     flex-wrap: nowrap;
+     align-items: center;
+     justify-content: flex-end;
+}
+
+.header-nav-list{ 
+    display: inline-flex; 
+    flex-wrap: wrap;
+}
+
+.header-nav-wrapper{ 
+    display: inline-flex; 
+    flex-wrap: wrap;
+   
+}
+
+.header-nav-item a{ 
+   padding: .7em .7em;
+   
+}
+
+.header-title-text{ 
+    align-self: flex-start;
+}
+
+
+
+
+

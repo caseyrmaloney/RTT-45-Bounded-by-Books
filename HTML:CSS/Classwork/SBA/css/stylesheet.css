@@ -1,35 +1,233 @@
 
+
+/* NAVIGATION  */
 div{ 
     display:block; 
 }
-.header-title-nav-wrapper{ 
-     display: flex;
-     flex-wrap: nowrap;
-     align-items: center;
-     justify-content: flex-end;
-}
-
-.header-nav-list{ 
-    display: inline-flex; 
-    flex-wrap: wrap;
-}
-
-.header-nav-wrapper{ 
-    display: inline-flex; 
-    flex-wrap: wrap;
-   
-}
-
-.header-nav-item a{ 
-   padding: .7em .7em;
-   
+nav{
+    background-color: rgb(240, 248, 255, .2);
+    color: white; 
 }
 
 .header-title-text{ 
     align-self: flex-start;
+    margin-right: auto;
+}
+
+/* HEADER SECTION  */
+
+.header-wrapper{ 
+    background-image: url(/SBA/images/cake21.jpg) ; 
+    height: 600px; 
+    background-size: cover; 
+    background-position: center center;
+   
+    
+
 }
 
 
 
+
+header h1{ 
+    color: rgb(29, 110, 84); 
+
+    
+}
+
+header h3{ 
+    color: rgb(37, 89, 73); 
+} 
+
+.text-link-wrapper{ 
+  margin: 200px 60px; 
+}
+
+
+.text-wrapper {
+    background-color: rgb(240, 248, 255, .6);
+    width: 600px; 
+    padding: 10px 50px; 
+    
+    
+}
+.header-explore {
+    margin-top: 25px;
+}
+.header-explore a{ 
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(16, 87, 64); 
+    padding: 10px 10px; 
+    background-color: rgb(240, 248, 255, .5);
+   
+}
+
+.header-explore a:hover{ 
+    background: rgb(26,121,50);
+    background: radial-gradient(circle, rgba(26,121,50,1) 0%, rgba(157,208,160,1) 100%);
+    padding: 10px 10px;
+    color: white;
+}
+
+/* section 2 */
+
+.content-div{ 
+    background-color: #9CBFA9;  
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    height: 650px; 
+}
+
+.content{ 
+   margin: 10px 40px; 
+   padding: 60px 60px; 
+    width: 750px;
+}
+
+.content-div h2{ 
+    font-size: 45px; 
+    color: #000000;
+}
+
+.content-div p{ 
+    margin-bottom: 50px;
+
+}
+
+.home-buttons{ 
+    text-decoration: none;
+    font-size: 18px;
+    color:  #9CBFA9; 
+    margin-top: 50px;
+    padding: 20px 50px; 
+    background-color: rgba(0, 0, 0);
+
+}
+
+.home-buttons:hover{ 
+ 
+    background: rgb(26,121,50);
+    background: radial-gradient(circle, rgba(26,121,50,1) 0%, rgba(156,191,169,1) 100%);
+    color:  #000000; 
+    text-decoration: none;
+}
+
+/* section 3- logos */
+.logo-wrapper{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+
+.logo-div{ 
+    margin: 70px;
+    text-align: center;
+}
+
+.logo-wrapper img{ 
+    width: 50px;
+}
+
+/* section 4 - testimonlials */
+.test-wrapper{ 
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.test-div{ 
+    width: 800px; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* section 5- place an order */
+.place-order-wrapper{ 
+    background-color: #9CBFA9; 
+    display:flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 200px; 
+    align-content: space-between;
+}
+
+.place-order-div{ 
+    padding-top: 20px;
+    text-align: center;
+}
+
+.place-order-div p { 
+    margin-bottom: 40px;
+}
+
+/* section 6 -carousel */
+
+.car-wrapper{ 
+    background-color: #9CBFA9; 
+    display:flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 700px; 
+    align-content: space-between;
+}
+
+.car-div{ 
+    width: 700px; 
+    padding-bottom: 40px;
+    text-align: center;
+    
+}
+
+
+.footer-wrapper{ 
+    background-color: white;
+    height: 300px; 
+    
+    
+}
+
+footer{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+
+.contact-wrapper{ 
+  display: flex;
+  flex-direction: column;
+    float: right;
+    padding: 60px; 
+
+
+
+}
+
+.contact-wrapper a{ 
+    color: #000000; 
+}
+
+.contact-wrapper a:hover{ 
+    color: #000000; 
+    opacity: .7;
+}
+
+.social-wrapper{ 
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-content-div{ 
+    margin-right: 100px;
+    
+}
+
+
+/* PAGE 2- ABOUT- USED INTERNAL STYLE */
 
 

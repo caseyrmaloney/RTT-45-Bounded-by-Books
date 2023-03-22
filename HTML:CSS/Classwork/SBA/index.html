@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bakery</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" type "text/css" href="css/stylesheet.css">
     <!-- CDN via jsDelivr links -->
@@ -21,68 +25,78 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body style="font-family: Montserrat">
     <!-- HEADER -->
-    <section>
-      <header>
+    <section class="header-wrapper">
+    
+      <header id="head">
         <!-- NAV BAR AND TITLE-->
         <div class="header-title-nav-wrapper">
-          <!-- TITLE -->
-          <div class="header-title">
-            <div class="header-title-text">
-              <a id="header-title" href="/index.html">Cosmic Cakes</a>
-            </div>
-          </div>
+  
 
           <!-- NAV BAR -->
           <div class="header-nav">
-            <div class="header-nav-wrapper">
-              <div class="header-nav-list">
-                <!-- ITEM ONE -->
-                <div class="header-nav-item">
-                  <a href="#">Home </a>
-                </div>
-
-                <!-- ITEM ONE -->
-                <div class="header-nav-item">
-                  <a href="#">Products </a>
-                </div>
-
-                <!-- ITEM ONE -->
-                <div class="header-nav-item">
-                  <a href="#">About Us </a>
-                </div>
-
-                <!-- ITEM ONE -->
-                <div class="header-nav-item">
-                  <a href="#">Our Work</a>
-                </div>
-
-                <!-- ADD A DROPDOWN MENU FOR CONTACT US AND REQUEST A CAKE -->
-               
+            <nav class="navbar navbar-expand-lg navbar-light" style=" background-color: #9CBFA9;">
+              <div class="container-fluid" >
+                <a class="navbar-brand" href="#">Cosmic Creations</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown" style="display: flex; justify-content: flex-end; margin-right: 40px;">
+                  <ul class="navbar-nav">
+                    <li class="nav-item" style="margin: 0px 10px; ">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item" style="margin: 0px 10px; ">
+                      <a class="nav-link" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item" style="margin: 0px 10px; ">
+                      <a class="nav-link" href="./about.html">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown" style="margin: 0px 10px; ">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Orders
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #aacfb8;">
+                        <li><a class="dropdown-item" href="./placeOrder.html">Place an Order</a></li>
+                        <li><a class="dropdown-item" href="./contact.html">Contact Us</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
+            </nav>
             </div>
           </div>
         </div>
 
-        <!-- title -->
-        <div>
-          <h1>Cosmic Creations</h1>
+        <div class="text-link-wrapper">
+          <!-- title -->
+        <div class="text-wrapper">
+          <h1 style="font-size: 55px;">Cosmic Creations</h1>
           <h3>Cake for Every Occations</h3>
         </div>
 
         <!-- button -->
-        <div>
+        <div class="header-explore"h>
           <a href="">Explore</a>
+        </div>
         </div>
       </header>
     </section>
 
     <!-- SECTION 2 -->
-    <section>
-      <div>
-        <h3>Our Story</h3>
+    <section class="content-div">
+
+      <div class="ourstory-img">
+        <img style="width: 400px;" src="./images/cake6.jpg" alt="" />
+      </div>
+
+
+      <div class="content">
+
+
+        <h2>It All Started With Our Loves of Cakes and Baking</h2>
 
         <p>
           Quisque pellentesque neque ac nunc vestibulum finibus. In maximus
@@ -96,19 +110,18 @@
         </p>
 
         <!-- button -->
-        <div>
-          <a href="">Learn More</a>
+        <div class="button-div">
+          <a class="home-buttons" href="">Learn More</a>
         </div>
       </div>
 
-      <div>
-        <img src="" alt="" />
-        <img src="" alt="" />
-      </div>
+     
+
+    
     </section>
 
-    <section>
-      <div>
+    <section class="content-div">
+      <div class="content">
         <h2>For Every Occasion</h2>
 
         <p>
@@ -123,13 +136,63 @@
         </p>
         <!-- button -->
         <div>
-          <a href="">Get Yours Now</a>
+          <a class="home-buttons" href="">Get Yours Now</a>
         </div>
+      </div>
+
+      <div class="ourstory-img">
+        <img style="width: 400px;" src="./images/cake2.jpg" alt="" />
       </div>
     </section>
 
-    <section>
-      <div style="width: 800px">
+    <!-- LOGOS SECTION 4 -->
+    <section class="logos-wrapper">
+
+      <div class="logo-div">
+        <img style="width: 300px;" src="./images/logo1.png" alt="">
+        <img style="width: 300px;" src="./images/logo2.png" alt="">
+        <img style="width: 300px;" src="./images/logo3.png" alt="">
+        <img style="width: 300px;" src="./images/logo4.png" alt="">
+      </div>
+   
+   
+
+    </section>
+
+    <!-- TESTIMONALS -->
+
+     
+
+    <section class="test-wrapper"> 
+     <div class="test-div">
+      <h2> 
+        "Best cake every! Eveything was amazing and just as I dreamed! I couldn't of asked for a better cake for my wedding!"
+      </h2>
+
+      <h5>
+        -Katy F.
+      </h5>
+     </div>
+
+    </section>
+
+
+    <!-- PLACE AN ORDER NOW  -->
+
+    <section class="place-order-wrapper">
+
+      <div class="place-order-div"> 
+        <h2> Want to Place an Order? </h2>
+        <p> Fill out the form below on what type of cake you would like and we'll get back to you as soon as possible! </p>
+        <a class="home-buttons" href="">Order Now</a>
+      </div>
+
+     
+
+    </section> 
+
+    <section class="car-wrapper">
+      <div class="car-div" >
         <div
           id="carouselExampleIndicators"
           class="carousel slide"
@@ -199,11 +262,54 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+
+        <div style="margin-top: 30px"> 
+          <h2>Check Out Previous Cakes </h2>
+        </div>
+        <div style="margin-top: 30px">
+          <a class="home-buttons" href="">Our Work</a>
+        </div>
       </div>
 
-      <div>
-        <a href="">Our Work</a>
-      </div>
+     
+    </section>
+
+    <section class="footer-wrapper"> 
+      <footer>
+
+        <div class="footer-content-div">
+          <h4> Cosmic Cakes </h4>
+          <h2> A Cake for Every Occasion :) </h2> 
+
+          <p> 233 Street Name <br> Philadelphia, PA 19121</p>
+         
+        </div>
+
+        <div class="contact-wrapper">
+
+
+          <div style="padding: 10px;">
+            <a  href="./contact.html">Contact Us</a>
+          </div> 
+          <div style="padding: 10px;"> 
+            <a href="">Top of Page</a>
+            
+           
+
+          </div>
+          <div style="padding: 10px;">
+            <a href="./placeOrder.html">Place an Order</a>
+          </div>
+          <div style="padding: 10px;">
+            <a href="" target="_blank"><img style="width: 20px;" src="./images/instagram.png" alt=""></a>
+            <a href="" target="_blank"><img style="width: 20px;"  src="./images/facebook-app-symbol.png" alt=""></a>
+            <a href="" target="_blank"><img style="width: 20px;"  src="./images/tiktok.png" alt=""></a>
+          </div> 
+        </div>
+
+       
+
+      </footer> 
     </section>
   </body>
 </html>

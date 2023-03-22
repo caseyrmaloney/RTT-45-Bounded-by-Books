@@ -231,3 +231,76 @@ footer{
 /* PAGE 2- ABOUT- USED INTERNAL STYLE */
 
 
+/* PRODUCTS PAGE  */
+
+.products-header{ 
+    background-image: url(/SBA/images/cake18.jpg) ; 
+    height: 600px; 
+    background-size: cover; 
+    background-position: center center;
+   
+
+}
+
+.cake-layers-wrapper{
+    display: flex; 
+    justify-content: center;
+    margin: 5em;
+}
+
+.cake-layer-content-div{ 
+    padding-left: 5em;
+}
+
+.cake-layer-content-div p{ 
+    padding: 1em; 
+}
+
+.products-place-order-wrapper{ 
+    display:flex; 
+    justify-content: center;
+    margin: 5em;
+    padding: 30px 0px;
+    background-color: #9CBFA9;
+}
+
+.products-place-order-wrapper p{ 
+    padding: 1em; 
+}
+
+.place-order-sec-wrapper{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #9CBFA9;
+    height: 400px;
+}
+
+/* IMAGE GALLERY */
+
+#gallery {
+    line-height:0;
+    -webkit-column-count:5; /* split it into 5 columns */
+    -webkit-column-gap:5px; /* give it a 5px gap between columns */
+    -moz-column-count:5;
+    -moz-column-gap:5px;
+    column-count:5;
+    column-gap:5px;
+ }
+
+ #gallery img {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom:5px; /* to match column gap */
+    filter: grayscale(100%);
+    transition: filter 2s;
+ }
+
+ #gallery img:hover {
+    filter:none;
+ }
+
+ .gallery-wrapper{ 
+    text-align: center;
+ }

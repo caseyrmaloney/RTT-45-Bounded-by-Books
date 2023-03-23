@@ -304,3 +304,133 @@ footer{
  .gallery-wrapper{ 
     text-align: center;
  }
+
+ /* CONTACT FORM */
+
+ .form-wrapper{ 
+    display: flex;
+    justify-content: center;
+    height: 600px; 
+
+ }
+
+ .form-left-wrapper{ 
+    background-color: #9CBFA9;
+    width: 50%; 
+    margin-right: 3em;
+ }
+
+ .form-right-wrapper{ 
+    width: 50%; 
+    
+ }
+
+ .form-left-wrapper h1{ 
+    font-size: 60px;
+    margin-left: 2em;
+    margin-top: 1em;
+    
+ }
+
+ .first-last-wrapper{ 
+    display: flex;
+    justify-content: center;
+ }
+
+ .email-phone-wrapper{ 
+    display: flex; 
+    justify-content: center;
+ }
+
+
+
+.input-wrapper{ 
+    margin: 1em;
+    width: 300px;
+}
+
+.message-wrapper{ 
+   
+    display: flex; 
+    justify-content: center;
+
+}
+
+.message-input{
+    margin-top: 1em; 
+    width:640px;
+}
+
+.submitBtn{ 
+    margin-left: 1.3em;
+    text-decoration: none;
+    font-size: 18px;
+    color:  #FFFF; 
+    margin-top: 50px;
+    padding: 20px 50px; 
+    outline: none;
+    background-color: rgba(0, 0, 0);
+    font-family: Montserrat; 
+
+}
+
+.submitBtn:hover{ 
+ 
+    background: rgb(26,121,50);
+    background: radial-gradient(circle, rgba(26,121,50,1) 0%, rgba(156,191,169,1) 100%);
+    color:  #000000; 
+    
+    text-decoration: none;
+}
+
+
+/* PLACE ORDER FORM */
+
+.place-order-form-wrapper{ 
+    background-color: #9CBFA9;
+    display: flex;
+    justify-content: center;
+}
+
+.first-last-name-order-wrapper{ 
+    display: flex; 
+    justify-content: center;
+    
+}
+.input-field{ 
+    width: 500px;
+    margin: 1em 2em;
+}
+
+.dates-wrapper{ 
+    display: flex; 
+    justify-content: center;
+}
+
+.date-input{
+    
+    margin: 1em 2em; 
+}
+
+.dates-wrapper select{ 
+    width: 190px;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.dates-wrapper option{ 
+    padding-left: 10px;
+}
+
+#additional{ 
+    width: 600px;
+    height: 200px; 
+    border-color: #FFFF;
+    border-radius: 5px;
+}
+
+.submit-button-order{ 
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}

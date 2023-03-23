@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bakery</title>
+    <title>Cosmic Cakes- Contact</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -111,6 +111,117 @@
           </div>
         </nav>
       </div>
+    </section>
+
+    <section class="form-wrapper">
+      <section class="form-left-wrapper">
+        <h1>
+          We'd love to <br />
+          hear from you
+        </h1>
+      </section>
+
+      <section class="form-right-wrapper">
+        <div class="mt-5">
+          <h2>Contact Us</h2>
+
+          <!-- FORM -->
+          <form>
+            <!-- FIRST NAME AND LAST NAME -->
+            <div class="first-last-wrapper">
+              <!-- FIRST NAME -->
+              <div class="input-wrapper">
+                <label for="firstNameInput" class="form-label"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  placeholder="Enter your first name"
+                  class="form-control"
+                  id="firstNameInput"
+                  aria-describedby="firstNameHelp"
+                />
+                <div id="firstNameHelp" class="form-text"></div>
+              </div>
+
+              <!-- LAST NAME -->
+              <div class="input-wrapper">
+                <div>
+                  <label for="lastNameInput" class="form-label"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter your last name"
+                    class="form-control"
+                    id="lastNameInput"
+                    aria-describedby="lastNameHelp"
+                  />
+                  <div id="lastNameHelp" class="form-text"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMAIL AND PHONE NUMBER DIV -->
+            <div class="email-phone-wrapper">
+              <!-- EMAIL -->
+              <div class="input-wrapper">
+                <label for="emailInput" class="form-label">Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="form-control"
+                  id="emailInput"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text"></div>
+              </div>
+
+              <!--PHOONE -->
+              <div>
+                <div class="input-wrapper">
+                  <label for="phoneInput" class="form-label"
+                    >Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    class="form-control"
+                    id="phoneInput"
+                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                    aria-describedby="phoneHelp"
+                  />
+                  <div id="phoneHelp" class="form-text"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MESSAGE -->
+
+            <div class="message-wrapper">
+              <!-- FIRST NAME -->
+              <div class="message-input">
+                <label for="messageInput" class="form-label">Message</label>
+                <input
+                  type="text"
+                  placeholder="Enter your message"
+                  class="form-control"
+                  id="messageInput"
+                  aria-describedby="messageHelp"
+                />
+                <div id="messageHelp" class="form-text"></div>
+              </div>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="button" class="home-buttons">Submit</button>
+            <!-- cancelClicked is a js function -->
+            <button class="btn btn-secondary mt-3" onclick="cancelClicked()">
+              Cancel
+            </button>
+          </form>
+        </div>
+      </section>
     </section>
 
     <!-- FOOTER -->

@@ -27,6 +27,9 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <!-- EXTERNAL JS  -->
+    <script src="./js/contactForm.js"></script>
   </head>
   <body style="font-family: Montserrat">
     <!-- HEADER -->
@@ -214,7 +217,9 @@
             </div>
 
             <!-- SUBMIT BUTTON -->
-            <button type="button" class="home-buttons">Submit</button>
+            <button type="button" class="home-buttons" onclick="formSubmit()">
+              Submit
+            </button>
             <!-- cancelClicked is a js function -->
             <button class="btn btn-secondary mt-3" onclick="cancelClicked()">
               Cancel

@@ -20,6 +20,17 @@ function formSubmit(){
 
 }
 
+function cancelClicked(){ 
+
+    var items = document.querySelectorAll('.is-invalid'); 
+    //i is the elements in the list items 
+    for(i of items){ 
+     console.log(i); 
+     let item =i; 
+     item.classList.remove('is-invalid'); 
+    }
+ }
+
 //VALUES CANT BE AN EMPTY STRING 
 function isEmpty(){
     //FIRST NAME
@@ -66,5 +77,14 @@ function isEmpty(){
 
 
 function validEmail(){ 
+
+
+
     
+}
+
+function validPhone(){  
+
+
+
 }

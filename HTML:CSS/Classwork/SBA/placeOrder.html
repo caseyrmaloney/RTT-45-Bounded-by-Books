@@ -27,6 +27,9 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <!-- EXTERNAL JS  -->
+    <script src="./js/placeOrderForm.js"></script>
   </head>
   <body style="font-family: Montserrat">
     <!-- HEADER -->
@@ -211,10 +214,10 @@
                   placeholder="Enter your phone number"
                   class="form-control"
                   id="phoneInput"
-                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   aria-describedby="phoneHelp"
                 />
-                <div id="phoneHelp" class="form-text"></div>
+                <div id="phoneHelp" class="form-text">eg. 800-800-0000</div>
               </div>
             </div>
           </div>
@@ -228,7 +231,7 @@
                 Month Required</label
               >
               <select name="month" id="monthInputs">
-                <option value="---">---</option>
+                <option value=""></option>
                 <option value="Jan">January</option>
                 <option value="Feb">Feburary</option>
                 <option value="Mar">March</option>
@@ -241,13 +244,14 @@
                 <option value="Nov">November</option>
                 <option value="Dec">December</option>
               </select>
+              <div id="monthHelp" class="form-text"></div>
             </div>
 
             <!-- DAY DIV -->
             <div class="date-input">
               <label for="dayInputs" class="form-label"> Day Required</label>
               <select name="day" id="dayInputs">
-                <option value="---">---</option>
+                <option value=""></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -280,16 +284,18 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
               </select>
+              <div id="dayHelp" class="form-text"></div>
             </div>
 
             <!-- YEAR -->
             <div class="date-input">
               <label for="yearInputs" class="form-label"> Year Required</label>
               <select name="year" id="yearInputs">
-                <option value="---">---</option>
+                <option value=""></option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
               </select>
+              <div id="yearHelp" class="form-text"></div>
             </div>
           </div>
 
@@ -328,7 +334,7 @@
 
           <!-- BUDGET AND DELIVERY -->
           <div class="first-last-name-order-wrapper">
-            <!-- FIRST NAME -->
+            <!-- budget -->
             <div class="input-field">
               <label for="budgetInput" class="form-label">Budget</label>
               <input
@@ -341,7 +347,7 @@
               <div id="budgetHelp" class="form-text">Minimum is 100.00</div>
             </div>
 
-            <!-- LAST NAME -->
+            <!-- delivery -->
             <div>
               <div class="input-field">
                 <label for="deliveryInput" class="form-label">Delivery</label>
@@ -388,6 +394,7 @@
                   value="Carrot"
                 />
                 <label for="carrot"> Carrot</label><br />
+                <div id="flavorHelp" class="form-text"></div>
               </div>
             </div>
 
@@ -421,13 +428,14 @@
                     value="Strawberry-icing"
                   />
                   <label for="strawberry-icing"> Strawberry</label><br />
+                  <div id="icingHelp" class="form-text"></div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="first-last-name-order-wrapper">
-            <!-- FLAVOR -->
+            <!-- ADDITIONAL INFORMATION -->
             <div class="input-field">
               <label for="additional">Additional Infomation</label>
               <input type="textarea" id="additional" name="additional" />
@@ -435,10 +443,9 @@
           </div>
 
           <div class="first-last-name-order-wrapper">
-            <!-- FLAVOR -->
             <div class="input-field">
               <div>
-                <label for="suggestions"
+                <label for="suggestionsInput"
                   >Would you like me to make additional desgin suggestions based
                   on your theme</label
                 >
@@ -448,12 +455,15 @@
                
               <input type="radio" id="no" name="suggestions" value="No" />  
               <label for="no">No</label><br />
+              <div id="suggestionsHelp" class="form-text"></div>
             </div>
           </div>
 
           <div class="submit-button-order">
             <!-- SUBMIT BUTTON -->
-            <button type="button" class="home-buttons" onclick="formSubmit()">Submit</button>
+            <button type="button" class="home-buttons" onclick="formSubmit()">
+              Submit
+            </button>
             <!-- cancelClicked is a js function -->
             <button class="btn btn-secondary" onclick="cancelClicked()">
               Cancel

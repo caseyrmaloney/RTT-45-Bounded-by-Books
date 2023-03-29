@@ -26,6 +26,8 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap"
             rel="stylesheet"
     />
+
+    <link href="/pub/css/global.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -61,6 +63,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/bootstrap.html">BootStrap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/employee-search">Employee Search</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a

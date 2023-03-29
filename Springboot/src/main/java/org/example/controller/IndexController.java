@@ -1,10 +1,12 @@
 package org.example.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.example.database.dao.EmployeeDAO;
 
 @Controller
 @Slf4j
@@ -33,4 +35,6 @@ public class IndexController {
         ModelAndView response = new ModelAndView("signup");
         return response;
     }
+
+
 }

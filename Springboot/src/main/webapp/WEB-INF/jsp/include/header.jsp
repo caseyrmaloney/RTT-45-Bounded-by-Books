@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOD example</title>
 
-    <script src="./js/DODex.js"></script>
+
 
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -59,14 +59,15 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/signup.html">Signup</a>
+                    <a class="nav-link" href="/signup">Signup</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bootstrap.html">BootStrap</a>
+                    <a class="nav-link" href="/bootstrap">BootStrap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/employee-search">Employee Search</a>
+                    <a class="nav-link" href="/fileUpload">File Upload</a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a
                             class="nav-link dropdown-toggle"
@@ -76,15 +77,15 @@
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                     >
-                        Account
+                        Employee
                     </a>
                     <ul
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                     >
-                        <li><a class="dropdown-item" href="#">email</a></li>
+                        <li><a class="dropdown-item" href="/employee/search">Seacrh</a></li>
                         <li>
-                            <a class="dropdown-item" href="#">logout</a>
+                            <a class="dropdown-item" href="/employee/create">Create Employee</a>
                         </li>
                     </ul>
                 </li>

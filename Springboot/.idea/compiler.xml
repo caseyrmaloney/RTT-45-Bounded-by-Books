@@ -10,9 +10,13 @@
         <module name="Springboot" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SpringBoot" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SpringBoot" options="-parameters" />
       <module name="Springboot" options="-parameters" />
     </option>
   </component>

@@ -6,17 +6,28 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Map;
 
-                                                // entity name, PK
+// entity name, PK
 public interface EmployeeDAO extends JpaRepository<Employee, Long> {
 
     @Query("FROM Employee e")
     List<Employee> getAllEmployees();
 
+    Employee findById(Integer id);
+
+    @Query(value= "select e.*, o.city from employees e, offices o where e.office_id = o.id ", nativeQuery = true)
+    List<Map<String, Object>> findAllWithOfficeName();
+
 
     //List<Employee> findByFirstNameOrLastName(String firstName, String lastName);
 
     List<Employee> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName);
+
+    List<Employee> findByFirstNameContainingIgnoreCase(String firstName);
+    List<Employee> findByLastNameContainingIgnoreCase(String lastName);
+
+    List<Employee> findByFirstNameContainingOrLastNameContainingIgnoreCase(String firstName, String lastName);
 
      // List<Employee> findByFirstName (String firstName);
      // List<Employee> findByLastName (String lastName);

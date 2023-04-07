@@ -16,13 +16,14 @@
     <div class="container" style="width: 50%">
         <div class="row justify-content-center">
             <!-- call form submit -->
-            <form>
+            <form method="POST" action="/signup">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label"
                     >Email address</label
                     >
                     <input
                             type="email"
+                            name="email"
                             placeholder="Email Address"
                             class="form-control"
                             id="exampleInputEmail1"
@@ -36,6 +37,7 @@
                     <label for="fullNameInput" class="form-label">Full Name</label>
                     <input
                             type="text"
+                            name="fullName"
                             class="form-control"
                             id="fullNameInput"
                             aria-describedby="fullNameHelp"
@@ -49,6 +51,7 @@
                     <input
                             type="password"
                             class="form-control"
+                            name="password"
                             id="password"
                             aria-describedby="passwordHelp"
                     />
@@ -63,6 +66,7 @@
                     <input
                             type="password"
                             class="form-control"
+                            name="confirmPassword"
                             id="confirmPassword"
                             aria-describedby="confirmPasswordHelp"
                     />
@@ -72,16 +76,14 @@
                 </div>
                 <!-- need to add the type submit for form button -->
                 <button
-                        type="button"
+                        type="submit"
                         class="btn btn-primary mt-3 me-3"
                         onclick="formSubmit()"
                 >
                     Create Account
                 </button>
                 <!-- cancelClicked is a js function -->
-                <button class="btn btn-secondary mt-3" onclick="cancelClicked()">
-                    Cancel
-                </button>
+
             </form>
         </div>
     </div>

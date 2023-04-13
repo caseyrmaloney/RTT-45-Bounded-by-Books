@@ -2,6 +2,7 @@ package com.teksystems.controller;
 
 import com.teksystems.database.dao.BooksDAO;
 import com.teksystems.database.dao.CommentsDAO;
+import com.teksystems.database.dao.UserDAO;
 import com.teksystems.database.entity.Books;
 import com.teksystems.database.entity.Comments;
 import com.teksystems.database.entity.User;
@@ -28,6 +29,9 @@ public class BooksController {
 
     @Autowired
     private BooksDAO booksDAO;
+
+    @Autowired
+    private UserDAO userDAO;
 
     @Autowired
     private CommentsDAO commentsDAO;
@@ -101,7 +105,10 @@ public class BooksController {
 
         Books books = booksDAO.findById(id);
 
+
+
         response.addObject("books", books);
+
 
         log.debug(books + "");
         return response;
@@ -178,6 +185,9 @@ public class BooksController {
 
         response.addObject("books", books);
         response.addObject("commentsList", comments);
+
+        User user = userDAO.findById(id);
+        response.addObject("user", user);
 
 
 

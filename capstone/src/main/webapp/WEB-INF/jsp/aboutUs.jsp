@@ -7,19 +7,43 @@
     margin-top: 5em;
   }
   .sec1-text-wrapper {
-    width: 400px;
-    margin: 2em;
+    width: 500px;
+    margin: 2em 8em;
     text-align: center;
+
+
+  }
+
+  .book1-div{
+    background-color: #d12468;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 40px 10px;
+
+  }
+
+
+  .book2-div{
+    background-color: #f52d3a;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 40px 10px;
+
   }
 </style>
 
 <section class="section1">
-  <div>
-    <img
-      style="width: 200px"
-      src="/pub/images/book-covers/a-court-of-thorns-and-roses.png"
-      alt=""
-    />
+  <div class="book-wrapper">
+    <div class="book1-div">
+      <img
+              style="width: 200px"
+              src="/pub/images/book-covers/the-score.png"
+              alt=""
+      />
+
+    </div>
   </div>
 
   <div class="sec1-text-wrapper">
@@ -33,22 +57,25 @@
       turpis, ac sagittis odio euismod et.
     </p>
 
-    <div style="width: 350px" class="button-divs">
-      <div class="text-div"><a href="">Create an Account Now</a></div>
+    <div style="width: 350px; margin-left: 4.5em;" class="button-divs">
+      <div class="text-div"><a href="/signup">Create an Account Now</a></div>
       <div class="arrow-div">
-        <a href="google.com" target="_blank">
+        <a href="/signup" >
           <img style="width: 30px" src="/pub/images/arrow-forward.png"
         /></a>
       </div>
     </div>
   </div>
 
-  <div>
-    <img
-      style="width: 200px"
-      src="/pub/images/book-covers/verity.jpeg"
-      alt=""
-    />
+  <div class="book-wrapper">
+    <div class="book2-div">
+      <img
+              style="width: 200px"
+              class="bookcovers"
+              src="/pub/images/book-covers/corrupt.png"
+              alt=""
+      />
+    </div>
   </div>
 </section>
 
@@ -98,7 +125,7 @@
       Online Book <br />
       Clubs
     </h1>
-    <p style="margin-top: 3em">
+    <p style="margin-top: 3em; margin-left: 1em;">
       Aenean lobortis et purus eu sodales. Orci varius natoque penatibus et
       magnis dis parturient montes, nascetur ridiculus mus. Morbi rhoncus lacus
       justo, non pretium arcu mattis quis. Vivamus semper neque in sem tempor
@@ -140,5 +167,98 @@
   <img class="odd" src="/pub/images/slice-r.png" alt="" />
   <img class="even" src="/pub/images/slice-pink.png" alt="" />
   <img class="odd" src="/pub/images/slice-purple.png" alt="" />
+  </div>
 
+</section>
+
+<style>
+  .section3{
+    text-align: center;
+    margin: 5em 0em;
+
+  }
+  .sec3-text{
+    margin: 2em 0em;
+  }
+
+  .sec3-text-wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0em;
+
+  }
+  ul{
+    list-style: none;
+  }
+
+  .section3 .strip-left-div{
+    display: flex;
+    align-content: flex-start;
+  }
+</style>
+
+<section class="section3">
+
+  <div class="sec3-text">
+    <h1> Features of Bounded By Books </h1>
+
+  </div>
+
+  <div class="sec3-text-wrapper">
+    <div class="strip-left-div">
+      <img  src="/pub/images/small-stripe-from-lefft.png"/>
+
+    </div>
+    <ul style="margin: 1em 4em">
+      <li> <h4> Track the books you are reading</h4></li>
+      <li> <h4> Check out what others are saying from our community reviews</h4></li>
+      <li> <h4> See a breakdown of your books</h4></li>
+      <li> <h4> Add books to your library and make customs bookshelves</h4></li>
+    </ul>
+
+    <div>
+      <img src="/pub/images/small-stripe-from-right.png"/>
+
+    </div>
+  </div>
+
+
+</section>
+
+<style>
+  .section4{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 4em 3em;
+  }
+  .sec4-text-wrapper{
+    width: 60vw;
+    background-color: #fe682f;
+    padding: 4em 4em;
+  }
+</style>
+
+<section class="section4">
+
+  <div class="sec4-text-wrapper">
+    <h1 style="margin-bottom: 1em"> Message from Our Founder</h1>
+    <p>
+      Aenean lobortis et purus eu sodales. Orci varius natoque penatibus et
+      magnis dis parturient montes, nascetur ridiculus mus. Morbi rhoncus lacus
+      justo, non pretium arcu mattis quis. Vivamus semper neque in sem tempor
+      malesuada. Ut pellentesque libero nec dui consectetur eleifend. Maecenas
+      nec elit ornare, porta diam eu, posuere eros. Aliquam elementum leo
+      turpis, ac sagittis odio euismod et.Aenean lobortis et purus eu sodales. Orci varius natoque penatibus et
+      magnis dis parturient montes, nascetur ridiculus mus. Morbi rhoncus lacus
+      justo, non pretium arcu mattis quis. Vivamus semper neque in sem tempor
+      malesuada. Ut pellentesque libero nec dui consectetur eleifend. Maecenas
+      nec elit ornare, porta diam eu, posuere eros. Aliquam elementum leo
+      turpis, ac sagittis odio euismod et.
+    </p>
+  </div>
+</section>
+
+<section class="section5">
+  <img src="/pub/images/stripes.png" alt="" srcset="" />
 </section>

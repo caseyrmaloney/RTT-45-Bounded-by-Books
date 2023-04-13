@@ -16,7 +16,8 @@ body{
 .nav-link{ 
     color: black !important;
     text-decoration: none;
-    margin: 0px 1em;
+    margin: 0em 1em;
+    padding: 0px 20px;
     font-size: 18px; 
 }
 

@@ -65,23 +65,22 @@
                         id="navbarSupportedContent"
                 >
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index"
-                            >Home</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/aboutUs">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/books/explore">Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
+
+
 
 
                         <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/index"
+                                >Home</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/books/explore">Explore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Community</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a
                                         class="nav-link dropdown-toggle"
@@ -115,24 +114,58 @@
                                     </li>
                                 </ul>
                             </li>
-                        </sec:authorize>
-
-                        <sec:authorize access="isAuthenticated()">
-                            <li class="nav-item">
+                            <li style="margin-left: 10em" class="nav-item">
                                 <a class="nav-link" href="/login/logout">Logout</a>
                             </li>
+                            <li style="margin-left: 10em" class="nav-item">
+                                <a class="nav-link" href=""><sec:authentication property="principal.username"/></a>
+                            </li>
+                        </sec:authorize>
+
+                        <sec:authorize access="hasAnyAuthority('USER')">
                             <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/index"
+                                >Home</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">My Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/books/explore">Explore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Community</a>
+                            </li>
+                            <li style="margin-left: 10em" class="nav-item">
+                                <a class="nav-link" href="/login/logout">Logout</a>
+                            </li>
+                            <li style="margin-left: 10em" class="nav-item">
                                 <a class="nav-link" href=""><sec:authentication property="principal.username"/></a>
                             </li>
                         </sec:authorize>
                         <sec:authorize access="!isAuthenticated()">
                             <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/index"
+                                >Home</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/books/explore">Explore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/aboutUs">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Community</a>
+                            </li>
+                            <li style="margin-left: 10em" class="nav-item">
                                 <a class="nav-link" href="/login/login">Login</a>
                             </li>
                         </sec:authorize>
                     </ul>
 
-                  
+
 
 
                 </div>

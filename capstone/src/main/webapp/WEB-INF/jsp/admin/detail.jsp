@@ -1,4 +1,4 @@
-<jsp:include page="../includes/adminHeader.jsp" />
+<jsp:include page="../includes/header.jsp" />
 
 <section class="pt-5 pb-5 bg-dark-grey">
     <div class="container text-center">

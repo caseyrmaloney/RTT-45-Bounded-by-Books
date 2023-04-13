@@ -81,7 +81,7 @@
               <!-- call form submit -->
               <form method="POST" action="/login/login">
                 <div class="mb-4">
-                  <label  class="form-label"
+                  <label  style="float: left" class="form-label"
                     >Email address</label
                   >
                   <input
@@ -94,8 +94,8 @@
                   <div id="emailHelp" class="form-text"></div>
                 </div>
 
-                <div class="mb-4">
-                  <label  class="form-label">Password</label>
+                <div class="mb-5">
+                  <label style="float: left"  class="form-label">Password</label>
                   <input
                           type="text"
                           name="password"
@@ -103,8 +103,8 @@
                           class="form-control"
                           aria-describedby="Password"
                   />
-                  <div id="passwordHelp" class="form-text">
-                    Minium: 8 characters, with uppercase, lowercase, and a
+                  <div style="float: left" id="passwordHelp" class="form-text">
+                    Minimum: 8 characters, with uppercase, lowercase, and a
                     number
                   </div>
                 </div>
@@ -139,9 +139,9 @@
      
  
     </section>
+
+
     <section class="section2">
       <img src="/pub/images/stripes.png" alt="" srcset="" />
     </section>
 
-  </body>
-</html>

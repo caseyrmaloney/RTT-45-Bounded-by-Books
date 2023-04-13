@@ -1,3 +1,5 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +64,9 @@
                     <a class="nav-link" href="/signup">Signup</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/login/login">Login</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/bootstrap">BootStrap</a>
                 </li>
                 <li class="nav-item">
@@ -83,12 +88,32 @@
                             class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink"
                     >
-                        <li><a class="dropdown-item" href="/employee/search">Seacrh</a></li>
+                        <li><a class="dropdown-item" href="/employee/search">Search</a></li>
                         <li>
                             <a class="dropdown-item" href="/employee/create">Create Employee</a>
                         </li>
                     </ul>
                 </li>
+
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=""><sec:authentication property="principal.username" /></a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/login">Login</a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="hasAnyAuthority('ADMIN')">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">ADMIN ROLE</a>
+                    </li>
+                </sec:authorize>
+
             </ul>
         </div>
     </div>

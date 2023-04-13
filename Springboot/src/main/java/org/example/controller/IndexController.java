@@ -2,8 +2,13 @@ package org.example.controller;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.example.database.dao.UserDAO;
+import org.example.database.dao.UserRolesDAO;
+import org.example.database.entity.User;
+import org.example.database.entity.UserRoles;
 import org.example.formbeans.UserFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +20,15 @@ import org.example.database.dao.EmployeeDAO;
 @Controller
 @Slf4j
 public class IndexController {
+
+    @Autowired
+    private UserDAO userDAO;
+
+    @Autowired
+    private UserRolesDAO userRolesDAO;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     /**
@@ -51,6 +65,23 @@ public class IndexController {
         log.debug("In the signup controller post method");
 
         log.debug(form.toString());
+
+        User user = new User();
+        user.setEmail(form.getEmail());
+        user.setFullName(form.getFullName());
+
+        //encrypted password for the database for the form that is being created
+        String encryptedPassword = passwordEncoder.encode(form.getPassword());
+        user.setPassword(encryptedPassword);
+
+
+        userDAO.save(user);
+
+        UserRoles userRole = new UserRoles();
+        userRole.setRoleName("USER");
+        userRole.setUserId(user.getId());
+
+        userRolesDAO.save(userRole);
 
         return response;
     }

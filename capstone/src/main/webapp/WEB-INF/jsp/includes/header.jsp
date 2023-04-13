@@ -1,3 +1,5 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,19 +79,62 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input
-                                class="form-control me-2"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                        />
-                    </form>
 
-                    <div class="create-account-div">
-                        <a class="create-account" href="/user/login"> Sign In </a>
-                    </div>
+
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <li class="nav-item dropdown">
+                                <a
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        id="navbarDropdownMenuLink"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                    ADMIN
+                                </a>
+                                <ul
+                                        class="dropdown-menu"
+                                        aria-labelledby="navbarDropdownMenuLink"
+                                >
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/book">Add Book</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/searchBooks"
+                                        >Search Books</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/searchUser">Search</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/user"
+                                        >Create User</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </sec:authorize>
+
+                        <sec:authorize access="isAuthenticated()">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login/logout">Logout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=""><sec:authentication property="principal.username"/></a>
+                            </li>
+                        </sec:authorize>
+                        <sec:authorize access="!isAuthenticated()">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login/login">Login</a>
+                            </li>
+                        </sec:authorize>
+                    </ul>
+
+                  
+
+
                 </div>
             </div>
         </nav>

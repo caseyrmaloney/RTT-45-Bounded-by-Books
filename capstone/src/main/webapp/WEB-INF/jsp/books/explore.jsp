@@ -1,7 +1,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../includes/header.jsp" />
 
-<section>
+<style>
+    .title{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin: 3em;
+    }
+</style>
+<section class="title">
     <div>
         <h1> Browse Books</h1>
     </div>
@@ -11,7 +19,7 @@
     <div class="container">
         <div class="row text-center justify-content-center">
             <div class="col-5">
-                <form action="/books/createSubmit">
+                <form action="/books/explore">
                     <div class="input-group mb-3">
                         <input
                                 type="text"
@@ -56,6 +64,8 @@
 <section class="section2">
     <div class="content-wrapper">
         <div class="cards-wrapper">
+
+
             <c:forEach items="${booksList}" var="books">
 
                 <div class="img-card-wrapper">
@@ -63,8 +73,24 @@
                 </div>
 
                 <div class="card-text-wrapper">
-                    <h3> ${books.title}</h3>
+                    <a href="/books/details/${books.id}"> <h3> ${books.title}</h3> </a>
+
                     <p> ${books.author}</p>
+
+                </div>
+
+            </c:forEach>
+
+            <c:forEach items="${allBooks}" var="allbooks">
+
+                <div class="img-card-wrapper">
+                    <img src="${allbooks.bookCover}" />
+                </div>
+
+                <div class="card-text-wrapper">
+                    <a href="/books/details/${allbooks.id}"> <h3> ${allbooks.title}</h3> </a>
+
+                    <p> ${allbooks.author}</p>
 
                 </div>
 

@@ -3,13 +3,18 @@ package org.example.controller;
 
 
 import io.micrometer.common.util.StringUtils;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.example.database.dao.OfficeDAO;
 import org.example.database.entity.Employee;
 import org.example.database.entity.Office;
 import org.example.formbeans.EmployeeFormBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.example.database.dao.EmployeeDAO;
@@ -21,6 +26,7 @@ import java.util.List;
 @Controller
 @RequestMapping ("/employee")
 @Slf4j
+@PreAuthorize("hasAuthority('ADMIN')")
 public class EmployeeController {
 
     //spring contents hold everything that spring has and works with and take anything and auto wire it to anything you want
@@ -50,6 +56,9 @@ public class EmployeeController {
         log.debug("in the edit employee controller");
         ModelAndView response = new ModelAndView("employee/create");
 
+        List<Office> offices = officeDAO.getAllOffices();
+        response.addObject("offices" , offices);
+
         Employee emp = employeeDAO.findById(id);
         EmployeeFormBean form = new EmployeeFormBean();
 
@@ -65,18 +74,29 @@ public class EmployeeController {
 
         response.addObject("form", form);
 
-        List<Office> offices = officeDAO.getAllOffices();
-        response.addObject("offices" , offices);
+
 
         return response;
     }
 
     @GetMapping("createSubmit")
-    public ModelAndView createSubmit(EmployeeFormBean form) {
+    public ModelAndView createSubmit(@Valid EmployeeFormBean form, BindingResult bindingResult) {
         log.debug("in the create submit controller");
         ModelAndView response = new ModelAndView("employee/create");
         log.debug("!!!!!!!!!!!!!!!!!!!!---- create submit controller");
         log.debug(form.toString());
+
+        List<Office> offices = officeDAO.getAllOffices();
+        response.addObject("offices" , offices);
+
+        if ( bindingResult.hasErrors() ) {
+            for ( FieldError error : bindingResult.getFieldErrors()) {
+                log.debug("Validation Error on field : " + error.getField() + " with message : " + error.getDefaultMessage());
+            }
+            response.addObject("form", form);
+            response.addObject("bindingResult", bindingResult);
+            return response;
+        }
 
         Employee emp = new Employee();
 
@@ -94,6 +114,12 @@ public class EmployeeController {
         emp.setProfileImg(form.getProfileImg());
 
         response.addObject("form", form);
+
+        response.addObject("success", true);
+
+        //sets the id of the emploee on the form bean so it triggers the pae to be an edit
+        ///this is just to be nice and put the page into edit mode because if the id is present in the form- edit the employee
+        form.setId(emp.getId());
 
         employeeDAO.save(emp);
         return response;

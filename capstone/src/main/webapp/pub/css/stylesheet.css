@@ -33,33 +33,20 @@ body{
     border-bottom: 2px solid #8e8e8c;
 
 }
-
+.create-account-div{
+    display: flex;
+    justify-content: center;
+}
 
 .create-account-div a{
     display: flex;
     justify-content: center;
     margin: 5px;
-    border: 1px black solid;
-    border-radius: 5px;
-    width: 175px;
-    padding: 5px 0px;
     text-decoration: none;
-    color: black;  
+
 }
 
 
-.create-account-div a:hover{ 
-    display: flex;
-    justify-content: center;
-    margin: 5px;
-    border: 1px black solid;
-    border-radius: 5px;
-    width: 175px;
-    padding: 5px 0px;
-    text-decoration: none;
-    color:white; 
-    background-color: black; 
-}
 
 header{ 
     display: flex;

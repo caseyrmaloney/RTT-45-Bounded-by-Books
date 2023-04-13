@@ -16,6 +16,8 @@ public interface EmployeeDAO extends JpaRepository<Employee, Long> {
 
     Employee findById(Integer id);
 
+    boolean existsByEmail(String value);
+
     @Query(value= "select e.*, o.city from employees e, offices o where e.office_id = o.id ", nativeQuery = true)
     List<Map<String, Object>> findAllWithOfficeName();
 
@@ -29,7 +31,9 @@ public interface EmployeeDAO extends JpaRepository<Employee, Long> {
 
     List<Employee> findByFirstNameContainingOrLastNameContainingIgnoreCase(String firstName, String lastName);
 
-     // List<Employee> findByFirstName (String firstName);
+    Employee findByEmail(String value);
+
+    // List<Employee> findByFirstName (String firstName);
      // List<Employee> findByLastName (String lastName);
 
 //        List<Employee> findByFirstNameAndLastName(String firstName, String lastName);

@@ -79,29 +79,29 @@
           <div class="container" style="width: 50%">
             <div class="row justify-content-center">
               <!-- call form submit -->
-              <form style="text-align: left">
+              <form method="POST" action="/login/login">
                 <div class="mb-4">
-                  <label for="exampleInputEmail1" class="form-label"
+                  <label  class="form-label"
                     >Email address</label
                   >
                   <input
-                    type="email"
-                    placeholder="Email Address"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
+                          type="text"
+                          name="username"
+                          placeholder="Email Address"
+                          class="form-control"
+                          aria-describedby="Email Address"
                   />
                   <div id="emailHelp" class="form-text"></div>
                 </div>
 
                 <div class="mb-4">
-                  <label for="password" class="form-label">Password</label>
+                  <label  class="form-label">Password</label>
                   <input
-                    type="password"
-                    class="form-control"
-                    placeholder="Password"
-                    id="password"
-                    aria-describedby="passwordHelp"
+                          type="text"
+                          name="password"
+                          placeholder="Password"
+                          class="form-control"
+                          aria-describedby="Password"
                   />
                   <div id="passwordHelp" class="form-text">
                     Minium: 8 characters, with uppercase, lowercase, and a
@@ -110,12 +110,12 @@
                 </div>
 
                 <div>
-                  <p>Don't have an account with us? <a href="#">Create Account</a></p>
+                  <p>Don't have an account with us? <a href="/signup">Create Account</a></p>
                 </div>
 
                 <!-- need to add the type submit for form button -->
                 <button
-                  type="button"
+                  type="submit"
                   class="btn btn-primary mt-3 me-3"
                   onclick="formSubmit()"
                 >
@@ -133,7 +133,7 @@
           </div>
 
           
-        
+        </div>
       </section>
 
      

@@ -29,7 +29,7 @@ public class Comments {
 
 
     @Column(name = "description")
-    private String description;
+    private String comment;
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.EAGER, optional = true, cascade = CascadeType.ALL)

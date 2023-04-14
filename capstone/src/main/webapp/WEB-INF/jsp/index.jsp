@@ -1,4 +1,5 @@
 <jsp:include page="includes/header.jsp"/>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
 
@@ -175,131 +176,151 @@
 
         </div>
 
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <%--            BOOK 1 --%>
-                    <div style="text-align: center; display: flex; justify-content: center; background-color: #6F0964; padding-top: 3px"
-                         class="card" style="width: 18rem;">
-                        <div>
-                            <img style="width: 200px; padding: 1em 0em;"
-                                 src="/pub/images/book-covers/daisy-jones-and-the-six.png" class="card-img-top"
-                                 alt="...">
-                            <div style="background-color: white" class="card-body">
-                                <p class="card-text">
-                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/5">
-                                    Daisy Jones and The Six</a></h1></p>
-                            </div>
 
+        <div class="slides-wrapper">
+
+            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div  class="carousel-inner">
+
+<%--                    CARDS WRAPPER IN SLIDES--%>
+
+
+                        <div class="carousel-item active">
+                            <%--            BOOK 1 --%>
+                            <div style="text-align: center; display: flex; justify-content: center; background-color: #6F0964; padding-top: 3px"
+                                 class="card" style="width: 18rem;">
+                                <div>
+                                    <img style="width: 200px; padding: 1em 0em;"
+                                         src="/pub/images/book-covers/daisy-jones-and-the-six.png" class="card-img-top"
+                                         alt="...">
+                                    <div style="background-color: white" class="card-body">
+                                        <p class="card-text">
+                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
+                                            Daisy Jones and The Six</a></h1></p>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+
+
+                        <div class="carousel-item">
+                            <%--            BOOK 2 --%>
+                            <div style="text-align: center; display: flex; justify-content: center; background-color: #D12468; padding-top: 3px"
+                                 class="card" style="width: 18rem;">
+                                <div>
+                                    <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/corrupt.png"
+                                         class="card-img-top" alt="...">
+                                    <div style="background-color: white" class="card-body">
+                                        <p class="card-text">
+                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
+                                            Corrupt</a></h1></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="carousel-item">
+                            <%--            BOOK 3--%>
+
+                            <div style="text-align: center; display: flex; justify-content: center; background-color: #F52D3A; padding-top: 3px"
+                                 class="card" style="width: 18rem;">
+                                <div>
+                                    <img style="width: 200px; padding: 1em 0em;"
+                                         src="/pub/images/book-covers/court-of-mist-and-fury.png" class="card-img-top" alt="...">
+                                    <div style="background-color: white;  width: 398px" class="card-body">
+                                        <p class="card-text">
+                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
+                                            A Court of Mist and Fury</a></h1></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="carousel-item">
+                            <%--            BOOK 4 --%>
+                            <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
+                                 class="card" style="width: 18rem;">
+                                <div>
+                                    <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/the-score.png"
+                                         class="card-img-top" alt="...">
+                                    <div style="background-color: white;  width: 398px" class="card-body">
+                                        <p class="card-text">
+                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
+                                            The Score</a></h1></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="carousel-item">
+                            <%--            BOOK 5--%>
+
+                            <div style="text-align: center; display: flex; justify-content: center; background-color: #febe27; padding-top: 3px"
+                                 class="card" style="width: 18rem;">
+                                <div>
+                                    <img style="width: 200px; padding: 1em 0em;"
+                                         src="/pub/images/book-covers/a-court-of-thorns-and-roses.png" class="card-img-top" alt="...">
+                                    <div style="background-color: white;  width: 398px" class="card-body">
+                                        <p class="card-text">
+                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
+                                            A Court of Thorns and Rose</a></h1></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="carousel-item">
+                            <%--            BOOK 5--%>
+
+                            <div style="text-align: center; display: flex; justify-content: center; background-color: #6F0964; padding-top: 3px"
+                                 class="card" style="width: 18rem;">
+                                <div>
+                                    <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/wonder.png"
+                                         class="card-img-top" alt="...">
+                                    <div style="background-color: white; width: 398px" class="card-body">
+                                        <p class="card-text">
+                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
+                                            Wonder</a></h1></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
 
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
-
-                    <%--            BOOK 2 --%>
-                    <div style="text-align: center; display: flex; justify-content: center; background-color: #D12468; padding-top: 3px"
-                         class="card" style="width: 18rem;">
-                        <div>
-                            <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/corrupt.png"
-                                 class="card-img-top" alt="...">
-                            <div style="background-color: white" class="card-body">
-                                <p class="card-text">
-                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/4">
-                                    Corrupt</a></h1></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-
-
-                    <%--            BOOK 3--%>
-
-                    <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
-                         class="card" style="width: 18rem;">
-                        <div>
-                            <img style="width: 200px; padding: 1em 0em;"
-                                 src="/pub/images/book-covers/court-of-mist-and-fury.png" class="card-img-top" alt="...">
-                            <div style="background-color: white;  width: 398px" class="card-body">
-                                <p class="card-text">
-                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/6">
-                                    A Court of Mist and Fury</a></h1></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <%--            BOOK 4 --%>
-                    <div style="text-align: center; display: flex; justify-content: center; background-color: #D12468; padding-top: 3px"
-                         class="card" style="width: 18rem;">
-                        <div>
-                            <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/the-score.png"
-                                 class="card-img-top" alt="...">
-                            <div style="background-color: white;  width: 398px" class="card-body">
-                                <p class="card-text">
-                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/3">
-                                    The Score</a></h1></p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="carousel-item">
-                    <%--            BOOK 5--%>
-
-                    <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
-                         class="card" style="width: 18rem;">
-                        <div>
-                            <img style="width: 200px; padding: 1em 0em;"
-                                 src="/pub/images/book-covers/court-of-mist-and-fury.png" class="card-img-top" alt="...">
-                            <div style="background-color: white;  width: 398px" class="card-body">
-                                <p class="card-text">
-                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/6">
-                                    A Court of Mist and Fury</a></h1></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <%--            BOOK 5--%>
-
-                    <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
-                         class="card" style="width: 18rem;">
-                        <div>
-                            <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/wonder.png"
-                                 class="card-img-top" alt="...">
-                            <div style="background-color: white; width: 398px" class="card-body">
-                                <p class="card-text">
-                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/8">
-                                    Wonder</a></h1></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
 
-
-
-
-            </div>
-
-
+        </div>
 
     </div>
+
 
 </section>
 

@@ -175,14 +175,9 @@
 
         </div>
 
-        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
-             data-bs-interval="false">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-
-                <%--                ITEM 3 CARD --%>
-                <div style="display: flex; justify-content: center" class="carousel-item active">
-
-
+                <div class="carousel-item active" data-bs-interval="10000">
                     <%--            BOOK 1 --%>
                     <div style="text-align: center; display: flex; justify-content: center; background-color: #6F0964; padding-top: 3px"
                          class="card" style="width: 18rem;">
@@ -199,6 +194,8 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
 
                     <%--            BOOK 2 --%>
                     <div style="text-align: center; display: flex; justify-content: center; background-color: #D12468; padding-top: 3px"
@@ -214,6 +211,8 @@
 
                         </div>
                     </div>
+                </div>
+                <div class="carousel-item">
 
 
                     <%--            BOOK 3--%>
@@ -231,16 +230,9 @@
 
                         </div>
                     </div>
-
-
                 </div>
-
-                <%--                ITEM 2 CARD --%>
-                <div style="display: flex; justify-content: center" class="carousel-item">
-
-                    </div>
-
-                    <%--            BOOK 2 --%>
+                <div class="carousel-item">
+                    <%--            BOOK 4 --%>
                     <div style="text-align: center; display: flex; justify-content: center; background-color: #D12468; padding-top: 3px"
                          class="card" style="width: 18rem;">
                         <div>
@@ -255,8 +247,26 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="carousel-item">
+                    <%--            BOOK 5--%>
 
-                    <%--            BOOK 3--%>
+                    <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
+                         class="card" style="width: 18rem;">
+                        <div>
+                            <img style="width: 200px; padding: 1em 0em;"
+                                 src="/pub/images/book-covers/court-of-mist-and-fury.png" class="card-img-top" alt="...">
+                            <div style="background-color: white;  width: 398px" class="card-body">
+                                <p class="card-text">
+                                <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/detail/6">
+                                    A Court of Mist and Fury</a></h1></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <%--            BOOK 5--%>
 
                     <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
                          class="card" style="width: 18rem;">
@@ -272,19 +282,21 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
-                    data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
-                    data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+
+
+
+
+            </div>
+
 
 
     </div>

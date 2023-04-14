@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,6 +77,20 @@
             <h1 style="margin: 0.5em">Welcome Back!</h1>
             <p>Welcome back! Please enter your details.</p>
           </div>
+
+          <c:if test="${param['error'] != null}">
+            <section class="pt-5 bg-light-grey">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-sm-10 col-md-7 col-xl-5">
+                    <div class="alert alert-danger" role="alert">
+                      Invalid Username or Password
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </c:if>
 
           <div class="container" style="width: 50%">
             <div class="row justify-content-center">

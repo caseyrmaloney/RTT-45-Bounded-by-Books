@@ -6,6 +6,7 @@
 
     .bookcovers {
         width: 150px;
+        z-index: 7;
 
     }
 
@@ -30,7 +31,7 @@
         margin-top: 2em !important;
     }
 
-    .book-wrapper {
+    .books-wrapper {
         display: flex;
         justify-content: center;
         margin-left: 10em;
@@ -106,7 +107,7 @@
                 <p>
                     Not sure what to read next? Join the world of books with us and be
                     part of the discussion! Add books to your shelves and join in on the
-                    gossip of your favorite book!
+                    gossip of your favorite books!
                 </p>
 
                 <div class="button-divs">
@@ -146,7 +147,7 @@
 
         </sec:authorize>
 
-        <div class="book-wrapper">
+        <div class="books-wrapper">
             <div class="book1-div">
                 <img
                         class="bookcovers"

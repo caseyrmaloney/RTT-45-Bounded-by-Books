@@ -82,24 +82,24 @@ public class BooksController {
         log.debug("!!!!!!!!!!!!!!!!!!!!---- create submit controller");
         log.debug(form.toString());
 
-        Books book = new Books();
+        Books books = new Books();
 
         if(form.getId() != null && form.getId() > 0) {
-            book = booksDAO.findById(form.getId());
+            books = booksDAO.findById(form.getId());
         }
 
-        book.setTitle(form.getTitle());
-        book.setGenre(form.getGenre());
-        book.setDescription(form.getDescription());
-        book.setPublishDate(form.getPublishDate());
-        book.setPageLength(form.getPageLength());
-        book.setAuthor(form.getAuthor());
-        book.setBookCover(form.getBookCover());
+        books.setTitle(form.getTitle());
+        books.setGenre(form.getGenre());
+        books.setDescription(form.getDescription());
+        books.setPublishDate(form.getPublishDate());
+        books.setPageLength(form.getPageLength());
+        books.setAuthor(form.getAuthor());
+        books.setBookCover(form.getBookCover());
 
 
         response.addObject("form", form);
 
-        booksDAO.save(book);
+        booksDAO.save(books);
         return response;
     }
 
@@ -142,8 +142,8 @@ public class BooksController {
         comment.setUser(user);
 
         //SETTING THE BOOK ID
-        Books book = booksDAO.findById(form.getBookId());
-        comment.setBooks(book);
+        Books books = booksDAO.findById(form.getBookId());
+        comment.setBooks(books);
 
         //ADDING THE COMMENT FROM THE FORM
         comment.setComment(form.getComment());
@@ -163,7 +163,7 @@ public class BooksController {
     public ModelAndView bookComments(CommentFormBean form){
         ModelAndView response = new ModelAndView("books/comment");
 
-        Books book = new Books();
+        Books books = new Books();
         Comments comment = new Comments();
         comment.setComment(form.getComment());
 
@@ -209,27 +209,27 @@ public class BooksController {
     public ModelAndView addBookToUserSubmit(UserBooksFormBean form){
 
         ModelAndView response = new ModelAndView("books/details");
-        log.debug("in the add book to user submit controller");
+        log.debug("in the add books to user submit controller");
         log.debug(form.toString());
 
 
         //using the authenticated user service to load the current user
         User user = authenticated.loadCurrentUser();
 
-        //create a new user book object
+        //create a new user books object
         UserBook userBook = new UserBook();
 
         //setting the user
         userBook.setUser(user);
 
-        //setting the book id
+        //setting the books id
         Books books = booksDAO.findById(form.getBookId());
         userBook.setBooks(books);
 
-        //adding the book to a bookshelf
+        //adding the books to a bookshelf
         userBook.setBookshelf(form.getBookshelf());
 
-        //saving the book and bookshelf to the database
+        //saving the books and bookshelf to the database
         userBooksDAO.save(userBook);
 
         response.addObject("form" , form);

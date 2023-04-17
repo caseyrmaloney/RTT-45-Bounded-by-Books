@@ -35,11 +35,11 @@
 </style>
 
 <section class="section1">
-  <div class="book-wrapper">
+  <div class="books-wrapper">
     <div class="book1-div">
       <img
               style="width: 200px"
-              src="/pub/images/book-covers/the-score.png"
+              src="/pub/images/books-covers/the-score.png"
               alt=""
       />
 
@@ -67,12 +67,12 @@
     </div>
   </div>
 
-  <div class="book-wrapper">
+  <div class="books-wrapper">
     <div class="book2-div">
       <img
               style="width: 200px"
               class="bookcovers"
-              src="/pub/images/book-covers/corrupt.png"
+              src="/pub/images/books-covers/corrupt.png"
               alt=""
       />
     </div>

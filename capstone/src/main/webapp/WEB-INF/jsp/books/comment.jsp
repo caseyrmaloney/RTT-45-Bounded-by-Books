@@ -14,7 +14,7 @@
         width: 2000px;
 
     }
-    .book-info{
+    .books-info{
         margin: 2em 3em;
     }
 </style>
@@ -22,11 +22,11 @@
 
     <div class="sec1-wrapper">
 
-        <div class="book-cover">
+        <div class="books-cover">
             <img style="width: 300px" src="${books.bookCover}"/>
         </div>
 
-        <div class="book-info">
+        <div class="books-info">
             <h1 style="margin: 1em 0px; color: #6F0964" > ${books.title} Review</h1>
             <h3 style="color: #D12468; padding-left: 15px; display: flex"> By:<p style="color: black; margin-left: 3px"> ${books.author}</p></h3>
             <p style="padding-left: 15px"> ${books.description}</p>

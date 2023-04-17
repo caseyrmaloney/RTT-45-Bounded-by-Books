@@ -92,7 +92,7 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/admin/book">Add Book</a>
+                      <a class="dropdown-item" href="/admin/books">Add Book</a>
                     </li>
                   </ul>
                 </li>

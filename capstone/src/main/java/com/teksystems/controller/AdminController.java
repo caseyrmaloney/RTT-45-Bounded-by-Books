@@ -31,7 +31,7 @@ public class AdminController {
 
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public ModelAndView addBook() {
-        log.debug("in the add Book controller");
+        log.debug("in the add Books controller");
 
         ModelAndView response = new ModelAndView("admin/book");
 
@@ -42,35 +42,35 @@ public class AdminController {
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(BookFormBean form) {
         log.debug("in the create submit controller");
-        ModelAndView response = new ModelAndView("admin/book");
+        ModelAndView response = new ModelAndView("admin/books");
         log.debug("!!!!!!!!!!!!!!!!!!!!---- create submit controller");
         log.debug(form.toString());
 
-        Books book = new Books();
+        Books books = new Books();
 
         if(form.getId() != null && form.getId() > 0) {
-            book = booksDAO.findById(form.getId());
+            books = booksDAO.findById(form.getId());
         }
 
-        book.setTitle(form.getTitle());
-        book.setGenre(form.getGenre());
-        book.setDescription(form.getDescription());
-        book.setPublishDate(form.getPublishDate());
-        book.setPageLength(form.getPageLength());
-        book.setAuthor(form.getAuthor());
-        book.setBookCover(form.getBookCover());
+        books.setTitle(form.getTitle());
+        books.setGenre(form.getGenre());
+        books.setDescription(form.getDescription());
+        books.setPublishDate(form.getPublishDate());
+        books.setPageLength(form.getPageLength());
+        books.setAuthor(form.getAuthor());
+        books.setBookCover(form.getBookCover());
 
 
         response.addObject("form", form);
 
-        booksDAO.save(book);
+        booksDAO.save(books);
         return response;
     }
 
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable Integer id) {
-        log.debug("in the edit book controller");
-        ModelAndView response = new ModelAndView("admin/book");
+        log.debug("in the edit books controller");
+        ModelAndView response = new ModelAndView("admin/books");
 
         Books books = booksDAO.findById(id);
         BookFormBean form = new BookFormBean();

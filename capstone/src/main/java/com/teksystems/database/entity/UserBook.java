@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name = "user_books")
-public class UserBooks {
+public class UserBook {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,6 @@ public class UserBooks {
     @ManyToOne(fetch = FetchType.EAGER, optional = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", nullable = true)
     private Books books;
-
 
 
 }

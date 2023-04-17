@@ -1,20 +1,22 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<jsp:include page="../includes/header.jsp" />
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<jsp:include page="../includes/header.jsp"/>
 
 <style>
-    .section1{
+    .section1 {
         display: flex;
         justify-content: center;
         margin: 3em 3em;
     }
-    .sec1-wrapper{
+
+    .sec1-wrapper {
         display: flex;
         justify-content: center;
         width: 2000px;
 
     }
-    .book-info{
+
+    .book-info {
         margin: 2em 3em;
     }
 </style>
@@ -27,15 +29,41 @@
         </div>
 
         <div class="book-info">
-            <h1 style="margin: 1em 0px; color: #6F0964" > ${books.title}</h1>
-            <h3 style="color: #D12468; padding-left: 15px; display: flex"> By:<p style="color: black; margin-left: 3px"> ${books.author}</p></h3>
+            <h1 style="margin: 1em 0px; color: #6F0964"> ${books.title}</h1>
+            <h3 style="color: #D12468; padding-left: 15px; display: flex"> By:<p
+                    style="color: black; margin-left: 3px"> ${books.author}</p></h3>
             <p style="padding-left: 15px"> ${books.description}</p>
-            <h5 style="color: #F52D3A; padding-left: 15px; display: flex"> Genre:<p style="color: black; margin-left: 3px"> ${books.genre}</p></h5>
-            <h5 style="color: #fe682f; padding-left: 15px; display: flex"> Page Length: <p style="color: black; margin-left: 3px"> ${books.pageLength} pages</p></h5>
-            <h5  style="color: #febe27; padding-left: 15px; display: flex"> Publish Date: <p style="color: black; margin-left: 3px"> ${books.publishDate}</p></h5>
-        </div>
+            <h5 style="color: #F52D3A; padding-left: 15px; display: flex"> Genre:<p
+                    style="color: black; margin-left: 3px"> ${books.genre}</p></h5>
+            <h5 style="color: #fe682f; padding-left: 15px; display: flex"> Page Length: <p
+                    style="color: black; margin-left: 3px"> ${books.pageLength} pages</p></h5>
+            <h5 style="color: #febe27; padding-left: 15px; display: flex"> Publish Date: <p
+                    style="color: black; margin-left: 3px"> ${books.publishDate}</p></h5>
+
+            <%--        ADD BOOK TO THEIR LIBRARY FORM --%>
+            <div>
+
+                <form action="/books/addBookToUserSubmit">
+
+                    <input type="hidden" name="bookId" value="${books.id}"/>
 
 
+                    <label for="bookshelf"> Would you like to add this book? </label>
+                    <select id="bookshelf" name="bookshelf">
+                        <option value="Want to Read"> Want to Read</option>
+                        <option value="Currently Reading"> Currently Reading</option>
+                        <option value="Finished Reading"> Finished Reading</option>
+                    </select>
+
+                    <button type="submit"
+                            class="btn btn-primary mt-3 me-3">
+                        Add Book
+                    </button>
+
+                </form>
+
+
+            </div>
         </div>
 
     </div>
@@ -43,37 +71,36 @@
 </section>
 
 <style>
-    .section2{
-      margin: 4em 3em;
+    .section2 {
+        margin: 4em 3em;
 
         text-align: center;
     }
-    .title-div{
+
+    .title-div {
         border-top: black solid 1px;
     }
 
-    .title-div h1{
+    .title-div h1 {
         margin: 1em 3em;
     }
 
-    .button{
+    .button {
         text-decoration: none;
         color: black;
         border: black solid 1px;
         padding: 1em 3em;
     }
 
-    .button:hover{
+    .button:hover {
         text-decoration: none;
         color: white;
-        background: rgb(254,190,39);
-        background: radial-gradient(circle, rgba(254,190,39,1) 0%, rgba(254,104,47,1) 23%, rgba(245,45,58,1) 43%, rgba(209,36,104,1) 75%, rgba(111,9,100,1) 91%);
+        background: rgb(254, 190, 39);
+        background: radial-gradient(circle, rgba(254, 190, 39, 1) 0%, rgba(254, 104, 47, 1) 23%, rgba(245, 45, 58, 1) 43%, rgba(209, 36, 104, 1) 75%, rgba(111, 9, 100, 1) 91%);
         padding: 1em 3em;
 
 
-
     }
-
 
 
 </style>
@@ -92,26 +119,24 @@
         </sec:authorize>
 
 
-
-
     </div>
 
 </section>
 
 <style>
-    .section2{
+    .section2 {
         display: flex;
         justify-content: center;
         text-align: center;
         margin: 2em 2em;
     }
-    .content-wrapper{
+
+    .content-wrapper {
         display: flex;
         justify-content: flex-start;
         margin: 3em 5em;
         width: 900px;
     }
-
 
 
 </style>
@@ -136,9 +161,7 @@
                 </div>
 
 
-
             </div>
-
 
 
         </c:forEach>
@@ -149,5 +172,5 @@
 </section>
 
 <section class="section2">
-    <img src="/pub/images/stripes.png" alt="" srcset="" />
+    <img src="/pub/images/stripes.png" alt="" srcset=""/>
 </section>

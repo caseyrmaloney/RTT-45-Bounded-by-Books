@@ -2,12 +2,15 @@ package com.teksystems.controller;
 
 import com.teksystems.database.dao.BooksDAO;
 import com.teksystems.database.dao.CommentsDAO;
+import com.teksystems.database.dao.UserBooksDAO;
 import com.teksystems.database.dao.UserDAO;
 import com.teksystems.database.entity.Books;
 import com.teksystems.database.entity.Comments;
 import com.teksystems.database.entity.User;
+import com.teksystems.database.entity.UserBook;
 import com.teksystems.formbeans.BookFormBean;
 import com.teksystems.formbeans.CommentFormBean;
+import com.teksystems.formbeans.UserBooksFormBean;
 import com.teksystems.security.AuthenticatedUserService;
 import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.xml.stream.events.Comment;
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +36,11 @@ public class BooksController {
 
     @Autowired
     private CommentsDAO commentsDAO;
+
+    @Autowired
+    private UserBooksDAO userBooksDAO;
+
+
 
     @Autowired
     private AuthenticatedUserService authenticated;
@@ -190,10 +196,49 @@ public class BooksController {
         response.addObject("user", user);
 
 
+        //ADDING A BOOK FOR THE USER LIBRARY
+
+
+
 
         log.debug(books + "");
         return response;
     }
+
+    @GetMapping("/addBookToUserSubmit")
+    public ModelAndView addBookToUserSubmit(UserBooksFormBean form){
+
+        ModelAndView response = new ModelAndView("books/details");
+        log.debug("in the add book to user submit controller");
+        log.debug(form.toString());
+
+
+        //using the authenticated user service to load the current user
+        User user = authenticated.loadCurrentUser();
+
+        //create a new user book object
+        UserBook userBook = new UserBook();
+
+        //setting the user
+        userBook.setUser(user);
+
+        //setting the book id
+        Books books = booksDAO.findById(form.getBookId());
+        userBook.setBooks(books);
+
+        //adding the book to a bookshelf
+        userBook.setBookshelf(form.getBookshelf());
+
+        //saving the book and bookshelf to the database
+        userBooksDAO.save(userBook);
+
+        response.addObject("form" , form);
+
+        return response;
+
+    }
+
+
 
 
 

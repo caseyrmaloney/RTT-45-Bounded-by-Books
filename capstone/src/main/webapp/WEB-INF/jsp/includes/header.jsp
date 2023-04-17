@@ -118,7 +118,7 @@
                                 <a class="nav-link" href="/login/logout">Logout</a>
                             </li>
                             <li style="margin-left: 10em" class="nav-item">
-                                <a class="nav-link" href=""><sec:authentication property="principal.username"/></a>
+                                <a class="nav-link" href="/user/profile"><sec:authentication property="principal.username"/></a>
                             </li>
                         </sec:authorize>
 

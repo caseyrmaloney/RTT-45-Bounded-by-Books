@@ -77,8 +77,8 @@
     }
 
     .img-wrapper{
-
-        background-color: #d4d4d4;
+        background: rgb(254, 190, 39);
+        background: linear-gradient(0deg, rgba(254, 190, 39, 1) 8%, rgba(254, 104, 47, 1) 33%, rgba(245, 45, 58, 1) 51%, rgba(209, 36, 104, 1) 72%, rgba(111, 9, 100, 1) 89%);
         width: 200px;
         padding: 2em 2em;
     }
@@ -92,17 +92,29 @@
 
     }
 
-    .card-wrapper a{
+
+
+    .card-link {
         text-decoration: none;
-        color: #6f0964;
+        color: black
 
     }
 
-    .card-wrapper a:hover{
-        text-decoration: none;
-        color: #d12468;
+    .card-link:hover {
+        background: #FEBE27;
+        background: radial-gradient(circle farthest-corner at center center, #FEBE27 10%, #FE682F 28%, #F52D3A 44%, #D12468 60%, #6F0964 78%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: .5em;
 
     }
+
+    .card-title {
+        font-size: 22px;
+        padding-top: 10px;
+
+    }
+
 
 
 
@@ -118,7 +130,9 @@
                     <div class="img-wrapper" style="margin-bottom: 1em">
                         <img style="width: 150px; padding-right: 1em" src="${books.bookCover}" />
                     </div>
-                    <a href="/books/details/${books.id}"> <h4> ${books.title}</h4> </a>
+                    <h1 class="card-title">
+                        <a class="card-link" href="/books/details/${books.id}"> ${books.title}</a>
+                    </h1>
 
                     <p> ${books.author}</p>
                 </div>

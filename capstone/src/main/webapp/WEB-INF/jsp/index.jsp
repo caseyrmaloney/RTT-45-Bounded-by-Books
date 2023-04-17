@@ -1,5 +1,6 @@
 <jsp:include page="includes/header.jsp"/>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <style>
 
@@ -94,26 +95,56 @@
 <!-- SECTION 1 -->
 <section class="section1">
     <div class="section1-div">
-        <div class="section1-text-wrapper">
-            <h1>
-                Join Our <br/>
-                Community
-            </h1>
-            <p>
-                Not sure what to read next? Join the world of books with us and be
-                part of the discussion! Add books to your shelves and join in on the
-                gossip of your favorite book!
-            </p>
 
-            <div class="button-divs">
-                <div class="text-div"><a href="">Join Now</a></div>
-                <div class="arrow-div">
-                    <a href="google.com" target="_blank">
-                        <img style="width: 30px" src="/pub/images/arrow-forward.png"
-                        /></a>
+
+        <sec:authorize access="!isAuthenticated()">
+            <div class="section1-text-wrapper">
+                <h1>
+                    Join Our <br/>
+                    Community
+                </h1>
+                <p>
+                    Not sure what to read next? Join the world of books with us and be
+                    part of the discussion! Add books to your shelves and join in on the
+                    gossip of your favorite book!
+                </p>
+
+                <div class="button-divs">
+                    <div class="text-div"><a href="">Join Now</a></div>
+                    <div class="arrow-div">
+                        <a href="/signup">
+                            <img style="width: 30px" src="/pub/images/arrow-forward.png"
+                            /></a>
+                    </div>
                 </div>
             </div>
-        </div>
+
+        </sec:authorize>
+
+        <sec:authorize access="isAuthenticated()">
+            <div class="section1-text-wrapper">
+                <h1>
+                    Explore Our <br/>
+                    Community
+                </h1>
+                <p>
+                    Aenean lobortis et purus eu sodales. Orci varius natoque penatibus et magnis dis parturient montes,
+                    nascetur ridiculus mus. Morbi rhoncus lacus justo, non pretium arcu mattis quis. Vivamus semper
+                    neque in sem tempor malesuada.
+
+                </p>
+
+                <div class="button-divs">
+                    <div class="text-div"><a href="">Explore</a></div>
+                    <div class="arrow-div">
+                        <a href="/books/explore">
+                            <img style="width: 30px" src="/pub/images/arrow-forward.png"
+                            /></a>
+                    </div>
+                </div>
+            </div>
+
+        </sec:authorize>
 
         <div class="book-wrapper">
             <div class="book1-div">
@@ -164,6 +195,27 @@
 
     }
 
+    .card-img-div {
+        background: rgb(254, 190, 39);
+        background: linear-gradient(0deg, rgba(254, 190, 39, 1) 8%, rgba(254, 104, 47, 1) 33%, rgba(245, 45, 58, 1) 51%, rgba(209, 36, 104, 1) 72%, rgba(111, 9, 100, 1) 89%);
+        padding: 2em 2em;
+    }
+
+    .card-title {
+        font-size: 22px;
+        padding-top: 10px;
+
+    }
+
+    .card-wrapper {
+        margin: 2em 1em;
+        text-align: center;
+        width: 600px;
+        border: black solid 1px;
+
+    }
+
+
 </style>
 
 <section class="section3">
@@ -177,151 +229,28 @@
         </div>
 
 
-        <div class="slides-wrapper">
+        <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
 
-            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div  class="carousel-inner">
+            <c:forEach items="${books}" var="books">
+                <div class="card-wrapper">
 
-<%--                    CARDS WRAPPER IN SLIDES--%>
+                    <div class="card-img-div">
+                        <img style="width: 200px" src="${books.bookCover}"/>
+                    </div>
 
-
-                        <div class="carousel-item active">
-                            <%--            BOOK 1 --%>
-                            <div style="text-align: center; display: flex; justify-content: center; background-color: #6F0964; padding-top: 3px"
-                                 class="card" style="width: 18rem;">
-                                <div>
-                                    <img style="width: 200px; padding: 1em 0em;"
-                                         src="/pub/images/book-covers/daisy-jones-and-the-six.png" class="card-img-top"
-                                         alt="...">
-                                    <div style="background-color: white" class="card-body">
-                                        <p class="card-text">
-                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
-                                            Daisy Jones and The Six</a></h1></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="carousel-item">
-                            <%--            BOOK 2 --%>
-                            <div style="text-align: center; display: flex; justify-content: center; background-color: #D12468; padding-top: 3px"
-                                 class="card" style="width: 18rem;">
-                                <div>
-                                    <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/corrupt.png"
-                                         class="card-img-top" alt="...">
-                                    <div style="background-color: white" class="card-body">
-                                        <p class="card-text">
-                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
-                                            Corrupt</a></h1></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="carousel-item">
-                            <%--            BOOK 3--%>
-
-                            <div style="text-align: center; display: flex; justify-content: center; background-color: #F52D3A; padding-top: 3px"
-                                 class="card" style="width: 18rem;">
-                                <div>
-                                    <img style="width: 200px; padding: 1em 0em;"
-                                         src="/pub/images/book-covers/court-of-mist-and-fury.png" class="card-img-top" alt="...">
-                                    <div style="background-color: white;  width: 398px" class="card-body">
-                                        <p class="card-text">
-                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
-                                            A Court of Mist and Fury</a></h1></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="carousel-item">
-                            <%--            BOOK 4 --%>
-                            <div style="text-align: center; display: flex; justify-content: center; background-color: #fe682f; padding-top: 3px"
-                                 class="card" style="width: 18rem;">
-                                <div>
-                                    <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/the-score.png"
-                                         class="card-img-top" alt="...">
-                                    <div style="background-color: white;  width: 398px" class="card-body">
-                                        <p class="card-text">
-                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
-                                            The Score</a></h1></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="carousel-item">
-                            <%--            BOOK 5--%>
-
-                            <div style="text-align: center; display: flex; justify-content: center; background-color: #febe27; padding-top: 3px"
-                                 class="card" style="width: 18rem;">
-                                <div>
-                                    <img style="width: 200px; padding: 1em 0em;"
-                                         src="/pub/images/book-covers/a-court-of-thorns-and-roses.png" class="card-img-top" alt="...">
-                                    <div style="background-color: white;  width: 398px" class="card-body">
-                                        <p class="card-text">
-                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
-                                            A Court of Thorns and Rose</a></h1></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="carousel-item">
-                            <%--            BOOK 5--%>
-
-                            <div style="text-align: center; display: flex; justify-content: center; background-color: #6F0964; padding-top: 3px"
-                                 class="card" style="width: 18rem;">
-                                <div>
-                                    <img style="width: 200px; padding: 1em 0em;" src="/pub/images/book-covers/wonder.png"
-                                         class="card-img-top" alt="...">
-                                    <div style="background-color: white; width: 398px" class="card-body">
-                                        <p class="card-text">
-                                        <h1 style="font-size: 20px; color: white;"><a class="card-link" href="/books/details/${books.id}">
-                                            Wonder</a></h1></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                    <div class="card-content-div">
+                        <h1 class="card-title">
+                            <a class="card-link" href="/books/details/${books.id}"> ${books.title}</a>
+                        </h1>
+                    </div>
 
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            </c:forEach>
 
         </div>
 
+
     </div>
-
-
 </section>
 
 </body>

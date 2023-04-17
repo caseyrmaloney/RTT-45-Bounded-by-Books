@@ -32,7 +32,7 @@ public class User {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<UserBooks> user_books = new ArrayList<UserBooks>();
+    private List<UserBook> user_books = new ArrayList<UserBook>();
 
     @ToString.Exclude
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)

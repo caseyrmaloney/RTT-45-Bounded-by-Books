@@ -1,7 +1,9 @@
 package com.teksystems.controller;
 
+import com.teksystems.database.dao.BooksDAO;
 import com.teksystems.database.dao.UserDAO;
 import com.teksystems.database.dao.UserRolesDAO;
+import com.teksystems.database.entity.Books;
 import com.teksystems.database.entity.User;
 import com.teksystems.database.entity.UserRoles;
 import com.teksystems.formbeans.UserFormBean;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @Slf4j
 public class SlashController {
@@ -25,6 +30,11 @@ public class SlashController {
 
     @Autowired
     private UserRolesDAO userRolesDAO;
+
+
+
+    @Autowired
+    private BooksDAO booksDAO;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -42,6 +52,12 @@ public class SlashController {
     public ModelAndView index() {
         log.info("in the index controller");
         ModelAndView response = new ModelAndView("index");
+
+
+
+        List<Books> books = booksDAO.getAllBooks();
+        response.addObject("books", books);
+
         return response;
     }
 

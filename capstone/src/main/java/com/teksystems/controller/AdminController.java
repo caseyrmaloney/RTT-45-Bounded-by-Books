@@ -2,7 +2,7 @@ package com.teksystems.controller;
 
 import com.teksystems.database.dao.BooksDAO;
 import com.teksystems.database.dao.UserDAO;
-import com.teksystems.database.entity.Books;
+import com.teksystems.database.entity.Book;
 import com.teksystems.database.entity.User;
 import com.teksystems.formbeans.BookFormBean;
 import com.teksystems.formbeans.UserFormBean;
@@ -31,7 +31,7 @@ public class AdminController {
 
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public ModelAndView addBook() {
-        log.debug("in the add Books controller");
+        log.debug("in the add Book controller");
 
         ModelAndView response = new ModelAndView("admin/book");
 
@@ -42,47 +42,47 @@ public class AdminController {
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(BookFormBean form) {
         log.debug("in the create submit controller");
-        ModelAndView response = new ModelAndView("admin/books");
+        ModelAndView response = new ModelAndView("admin/book");
         log.debug("!!!!!!!!!!!!!!!!!!!!---- create submit controller");
         log.debug(form.toString());
 
-        Books books = new Books();
+        Book book = new Book();
 
         if(form.getId() != null && form.getId() > 0) {
-            books = booksDAO.findById(form.getId());
+            book = booksDAO.findById(form.getId());
         }
 
-        books.setTitle(form.getTitle());
-        books.setGenre(form.getGenre());
-        books.setDescription(form.getDescription());
-        books.setPublishDate(form.getPublishDate());
-        books.setPageLength(form.getPageLength());
-        books.setAuthor(form.getAuthor());
-        books.setBookCover(form.getBookCover());
+        book.setTitle(form.getTitle());
+        book.setGenre(form.getGenre());
+        book.setDescription(form.getDescription());
+        book.setPublishDate(form.getPublishDate());
+        book.setPageLength(form.getPageLength());
+        book.setAuthor(form.getAuthor());
+        book.setBookCover(form.getBookCover());
 
 
         response.addObject("form", form);
 
-        booksDAO.save(books);
+        booksDAO.save(book);
         return response;
     }
 
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable Integer id) {
-        log.debug("in the edit books controller");
-        ModelAndView response = new ModelAndView("admin/books");
+        log.debug("in the edit book controller");
+        ModelAndView response = new ModelAndView("admin/book");
 
-        Books books = booksDAO.findById(id);
+        Book book = booksDAO.findById(id);
         BookFormBean form = new BookFormBean();
 
-        form.setId(books.getId());
-        form.setTitle(books.getTitle());
-        form.setGenre(books.getGenre());
-        form.setDescription(books.getDescription());
-        form.setPublishDate(books.getPublishDate());
-        form.setAuthor(books.getAuthor());
-        form.setPageLength(books.getPageLength());
-        form.setBookCover(books.getBookCover());
+        form.setId(book.getId());
+        form.setTitle(book.getTitle());
+        form.setGenre(book.getGenre());
+        form.setDescription(book.getDescription());
+        form.setPublishDate(book.getPublishDate());
+        form.setAuthor(book.getAuthor());
+        form.setPageLength(book.getPageLength());
+        form.setBookCover(book.getBookCover());
 
 
         response.addObject("form", form);
@@ -99,11 +99,11 @@ public class AdminController {
         ModelAndView response = new ModelAndView("admin/detail");
         log.debug("In employee detail controller method with id = " + id);
 
-        Books books = booksDAO.findById(id);
+        Book book = booksDAO.findById(id);
 
-        response.addObject("books", books);
+        response.addObject("books", book);
 
-        log.debug(books + "");
+        log.debug(book + "");
         return response;
     }
 
@@ -115,7 +115,7 @@ public class AdminController {
 
         // by this line of code we are assuming both are empty thus creating a new list with no search results
         // it has no results because there are no values coming.
-        List<Books> books = new ArrayList<>();
+        List<Book> books = new ArrayList<>();
 
         // check if both title and author have a value
         if (!StringUtils.isEmpty(title) && !StringUtils.isEmpty(author)) {

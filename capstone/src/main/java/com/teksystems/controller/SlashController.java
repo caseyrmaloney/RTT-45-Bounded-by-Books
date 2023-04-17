@@ -3,7 +3,7 @@ package com.teksystems.controller;
 import com.teksystems.database.dao.BooksDAO;
 import com.teksystems.database.dao.UserDAO;
 import com.teksystems.database.dao.UserRolesDAO;
-import com.teksystems.database.entity.Books;
+import com.teksystems.database.entity.Book;
 import com.teksystems.database.entity.User;
 import com.teksystems.database.entity.UserRoles;
 import com.teksystems.formbeans.UserFormBean;
@@ -54,7 +54,7 @@ public class SlashController {
 
 
 
-        List<Books> books = booksDAO.getAllBooks();
+        List<Book> books = booksDAO.getAllBooks();
         response.addObject("books", books);
 
         return response;

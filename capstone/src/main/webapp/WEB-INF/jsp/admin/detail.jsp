@@ -12,31 +12,31 @@
         <table class="table table-striped border">
             <tr>
                 <td>Book Id</td>
-                <td>${books.id}</td>
+                <td>${book.id}</td>
             </tr>
             <tr>
                 <td>Title</td>
-                <td><a href="/admin/search?title=${books.title}">${books.title}</a></td>
+                <td><a href="/admin/search?title=${book.title}">${book.title}</a></td>
             </tr>
             <tr>
                 <td>Author</td>
-                <td><a href="/admin/search?author=${books.author}">${books.author}</a></td>
+                <td><a href="/admin/search?author=${book.author}">${book.author}</a></td>
             </tr>
             <tr>
                 <td>Genre</td>
-                <td>${books.genre}</td>
+                <td>${book.genre}</td>
             </tr>
             <tr>
                 <td>Decription</td>
-                <td>${books.description}</td>
+                <td>${book.description}</td>
             </tr>
             <tr>
                 <td>Publish Date</td>
-                <td>${books.publishDate}</td>
+                <td>${book.publishDate}</td>
             </tr>
             <tr>
                 <td>Page Length</td>
-                <td>${books.pageLength}</td>
+                <td>${book.pageLength}</td>
             </tr>
         </table>
     </div>

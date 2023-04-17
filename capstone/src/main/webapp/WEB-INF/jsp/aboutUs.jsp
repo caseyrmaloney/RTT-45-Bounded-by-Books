@@ -35,11 +35,11 @@
 </style>
 
 <section class="section1">
-  <div class="books-wrapper">
+  <div class="book-wrapper">
     <div class="book1-div">
       <img
               style="width: 200px"
-              src="/pub/images/books-covers/the-score.png"
+              src="/pub/images/book-covers/the-score.png"
               alt=""
       />
 
@@ -67,12 +67,12 @@
     </div>
   </div>
 
-  <div class="books-wrapper">
+  <div class="book-wrapper">
     <div class="book2-div">
       <img
               style="width: 200px"
               class="bookcovers"
-              src="/pub/images/books-covers/corrupt.png"
+              src="/pub/images/book-covers/corrupt.png"
               alt=""
       />
     </div>
@@ -210,10 +210,10 @@
 
     </div>
     <ul style="margin: 1em 4em">
-      <li> <h4> Track the books you are reading</h4></li>
+      <li> <h4> Track the book you are reading</h4></li>
       <li> <h4> Check out what others are saying from our community reviews</h4></li>
-      <li> <h4> See a breakdown of your books</h4></li>
-      <li> <h4> Add books to your library and make customs bookshelves</h4></li>
+      <li> <h4> See a breakdown of your book</h4></li>
+      <li> <h4> Add book to your library and make customs bookshelves</h4></li>
     </ul>
 
     <div>

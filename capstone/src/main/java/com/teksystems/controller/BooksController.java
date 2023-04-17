@@ -4,7 +4,7 @@ import com.teksystems.database.dao.BooksDAO;
 import com.teksystems.database.dao.CommentsDAO;
 import com.teksystems.database.dao.UserBooksDAO;
 import com.teksystems.database.dao.UserDAO;
-import com.teksystems.database.entity.Books;
+import com.teksystems.database.entity.Book;
 import com.teksystems.database.entity.Comments;
 import com.teksystems.database.entity.User;
 import com.teksystems.database.entity.UserBook;
@@ -52,7 +52,7 @@ public class BooksController {
 
         // by this line of code we are assuming both are empty thus creating a new list with no search results
         // it has no results because there are no values coming.
-        List<Books> books = new ArrayList<>();
+        List<Book> books = new ArrayList<>();
 
         if(!StringUtils.isEmpty(title)) {
             books= booksDAO.getAllBooks();
@@ -82,24 +82,24 @@ public class BooksController {
         log.debug("!!!!!!!!!!!!!!!!!!!!---- create submit controller");
         log.debug(form.toString());
 
-        Books books = new Books();
+        Book book = new Book();
 
         if(form.getId() != null && form.getId() > 0) {
-            books = booksDAO.findById(form.getId());
+            book = booksDAO.findById(form.getId());
         }
 
-        books.setTitle(form.getTitle());
-        books.setGenre(form.getGenre());
-        books.setDescription(form.getDescription());
-        books.setPublishDate(form.getPublishDate());
-        books.setPageLength(form.getPageLength());
-        books.setAuthor(form.getAuthor());
-        books.setBookCover(form.getBookCover());
+        book.setTitle(form.getTitle());
+        book.setGenre(form.getGenre());
+        book.setDescription(form.getDescription());
+        book.setPublishDate(form.getPublishDate());
+        book.setPageLength(form.getPageLength());
+        book.setAuthor(form.getAuthor());
+        book.setBookCover(form.getBookCover());
 
 
         response.addObject("form", form);
 
-        booksDAO.save(books);
+        booksDAO.save(book);
         return response;
     }
 
@@ -107,16 +107,16 @@ public class BooksController {
     //the path varaible is what is shown in the URL
     public ModelAndView bookComments(@PathVariable Integer id){
         ModelAndView response = new ModelAndView("books/comment");
-        log.debug("In the books comment controller  " + id);
+        log.debug("In the book comment controller  " + id);
 
-        Books books = booksDAO.findById(id);
-
-
-
-        response.addObject("books", books);
+        Book book = booksDAO.findById(id);
 
 
-        log.debug(books + "");
+
+        response.addObject("books", book);
+
+
+        log.debug(book + "");
         return response;
     }
 
@@ -142,8 +142,8 @@ public class BooksController {
         comment.setUser(user);
 
         //SETTING THE BOOK ID
-        Books books = booksDAO.findById(form.getBookId());
-        comment.setBooks(books);
+        Book book = booksDAO.findById(form.getBookId());
+        comment.setBook(book);
 
         //ADDING THE COMMENT FROM THE FORM
         comment.setComment(form.getComment());
@@ -163,7 +163,7 @@ public class BooksController {
     public ModelAndView bookComments(CommentFormBean form){
         ModelAndView response = new ModelAndView("books/comment");
 
-        Books books = new Books();
+        Book book = new Book();
         Comments comment = new Comments();
         comment.setComment(form.getComment());
 
@@ -181,15 +181,15 @@ public class BooksController {
     //the path varaible is what is shown in the URL
     public ModelAndView bookDetails(@PathVariable Integer id){
         ModelAndView response = new ModelAndView("books/details");
-        log.debug("In the books details conttroller  " + id);
+        log.debug("In the book details conttroller  " + id);
 
-        Books books = booksDAO.findById(id);
+        Book book = booksDAO.findById(id);
 
         //USER A QUERY TO SELECT THE COMMENTS FROM BOOK ID WHERE BOOK ID = ID
 
         List<Comments> comments= commentsDAO.getBookComments(id);
 
-        response.addObject("books", books);
+        response.addObject("books", book);
         response.addObject("commentsList", comments);
 
         User user = userDAO.findById(id);
@@ -201,7 +201,7 @@ public class BooksController {
 
 
 
-        log.debug(books + "");
+        log.debug(book + "");
         return response;
     }
 
@@ -209,28 +209,34 @@ public class BooksController {
     public ModelAndView addBookToUserSubmit(UserBooksFormBean form){
 
         ModelAndView response = new ModelAndView("books/details");
-        log.debug("in the add books to user submit controller");
+        log.debug("in the add book to user submit controller");
         log.debug(form.toString());
 
 
         //using the authenticated user service to load the current user
         User user = authenticated.loadCurrentUser();
 
-        //create a new user books object
+        //create a new user book object
         UserBook userBook = new UserBook();
 
         //setting the user
         userBook.setUser(user);
 
-        //setting the books id
-        Books books = booksDAO.findById(form.getBookId());
-        userBook.setBooks(books);
+        //setting the book id
+        Book book = booksDAO.findById(form.getBookId());
+        userBook.setBook(book);
 
-        //adding the books to a bookshelf
+        //adding the book to a bookshelf
         userBook.setBookshelf(form.getBookshelf());
 
-        //saving the books and bookshelf to the database
+        //saving the book and bookshelf to the database
         userBooksDAO.save(userBook);
+
+
+        response.addObject("books", book);
+
+
+
 
         response.addObject("form" , form);
 

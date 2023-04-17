@@ -69,7 +69,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/books/explore">Explore</a>
+                  <a class="nav-link" href="/book/explore">Explore</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -92,7 +92,7 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/admin/books">Add Book</a>
+                      <a class="dropdown-item" href="/admin/book">Add Book</a>
                     </li>
                   </ul>
                 </li>

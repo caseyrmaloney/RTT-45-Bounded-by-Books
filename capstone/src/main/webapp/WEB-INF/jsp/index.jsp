@@ -31,7 +31,7 @@
         margin-top: 2em !important;
     }
 
-    .books-wrapper {
+    .book-wrapper {
         display: flex;
         justify-content: center;
         margin-left: 10em;
@@ -105,9 +105,9 @@
                     Community
                 </h1>
                 <p>
-                    Not sure what to read next? Join the world of books with us and be
-                    part of the discussion! Add books to your shelves and join in on the
-                    gossip of your favorite books!
+                    Not sure what to read next? Join the world of book with us and be
+                    part of the discussion! Add book to your shelves and join in on the
+                    gossip of your favorite book!
                 </p>
 
                 <div class="button-divs">
@@ -138,7 +138,7 @@
                 <div class="button-divs">
                     <div class="text-div"><a href="">Explore</a></div>
                     <div class="arrow-div">
-                        <a href="/books/explore">
+                        <a href="/book/explore">
                             <img style="width: 30px" src="/pub/images/arrow-forward.png"
                             /></a>
                     </div>
@@ -147,7 +147,7 @@
 
         </sec:authorize>
 
-        <div class="books-wrapper">
+        <div class="book-wrapper">
             <div class="book1-div">
                 <img
                         class="bookcovers"
@@ -225,23 +225,23 @@
 
         <div style="text-align: center" class="title-wrapper">
 
-            <h1> Trending books </h1>
+            <h1> Trending book </h1>
 
         </div>
 
 
         <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
 
-            <c:forEach items="${books}" var="books">
+            <c:forEach items="${books}" var="book">
                 <div class="card-wrapper">
 
                     <div class="card-img-div">
-                        <img style="width: 200px" src="${books.bookCover}"/>
+                        <img style="width: 200px" src="${book.bookCover}"/>
                     </div>
 
                     <div class="card-content-div">
                         <h1 class="card-title">
-                            <a class="card-link" href="/books/details/${books.id}"> ${books.title}</a>
+                            <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
                         </h1>
                     </div>
 

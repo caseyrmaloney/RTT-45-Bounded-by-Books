@@ -57,16 +57,16 @@
         </tr>
       </thead>
       <tbody>
-        <c:forEach items="${booksList}" var="books">
+        <c:forEach items="${booksList}" var="book">
           <tr>
-            <td>${books.id}</td>
-            <td>${books.title}</td>
-            <td>${books.genre}</td>
-            <td>${books.description}</td>
-            <td>${books.publishDate}</td>
-            <td>${books.author}</td>
-            <td>${books.pageLength}</td>
-            <td><a href="/admin/edit/${books.id}"> Edit </a></td>
+            <td>${book.id}</td>
+            <td>${book.title}</td>
+            <td>${book.genre}</td>
+            <td>${book.description}</td>
+            <td>${book.publishDate}</td>
+            <td>${book.author}</td>
+            <td>${book.pageLength}</td>
+            <td><a href="/admin/edit/${book.id}"> Edit </a></td>
           </tr>
         </c:forEach>
       </tbody>

@@ -123,18 +123,18 @@
 <section class="section2">
     <div class="content-wrapper">
         <div class="cards-wrapper">
-            <c:forEach items="${booksList}" var="books">
+            <c:forEach items="${booksList}" var="book">
 
 
                 <div class="card-wrapper" style="margin: 0em 3em">
                     <div class="img-wrapper" style="margin-bottom: 1em">
-                        <img style="width: 150px; padding-right: 1em" src="${books.bookCover}" />
+                        <img style="width: 150px; padding-right: 1em" src="${book.bookCover}" />
                     </div>
                     <h1 class="card-title">
-                        <a class="card-link" href="/books/details/${books.id}"> ${books.title}</a>
+                        <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
                     </h1>
 
-                    <p> ${books.author}</p>
+                    <p> ${book.author}</p>
                 </div>
 
             </c:forEach>

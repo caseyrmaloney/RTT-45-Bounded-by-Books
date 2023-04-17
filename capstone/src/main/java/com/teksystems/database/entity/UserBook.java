@@ -33,7 +33,7 @@ public class UserBook {
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.EAGER, optional = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", nullable = true)
-    private Books books;
+    private Book book;
 
 
 }

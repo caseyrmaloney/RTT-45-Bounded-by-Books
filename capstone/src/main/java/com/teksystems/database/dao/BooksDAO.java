@@ -1,26 +1,26 @@
 package com.teksystems.database.dao;
 
-import com.teksystems.database.entity.Books;
+import com.teksystems.database.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface BooksDAO  extends JpaRepository<Books, Long> {
+public interface BooksDAO  extends JpaRepository<Book, Long> {
 
-    @Query("FROM Books b")
-    List<Books> getAllBooks();
-
-
-
-    Books findById(Integer id);
+    @Query("FROM Book b")
+    List<Book> getAllBooks();
 
 
-    List<Books> findByTitleContainingOrAuthorContainingIgnoreCase(String title, String author);
 
-    List<Books> findByAuthorContainingIgnoreCase(String author);
+    Book findById(Integer id);
 
-    List<Books> findByTitleContainingIgnoreCase(String title);
+
+    List<Book> findByTitleContainingOrAuthorContainingIgnoreCase(String title, String author);
+
+    List<Book> findByAuthorContainingIgnoreCase(String author);
+
+    List<Book> findByTitleContainingIgnoreCase(String title);
 
 
 

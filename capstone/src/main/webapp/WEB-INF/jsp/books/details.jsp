@@ -49,6 +49,7 @@
                     <form action="/books/addBookToUserSubmit">
 
                         <input type="hidden" name="bookId" value="${books.id}"/>
+                        <input type="hidden" name="id" value="${form.id}" />
 
 
                         <label for="bookshelf"> Would you like to add this book? </label>
@@ -61,8 +62,11 @@
 
                         <button type="submit"
                                 class="btn btn-primary mt-3 me-3">
-                            Add Book
+                            Edit Status
                         </button>
+
+
+
 
                     </form>
 

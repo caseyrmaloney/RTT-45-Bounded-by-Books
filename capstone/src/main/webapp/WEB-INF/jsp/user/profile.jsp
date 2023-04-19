@@ -50,8 +50,18 @@
 
     }
 
-    .card-content-div{
+    .card-content-div {
         margin: 1em 0em;
+    }
+
+    .search-link{
+        text-decoration: none;
+        color: #D12468;
+    }
+
+    .search-link:hover{
+        text-decoration: none;
+        color: #fe682f;
     }
 
 
@@ -61,151 +71,171 @@
 
     <div class="sec3-content-wrapper">
 
+        <c:if test="${!hasBooks}">
+            <div style="text-align: center" class="title-wrapper">
 
-        <div style="text-align: center" class="title-wrapper">
+                <h1 style="margin-top: 1em; "> My Books</h1>
 
-            <h1 style="margin-top: 1em; "> My Books</h1>
+                <h3 style="margin: 2em 2em"> Looks like you don't have any books in your Library. <a class="search-link" href="/books/explore"> Search for some books.</a> </h3>
 
-        </div>
+            </div>
+
+        </c:if>
 
 
-        <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
 
-            <c:forEach items="${bookList}" var="book">
-                <div class="card-wrapper">
+        <c:if test="${hasBooks}">
+            <div style="text-align: center" class="title-wrapper">
 
-                    <div class="card-img-div">
-                        <img style="width: 200px" src="${book.book_cover_url}"/>
+                <h1 style="margin-top: 1em; "> My Books</h1>
+
+            </div>
+
+
+            <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
+
+                <c:forEach items="${bookList}" var="book">
+                    <div class="card-wrapper">
+
+                        <div class="card-img-div">
+                            <img style="width: 200px" src="${book.book_cover_url}"/>
+                        </div>
+
+                        <div class="card-content-div">
+                            <h1 style="padding-top: 10px" class="card-title">
+                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                            </h1>
+                        </div>
+
                     </div>
+                </c:forEach>
 
-                    <div class="card-content-div">
-                        <h1 style="padding-top: 10px" class="card-title">
-                            <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                        </h1>
-                    </div>
-
-                </div>
-            </c:forEach>
-
-        </div>
+            </div>
+        </c:if>
 
         <%--        for each book in booksList based on the bookshelf
                     if bookshelf is something display the book information--%>
 
-        <div style="text-align: center; margin-top: 3em" class="title-wrapper">
+        <c:if test="${isReading}">
+            <div style="text-align: center; margin-top: 3em" class="title-wrapper">
 
-            <h1 style="margin-top: 1em; "> Currently Reading </h1>
+                <h1 style="margin-top: 1em; "> Currently Reading </h1>
 
-        </div>
-
-
-        <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
+            </div>
 
 
+            <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
 
-            <c:forEach items="${bookList}" var="book">
 
-                <c:if test="${book.bookshelf eq 'Currently Reading'}">
+                <c:forEach items="${bookList}" var="book">
 
-                    <div class="card-wrapper">
+                    <c:if test="${book.bookshelf eq 'Currently Reading'}">
 
-                        <div class="card-img-div">
-                            <img style="width: 200px" src="${book.book_cover_url}"/>
+                        <div class="card-wrapper">
+
+                            <div class="card-img-div">
+                                <img style="width: 200px" src="${book.book_cover_url}"/>
+                            </div>
+
+                            <div class="card-content-div">
+                                <h1 style="padding-top: 10px" class="card-title">
+                                    <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                                </h1>
+                            </div>
+
                         </div>
 
-                        <div class="card-content-div">
-                            <h1 style="padding-top: 10px" class="card-title">
-                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                            </h1>
+                    </c:if>
+
+
+                </c:forEach>
+
+            </div>
+
+        </c:if>
+
+        <c:if test="${wantToRead}">
+
+            <div style="text-align: center; margin-top: 3em" class="title-wrapper">
+
+                <h1 style="margin-top: 1em; "> Want to Read</h1>
+
+            </div>
+
+
+            <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
+
+
+                <c:forEach items="${bookList}" var="book">
+
+                    <c:if test="${book.bookshelf eq 'Want to Read'}">
+
+                        <div class="card-wrapper">
+
+                            <div class="card-img-div">
+                                <img style="width: 200px" src="${book.book_cover_url}"/>
+                            </div>
+
+                            <div class="card-content-div">
+                                <h1 style="padding-top: 10px" class="card-title">
+                                    <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                                </h1>
+                            </div>
+
                         </div>
 
-                    </div>
-
-                </c:if>
+                    </c:if>
 
 
-            </c:forEach>
+                </c:forEach>
 
-        </div>
+            </div>
 
-        <div style="text-align: center; margin-top: 3em" class="title-wrapper">
+        </c:if>
 
-            <h1 style="margin-top: 1em; "> Want to Read</h1>
+        <c:if test="${finished}">
+            <div style="text-align: center; margin-top: 3em" class="title-wrapper">
 
-        </div>
+                <h1 style="margin-top: 1em; "> Finished Reading</h1>
+
+            </div>
 
 
-        <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
+            <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
 
 
+                <c:forEach items="${bookList}" var="book">
 
-            <c:forEach items="${bookList}" var="book">
+                    <c:if test="${book.bookshelf eq 'Finished Reading'}">
 
-                <c:if test="${book.bookshelf eq 'Want to Read'}">
+                        <div class="card-wrapper">
 
-                    <div class="card-wrapper">
+                            <div class="card-img-div">
+                                <img style="width: 200px" src="${book.book_cover_url}"/>
+                            </div>
 
-                        <div class="card-img-div">
-                            <img style="width: 200px" src="${book.book_cover_url}"/>
+                            <div class="card-content-div">
+                                <h1 style="padding-top: 10px" class="card-title">
+                                    <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                                </h1>
+                            </div>
+
                         </div>
 
-                        <div class="card-content-div">
-                            <h1 style="padding-top: 10px" class="card-title">
-                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                            </h1>
-                        </div>
-
-                    </div>
-
-                </c:if>
+                    </c:if>
 
 
-            </c:forEach>
+                </c:forEach>
 
-        </div>
+            </div>
 
-        <div style="text-align: center; margin-top: 3em" class="title-wrapper">
-
-            <h1 style="margin-top: 1em; "> Finished Reading</h1>
-
-        </div>
-
-
-        <div style="display: flex; justify-content: flex-start; width: 1000px " class="overflow-auto">
-
-
-
-            <c:forEach items="${bookList}" var="book">
-
-                <c:if test="${book.bookshelf eq 'Finished Reading'}">
-
-                    <div class="card-wrapper">
-
-                        <div class="card-img-div">
-                            <img style="width: 200px" src="${book.book_cover_url}"/>
-                        </div>
-
-                        <div  class="card-content-div">
-                            <h1 style="padding-top: 10px" class="card-title">
-                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                            </h1>
-                        </div>
-
-                    </div>
-
-                </c:if>
-
-
-            </c:forEach>
-
-        </div>
-
-
-
-
-
+        </c:if>
 
     </div>
 
 
+</section>
+
+<section class="border">
+    <img src="/pub/images/stripes.png" alt="" srcset=""/>
 </section>

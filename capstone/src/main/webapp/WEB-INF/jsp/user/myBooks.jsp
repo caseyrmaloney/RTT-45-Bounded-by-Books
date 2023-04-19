@@ -69,64 +69,58 @@
 
     }
 
+    .search-link{
+        text-decoration: none;
+        color: #D12468;
+    }
+
+    .search-link:hover{
+        text-decoration: none;
+        color: #fe682f;
+    }
+
 
 </style>
-<section class="section1">
 
-    <div>
-        <h1> My Books </h1>
-    </div>
+<c:if test="${!hasBooks}">
 
 
-</section>
+    <section class="section1">
 
-<section class="section2">
-
-    <div class="content-wrapper">
-        <div class="cards-wrapper">
-            <c:forEach items="${bookList}" var="book">
-
-
-                <div class="card-wrapper" style="margin: 0em 3em">
-                    <div class="img-wrapper" style="margin-bottom: 1em">
-                        <img style="width: 150px; padding-right: 1em" src="${book.book_cover_url}"/>
-                    </div>
-                    <h1 class="card-title">
-                        <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                    </h1>
-
-                    <p> ${book.author}</p>
-                </div>
-
-            </c:forEach>
+        <div style="text-align: center; " class="title-wrapper">
+            <h1> My Books </h1>
+            <h3 style="margin: 2em 2em"> Looks like you don't have any books in your Library. <a class="search-link"
+                                                                                                 href="/books/explore">
+                Search for some books.</a></h3>
 
 
         </div>
-    </div>
 
-</section>
+    </section>
 
-<section class="border">
-    <img src="/pub/images/stripes.png" alt="" srcset=""/>
-</section>
-
-
-<section class="section1">
-
-    <div>
-        <h1> Currently Reading </h1>
-    </div>
+    <section class="border">
+        <img src="/pub/images/stripes.png" alt="" srcset=""/>
+    </section>
 
 
-</section>
+</c:if>
+
+<c:if test="${hasBooks}">
+
+    <section class="section1">
+
+        <div>
+            <h1> My Books </h1>
+        </div>
 
 
-<section class="section2">
+    </section>
 
-    <div class="content-wrapper">
-        <div class="cards-wrapper">
-            <c:forEach items="${bookList}" var="book">
-                <c:if test="${book.bookshelf eq 'Currently Reading'}">
+    <section class="section2">
+
+        <div class="content-wrapper">
+            <div class="cards-wrapper">
+                <c:forEach items="${bookList}" var="book">
 
 
                     <div class="card-wrapper" style="margin: 0em 3em">
@@ -138,104 +132,175 @@
                         </h1>
 
                         <p> ${book.author}</p>
+                        <form action="/books/addBookToUserSubmit">
+
+                            <input type="hidden" name="bookId" value="${books.id}"/>
+
+                            <select id="bookshelf" name="bookshelf">
+                                <option value=""></option>
+                                <option value="Want to Read"> Want to Read</option>
+                                <option value="Currently Reading"> Currently Reading</option>
+                                <option value="Finished Reading"> Finished Reading</option>
+                            </select>
+
+                            <button type="submit"
+                                    class="btn btn-primary mt-3 me-3">
+                                Update Status
+                            </button>
+
+                        </form>
                     </div>
 
-                </c:if>
-
-            </c:forEach>
+                </c:forEach>
 
 
+            </div>
         </div>
-    </div>
 
-</section>
-
-<section class="border">
-    <img src="/pub/images/stripes.png" alt="" srcset=""/>
-</section>
-
-<section class="section1">
-
-    <div>
-        <h1> Want to Read </h1>
-    </div>
+    </section>
 
 
-</section>
+    <section class="border">
+        <img src="/pub/images/stripes.png" alt="" srcset=""/>
+    </section>
+
+</c:if>
+
+<c:if test="${isReading}">
+
+    <section class="section1">
+
+        <div>
+            <h1> Currently Reading </h1>
+        </div>
 
 
-<section class="section2">
-
-    <div class="content-wrapper">
-        <div class="cards-wrapper">
-            <c:forEach items="${bookList}" var="book">
-                <c:if test="${book.bookshelf eq 'Want to Read'}">
+    </section>
 
 
-                    <div class="card-wrapper" style="margin: 0em 3em">
-                        <div class="img-wrapper" style="margin-bottom: 1em">
-                            <img style="width: 150px; padding-right: 1em" src="${book.book_cover_url}"/>
+    <section class="section2">
+
+        <div class="content-wrapper">
+            <div class="cards-wrapper">
+                <c:forEach items="${bookList}" var="book">
+                    <c:if test="${book.bookshelf eq 'Currently Reading'}">
+
+
+                        <div class="card-wrapper" style="margin: 0em 3em">
+                            <div class="img-wrapper" style="margin-bottom: 1em">
+                                <img style="width: 150px; padding-right: 1em" src="${book.book_cover_url}"/>
+                            </div>
+                            <h1 class="card-title">
+                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                            </h1>
+
+                            <p> ${book.author}</p>
                         </div>
-                        <h1 class="card-title">
-                            <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                        </h1>
 
-                        <p> ${book.author}</p>
-                    </div>
+                    </c:if>
 
-                </c:if>
-
-            </c:forEach>
+                </c:forEach>
 
 
+            </div>
         </div>
-    </div>
 
-</section>
-
-<section class="border">
-    <img src="/pub/images/stripes.png" alt="" srcset=""/>
-</section>
-
-<section class="section1">
-
-    <div>
-        <h1> Finished Reading </h1>
-    </div>
+    </section>
 
 
-</section>
+    <section class="border">
+        <img src="/pub/images/stripes.png" alt="" srcset=""/>
+    </section>
+
+</c:if>
 
 
-<section class="section2">
+<c:if test="${wantToRead}">
+    <section class="section1">
 
-    <div class="content-wrapper">
-        <div class="cards-wrapper">
-            <c:forEach items="${bookList}" var="book">
-                <c:if test="${book.bookshelf eq 'Finished Reading'}">
+        <div>
+            <h1> Want to Read </h1>
+        </div>
 
 
-                    <div class="card-wrapper" style="margin: 0em 3em">
-                        <div class="img-wrapper" style="margin-bottom: 1em">
-                            <img style="width: 150px; padding-right: 1em" src="${book.book_cover_url}"/>
+    </section>
+
+
+    <section class="section2">
+
+        <div class="content-wrapper">
+            <div class="cards-wrapper">
+                <c:forEach items="${bookList}" var="book">
+                    <c:if test="${book.bookshelf eq 'Want to Read'}">
+
+
+                        <div class="card-wrapper" style="margin: 0em 3em">
+                            <div class="img-wrapper" style="margin-bottom: 1em">
+                                <img style="width: 150px; padding-right: 1em" src="${book.book_cover_url}"/>
+                            </div>
+                            <h1 class="card-title">
+                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                            </h1>
+
+                            <p> ${book.author}</p>
                         </div>
-                        <h1 class="card-title">
-                            <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
-                        </h1>
 
-                        <p> ${book.author}</p>
-                    </div>
+                    </c:if>
 
-                </c:if>
-
-            </c:forEach>
+                </c:forEach>
 
 
+            </div>
         </div>
-    </div>
 
-</section>
+    </section>
+
+    <section class="border">
+        <img src="/pub/images/stripes.png" alt="" srcset=""/>
+    </section>
+</c:if>
+
+<c:if test="${finished}">
+
+    <section class="section1">
+
+        <div>
+            <h1> Finished Reading </h1>
+        </div>
 
 
+    </section>
 
+
+    <section class="section2">
+
+        <div class="content-wrapper">
+            <div class="cards-wrapper">
+                <c:forEach items="${bookList}" var="book">
+                    <c:if test="${book.bookshelf eq 'Finished Reading'}">
+
+
+                        <div class="card-wrapper" style="margin: 0em 3em">
+                            <div class="img-wrapper" style="margin-bottom: 1em">
+                                <img style="width: 150px; padding-right: 1em" src="${book.book_cover_url}"/>
+                            </div>
+                            <h1 class="card-title">
+                                <a class="card-link" href="/books/details/${book.id}"> ${book.title}</a>
+                            </h1>
+
+                            <p> ${book.author}</p>
+                        </div>
+
+                    </c:if>
+
+                </c:forEach>
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+</c:if>
 

@@ -199,8 +199,6 @@ public class BooksController {
         //ADDING A BOOK FOR THE USER LIBRARY
 
 
-
-
         log.debug(book + "");
         return response;
     }
@@ -215,6 +213,13 @@ public class BooksController {
 
         //using the authenticated user service to load the current user
         User user = authenticated.loadCurrentUser();
+
+        //query te book from the user database
+        //if the book exist in the database then just display it on the page and have update button
+        //if the result is null then do the stuff to create a new
+
+
+
 
         //create a new user book object
         UserBook userBook = new UserBook();
@@ -234,8 +239,6 @@ public class BooksController {
 
 
         response.addObject("books", book);
-
-
 
 
         response.addObject("form" , form);

@@ -19,7 +19,7 @@
 </style>
 <section class="title">
     <div>
-        <h1 class="title-color"> Browse Books</h1>
+        <h1> Browse Books</h1>
     </div>
 </section>
 

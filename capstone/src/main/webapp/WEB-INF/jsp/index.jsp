@@ -111,7 +111,7 @@
                 </p>
 
                 <div class="button-divs">
-                    <div class="text-div"><a href="">Join Now</a></div>
+                    <div class="text-div"><a href="/signup">Join Now</a></div>
                     <div class="arrow-div">
                         <a href="/signup">
                             <img style="width: 30px" src="/pub/images/arrow-forward.png"
@@ -136,9 +136,9 @@
                 </p>
 
                 <div class="button-divs">
-                    <div class="text-div"><a href="">Explore</a></div>
+                    <div class="text-div"><a href="/books/explore">Explore</a></div>
                     <div class="arrow-div">
-                        <a href="/book/explore">
+                        <a href="/books/explore">
                             <img style="width: 30px" src="/pub/images/arrow-forward.png"
                             /></a>
                     </div>

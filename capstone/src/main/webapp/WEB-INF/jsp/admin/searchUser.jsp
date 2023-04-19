@@ -50,7 +50,8 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Password</th>
+                <th scope="col">Edit</th>
+
 
             </tr>
             </thead>
@@ -61,7 +62,6 @@
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
                     <td>${user.email}</td>
-                    <td>${user.password}</td>
                     <td><a href="/admin/editUser/${user.id}"> Edit </a></td>
                 </tr>
             </c:forEach>

@@ -120,7 +120,7 @@ public class AdminController {
         // check if both title and author have a value
         if (!StringUtils.isEmpty(title) && !StringUtils.isEmpty(author)) {
             // if so run the qurey that works with both values
-            log.debug("Both title and last have a value");
+            log.debug("Both title and author have a value");
             books = booksDAO.findByTitleContainingOrAuthorContainingIgnoreCase(title, author);
         }
 
@@ -136,6 +136,13 @@ public class AdminController {
             // we run our query that checks the author field only
             log.debug("Author has a value and title is empty");
             books = booksDAO.findByAuthorContainingIgnoreCase(author);
+        }
+
+        // check if both title and author have a value
+        if (StringUtils.isEmpty(title) && StringUtils.isEmpty(author)) {
+            // if so run the qurey that works with both values
+            log.debug("Both title and author is empty");
+            books = booksDAO.findByTitleContainingOrAuthorContainingIgnoreCase(title, author);
         }
 
 
@@ -232,6 +239,12 @@ public class AdminController {
         if (StringUtils.isEmpty(firstName) && !StringUtils.isEmpty(lastName)) {
             // we run our query that checks the last name field only
             log.debug("Last name has a value and first name is empty");
+            user = userDAO.findByLastNameContainingIgnoreCase(lastName);
+        }
+        // check if the first name is empty and the last name is not empty
+        if (StringUtils.isEmpty(firstName) && StringUtils.isEmpty(lastName)) {
+            // we run our query that checks the last name field only
+            log.debug("Both first name and last name is empty");
             user = userDAO.findByLastNameContainingIgnoreCase(lastName);
         }
 

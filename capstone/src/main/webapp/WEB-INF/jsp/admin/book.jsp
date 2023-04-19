@@ -105,14 +105,28 @@
                     value="${form.bookCover}"
             />
           </div>
-          <button
-            type="submit"
-            id="create_btn"
-            class="btn btn-primary mt-3 me-2"
-            onclick="formSubmit()"
-          >
-            Create Account
-          </button>
+
+          <c:if test="${empty form.id}">
+            <button
+                    type="submit"
+                    id="create_btn"
+                    class="btn btn-primary mt-3 me-2"
+                    onclick="formSubmit()"
+            >
+              Add Book
+            </button>
+          </c:if>
+          <c:if test="${not empty form.id}">
+            <button
+                    type="submit"
+                    id="create_btn"
+                    class="btn btn-primary mt-3 me-2"
+                    onclick="formSubmit()"
+            >
+              Edit Book
+            </button>
+          </c:if>
+
         </form>
       </div>
     </div>

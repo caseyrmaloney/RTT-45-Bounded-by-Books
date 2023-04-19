@@ -79,6 +79,9 @@
                                 <a class="nav-link" href="/books/explore">Explore</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/user/myBooks">My Books</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="#">Community</a>
                             </li>
                             <li class="nav-item dropdown">
@@ -105,13 +108,9 @@
                                         >
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="/admin/searchUser">Search</a>
+                                        <a class="dropdown-item" href="/admin/searchUser">Search User</a>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/admin/user"
-                                        >Create User</a
-                                        >
-                                    </li>
+
                                 </ul>
                             </li>
                             <li style="margin-left: 10em" class="nav-item">
@@ -129,7 +128,7 @@
                                 >
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My Books</a>
+                                <a class="nav-link" href="/user/myBooks">My Books</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/books/explore">Explore</a>
@@ -141,7 +140,7 @@
                                 <a class="nav-link" href="/login/logout">Logout</a>
                             </li>
                             <li style="margin-left: 10em" class="nav-item">
-                                <a class="nav-link" href=""><sec:authentication property="principal.username"/></a>
+                                <a class="nav-link" href="/user/profile"><sec:authentication property="principal.username"/></a>
                             </li>
                         </sec:authorize>
                         <sec:authorize access="!isAuthenticated()">

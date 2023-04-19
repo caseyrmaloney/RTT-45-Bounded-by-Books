@@ -1,22 +1,114 @@
 package com.teksystems.controller;
 
+import com.teksystems.database.dao.BooksDAO;
+import com.teksystems.database.dao.CommentsDAO;
+import com.teksystems.database.dao.UserBooksDAO;
+import com.teksystems.database.dao.UserDAO;
+import com.teksystems.database.entity.Book;
+import com.teksystems.database.entity.Comments;
+import com.teksystems.database.entity.User;
+import com.teksystems.database.entity.UserBook;
+import com.teksystems.formbeans.BookFormBean;
+import com.teksystems.formbeans.CommentFormBean;
+import com.teksystems.formbeans.UserBooksFormBean;
+import com.teksystems.security.AuthenticatedUserService;
+import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 
 @Controller
 @Slf4j
 public class UserController {
 
+    @Autowired
+    private AuthenticatedUserService authenticated;
+
+    @Autowired
+    private BooksDAO booksDAO;
+
+    @Autowired
+    private UserBooksDAO userBooksDAO;
+
+    //SET THE USER FROM THE AUTHENTICATED USER METHOD
+    //USE A QUERY TO DISPLAY ALL BOOKS IN THE USER LIBRARY
+    //USE A QUERY TO DISPLAY THE DIFFERENT BOOK SHELVES
     @GetMapping("/user/profile")
     public ModelAndView profile(HttpSession session) {
         log.debug("In the user profile controller");
         ModelAndView response = new ModelAndView("user/profile");
 
+        //using the authenticated user service to load the current user
+        User user = authenticated.loadCurrentUser();
+
+        UserBook userBook = new UserBook();
+
+        //setting the user
+        userBook.setUser(user);
+
+        //creating a list of all the books for user
+        List<Map<String,Object>> bookList = new ArrayList<>();
+
+        //populating the list from the userBook query from the user id
+        bookList = userBooksDAO.getUsersBook(user.getId());
+
+        //adding the response to the page
+        response.addObject("bookList", bookList);
+
+
+
+
+
+
+
+
+
         return response;
     }
+
+
+    @GetMapping("/user/myBooks")
+    public ModelAndView myBooks(HttpSession session) {
+
+        log.debug("In the my books controller");
+        ModelAndView response = new ModelAndView("user/myBooks");
+
+        //using the authenticated user service to load the current user
+        User user = authenticated.loadCurrentUser();
+
+        UserBook userBook = new UserBook();
+
+        //setting the user
+        userBook.setUser(user);
+
+        //creating a list of all the books for user
+        List<Map<String,Object>> bookList = new ArrayList<>();
+
+        //populating the list from the userBook query from the user id
+        bookList = userBooksDAO.getUsersBook(user.getId());
+
+        //adding the response to the page
+        response.addObject("bookList", bookList);
+
+        return response;
+
+
+
+    }
+
+
+
+
+
+
 
 
 

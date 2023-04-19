@@ -41,29 +41,35 @@
                     style="color: black; margin-left: 3px"> ${books.publishDate}</p></h5>
 
             <%--        ADD BOOK TO THEIR LIBRARY FORM --%>
-            <div>
 
-                <form action="/books/addBookToUserSubmit">
-
-                    <input type="hidden" name="bookId" value="${books.id}"/>
+            <sec:authorize access="isAuthenticated()">
+                <div>
 
 
-                    <label for="bookshelf"> Would you like to add this book? </label>
-                    <select id="bookshelf" name="bookshelf">
-                        <option value="Want to Read"> Want to Read</option>
-                        <option value="Currently Reading"> Currently Reading</option>
-                        <option value="Finished Reading"> Finished Reading</option>
-                    </select>
+                    <form action="/books/addBookToUserSubmit">
 
-                    <button type="submit"
-                            class="btn btn-primary mt-3 me-3">
-                        Add Book
-                    </button>
-
-                </form>
+                        <input type="hidden" name="bookId" value="${books.id}"/>
 
 
-            </div>
+                        <label for="bookshelf"> Would you like to add this book? </label>
+                        <select id="bookshelf" name="bookshelf">
+                            <option value=""></option>
+                            <option value="Want to Read"> Want to Read</option>
+                            <option value="Currently Reading"> Currently Reading</option>
+                            <option value="Finished Reading"> Finished Reading</option>
+                        </select>
+
+                        <button type="submit"
+                                class="btn btn-primary mt-3 me-3">
+                            Add Book
+                        </button>
+
+                    </form>
+
+
+                </div>
+
+            </sec:authorize>
         </div>
 
     </div>

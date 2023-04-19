@@ -56,27 +56,20 @@
                                 value="${form.email}"
                         />
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label"> Password</label>
-                        <input
-                                type="password"
-                                class="form-control"
-                                name="password"
-                                placeholder="Password"
-                                aria-label="Password"
-                                id="password"
-                                value="${form.password}"
-                        />
-                    </div>
 
-                    <button
-                            type="submit"
-                            id="create_btn"
-                            class="btn btn-primary mt-3 me-2"
-                            onclick="formSubmit()"
-                    >
-                        Create Account
-                    </button>
+
+                    <c:if test="${not empty form.id}">
+                        <button
+                                type="submit"
+                                id="create_btn"
+                                class="btn btn-primary mt-3 me-2"
+                                onclick="formSubmit()"
+                        >
+                            Edit User
+                        </button>
+                    </c:if>
+
+
                 </form>
             </div>
         </div>

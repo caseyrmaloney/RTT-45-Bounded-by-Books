@@ -50,10 +50,14 @@
 
                         <input type="hidden" name="bookId" value="${books.id}"/>
                         <input type="hidden" name="id" value="${form.id}" />
+                        <input type="hidden" name="title" value="${books.title}"/>
 
 
                         <label for="bookshelf"> Would you like to add this book? </label>
                         <select id="bookshelf" name="bookshelf">
+
+
+
                             <option value=""></option>
                             <option value="Want to Read"> Want to Read</option>
                             <option value="Currently Reading"> Currently Reading</option>

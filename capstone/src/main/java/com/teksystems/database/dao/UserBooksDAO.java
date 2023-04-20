@@ -19,14 +19,12 @@ public interface UserBooksDAO extends JpaRepository<UserBook, Long> {
             "and \n" +
             "user_id= :id ;", nativeQuery = true)
     List<Map<String,Object>> getUsersBook(Integer id);
-    @Query(value = "select * from user_books ub, books b\n" +
-            "where \n" +
-            "ub.book_id = b.id\n" +
-            "and \n" +
-            "user_id= :id \n" +
-            "and bookshelf =\" :bookshelf \" ;", nativeQuery = true)
-    List<Map<String,Object>> getUserBookShelfBooks(Integer id, String bookshelf);
 
+
+    UserBook findUserBookByBookIdAndUserId(Integer bookId, Integer userId);
+
+    @Query("FROM UserBook ub order by  ub.bookshelf asc")
+    List<UserBook> getAllBookshelves();
 
 
 }

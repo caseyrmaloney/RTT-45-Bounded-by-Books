@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/books")
@@ -41,12 +42,11 @@ public class BooksController {
     private UserBooksDAO userBooksDAO;
 
 
-
     @Autowired
     private AuthenticatedUserService authenticated;
 
     @RequestMapping(value = "/explore", method = RequestMethod.GET)
-    public ModelAndView bookSearch(@RequestParam(required=false) String title){
+    public ModelAndView bookSearch(@RequestParam(required = false) String title) {
 
         ModelAndView response = new ModelAndView("books/explore");
 
@@ -54,8 +54,8 @@ public class BooksController {
         // it has no results because there are no values coming.
         List<Book> books = new ArrayList<>();
 
-        if(!StringUtils.isEmpty(title)) {
-            books= booksDAO.getAllBooks();
+        if (!StringUtils.isEmpty(title)) {
+            books = booksDAO.getAllBooks();
         }
 
 
@@ -65,14 +65,11 @@ public class BooksController {
         response.addObject("booksList", books);
 
 
-        response.addObject("title",title);
+        response.addObject("title", title);
 
         return response;
 
     }
-
-
-
 
 
     @GetMapping("/createSubmit")
@@ -84,7 +81,7 @@ public class BooksController {
 
         Book book = new Book();
 
-        if(form.getId() != null && form.getId() > 0) {
+        if (form.getId() != null && form.getId() > 0) {
             book = booksDAO.findById(form.getId());
         }
 
@@ -105,12 +102,11 @@ public class BooksController {
 
     @GetMapping("/comment/{id}")
     //the path varaible is what is shown in the URL
-    public ModelAndView bookComments(@PathVariable Integer id){
+    public ModelAndView bookComments(@PathVariable Integer id) {
         ModelAndView response = new ModelAndView("books/comment");
         log.debug("In the book comment controller  " + id);
 
         Book book = booksDAO.findById(id);
-
 
 
         response.addObject("books", book);
@@ -127,7 +123,7 @@ public class BooksController {
     @GetMapping("/commentSubmit")
     public ModelAndView commentSubmit(CommentFormBean form) {
         log.debug("in the create submit controller");
-        ModelAndView response = new ModelAndView("books/comment");
+        ModelAndView response = new ModelAndView("redirect:/books/details/" + form.getBookId());
         log.debug("!!!!!!!!!!!!!!!!!!!!---- comment submit controller");
         log.debug(form.toString());
 
@@ -155,21 +151,17 @@ public class BooksController {
         response.addObject("form", form);
 
 
-
         return response;
     }
 
     @PostMapping("/comment")
-    public ModelAndView bookComments(CommentFormBean form){
+    public ModelAndView bookComments(CommentFormBean form) {
         ModelAndView response = new ModelAndView("books/comment");
-
         Book book = new Book();
         Comments comment = new Comments();
         comment.setComment(form.getComment());
 
         commentsDAO.save(comment);
-
-
 
         return response;
     }
@@ -179,7 +171,7 @@ public class BooksController {
 
     @GetMapping("/details/{id}")
     //the path varaible is what is shown in the URL
-    public ModelAndView bookDetails(@PathVariable Integer id){
+    public ModelAndView bookDetails(@PathVariable Integer id) {
         ModelAndView response = new ModelAndView("books/details");
         log.debug("In the book details conttroller  " + id);
 
@@ -187,7 +179,7 @@ public class BooksController {
 
         //USER A QUERY TO SELECT THE COMMENTS FROM BOOK ID WHERE BOOK ID = ID
 
-        List<Comments> comments= commentsDAO.getBookComments(id);
+        List<Comments> comments = commentsDAO.getBookComments(id);
 
         response.addObject("books", book);
         response.addObject("commentsList", comments);
@@ -196,7 +188,7 @@ public class BooksController {
         response.addObject("user", user);
 
 
-        //ADDING A BOOK FOR THE USER LIBRARY
+
 
 
         log.debug(book + "");
@@ -204,9 +196,9 @@ public class BooksController {
     }
 
     @GetMapping("/addBookToUserSubmit")
-    public ModelAndView addBookToUserSubmit(UserBooksFormBean form){
+    public ModelAndView addBookToUserSubmit(UserBooksFormBean form) {
 
-        ModelAndView response = new ModelAndView("books/details");
+        ModelAndView response = new ModelAndView("redirect:/user/myBooks");
         log.debug("in the add book to user submit controller");
         log.debug(form.toString());
 
@@ -214,51 +206,47 @@ public class BooksController {
         //using the authenticated user service to load the current user
         User user = authenticated.loadCurrentUser();
 
-        //query te book from the user database
         //if the book exist in the database then just display it on the page and have update button
         //if the result is null then do the stuff to create a new
 
 
+        //getting an existing data
+        //UserBook userBook = userBookDAO.findbyBookidandUserId();
+        //if the book is null
+        //create a new user book
+        //if not update status
 
 
-        //create a new user book object
-        UserBook userBook = new UserBook();
+        //creating a new user book and seeing if it exists in the database with book id and user id
+        UserBook userBook= userBooksDAO.findUserBookByBookIdAndUserId(form.getBookId(), user.getId());
 
-        //setting the user
-        userBook.setUser(user);
+        Book book = new Book();
 
-        //setting the book id
-        Book book = booksDAO.findById(form.getBookId());
-        userBook.setBook(book);
+        //if the user book returns back null then set the user, book id, and set the book to user
+        if(userBook == null) {
 
+            userBook = new UserBook();
+            //setting the user
+            userBook.setUser(user);
+            //setting the book id
+            book = booksDAO.findById(form.getBookId());
+            userBook.setBook(book);
+
+        }
+
+        //edits the exisiting book to a new shelf if its already in the database
         //adding the book to a bookshelf
+        //stays out if statement
         userBook.setBookshelf(form.getBookshelf());
-
         //saving the book and bookshelf to the database
         userBooksDAO.save(userBook);
-
-
         response.addObject("books", book);
+        response.addObject("form", form);
 
-
-        response.addObject("form" , form);
 
         return response;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

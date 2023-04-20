@@ -14,4 +14,6 @@ public class UserBooksFormBean {
 
     private String bookshelf;
 
+    private String title;
+
 }

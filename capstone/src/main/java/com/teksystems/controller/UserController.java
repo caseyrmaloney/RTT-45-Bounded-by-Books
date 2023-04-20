@@ -158,6 +158,15 @@ public class UserController {
 
         }
 
+        List<UserBook> bookshelf = userBooksDAO.getAllBookshelves();
+        response.addObject("bookshelf", bookshelf);
+
+        UserBooksFormBean userBooksFormBean= new UserBooksFormBean();
+        userBooksFormBean.setBookshelf(userBook.getBookshelf());
+        response.addObject("form", userBooksFormBean);
+
+
+
         response.addObject("hasBooks", hasBooks);
         response.addObject("isReading", isReading);
         response.addObject("wantToRead", wantToRead);

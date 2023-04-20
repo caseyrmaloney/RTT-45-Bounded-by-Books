@@ -132,23 +132,7 @@
                         </h1>
 
                         <p> ${book.author}</p>
-                        <form action="/books/addBookToUserSubmit">
 
-                            <input type="hidden" name="bookId" value="${books.id}"/>
-
-                            <select id="bookshelf" name="bookshelf">
-                                <option value=""></option>
-                                <option value="Want to Read"> Want to Read</option>
-                                <option value="Currently Reading"> Currently Reading</option>
-                                <option value="Finished Reading"> Finished Reading</option>
-                            </select>
-
-                            <button type="submit"
-                                    class="btn btn-primary mt-3 me-3">
-                                Update Status
-                            </button>
-
-                        </form>
                     </div>
 
                 </c:forEach>

@@ -3,33 +3,33 @@
     src: url(/pub/font-family/EmporioHotel-Regular.ttf);
 }
 
-h1{ 
+h1{
     font-family: Emporio-Hotel;
-   
+
 }
 
-body{ 
+body{
     background-color: #eeeeee;
     font-family: Open+Sans !important;
 }
 
-.nav-link{ 
+.nav-link{
     color: black !important;
     text-decoration: none;
     margin: 0em 1em;
     padding: 0px 20px;
-    font-size: 18px; 
+    font-size: 18px;
 }
 
-.nav-bar-items{ 
+.nav-bar-items{
     margin-left: 3em;
 }
 
-.nav-bar-logo{ 
+.nav-bar-logo{
     width: 250px;
 }
 
-.nav-wrapper{ 
+.nav-wrapper{
     width: 1400px;
     border-bottom: 2px solid #8e8e8c;
 
@@ -49,7 +49,7 @@ body{
 
 
 
-header{ 
+header{
     display: flex;
     justify-content: center;
 }
@@ -62,41 +62,41 @@ header{
     background-color: black;
 }
 
-.arrow-img{ 
+.arrow-img{
     width: 200px;
 }
 
-.button-divs{ 
-    
+.button-divs{
+
     display: flex;
     justify-content: flex-end;
     width: 200px;
     align-content: flex-end;
-    border: 1px solid black; 
+    border: 1px solid black;
     margin-top: 3em;
 }
 
-.arrow-div{ 
+.arrow-div{
     background-color: black;
     padding: 7px;
 }
 
-.arrow-div:hover{ 
+.arrow-div:hover{
     background-color: #d12468;
     padding: 7px;
 }
 
-.text-div{ 
-    padding: 7px; 
+.text-div{
+    padding: 7px;
     margin-right: 70px;
 }
 
-.text-div a{ 
+.text-div a{
     color: black;
     text-decoration: none;
 }
 
-.text-div a:hover{ 
+.text-div a:hover{
     color: black;
     text-decoration: none;
     color: #d12468;
@@ -119,5 +119,4 @@ header{
 
 
 }
-
 

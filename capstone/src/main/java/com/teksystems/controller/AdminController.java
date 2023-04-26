@@ -188,7 +188,7 @@ public class AdminController {
     @GetMapping("/createSubmitUser")
     public ModelAndView createSubmitUser(UserFormBean form) {
         log.debug("in the create user submit controller");
-        ModelAndView response = new ModelAndView("admin/user");
+        ModelAndView response = new ModelAndView("redirect:/admin/searchUser");
         log.debug("!!!!!!!!!!!!!!!!!!!!---- create user submit controller");
         log.debug(form.toString());
 

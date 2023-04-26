@@ -110,7 +110,7 @@
     <section class="section1">
 
         <div>
-            <h1> My Books </h1>
+            <h1> My Library </h1>
         </div>
 
 
@@ -144,15 +144,12 @@
     </section>
 
 
-    <section class="border">
-        <img src="/pub/images/stripes.png" alt="" srcset=""/>
-    </section>
 
 </c:if>
 
 <c:if test="${isReading}">
 
-    <section class="section1">
+    <section class="section1" style="background-color: #febe27; padding: 3em 0em;">
 
         <div>
             <h1> Currently Reading </h1>
@@ -192,15 +189,12 @@
     </section>
 
 
-    <section class="border">
-        <img src="/pub/images/stripes.png" alt="" srcset=""/>
-    </section>
 
 </c:if>
 
 
 <c:if test="${wantToRead}">
-    <section class="section1">
+    <section class="section1" style="background-color: #fe682f; padding: 3em 0em;">
 
         <div>
             <h1> Want to Read </h1>
@@ -239,14 +233,12 @@
 
     </section>
 
-    <section class="border">
-        <img src="/pub/images/stripes.png" alt="" srcset=""/>
-    </section>
+
 </c:if>
 
 <c:if test="${finished}">
 
-    <section class="section1">
+    <section class="section1" style="background-color: #D12468; padding: 3em 0em;">
 
         <div>
             <h1> Finished Reading </h1>
@@ -288,3 +280,5 @@
 
 </c:if>
 
+
+<jsp:include page="../includes/footer.jsp"/>

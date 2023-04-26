@@ -6,12 +6,17 @@ import com.teksystems.database.dao.UserRolesDAO;
 import com.teksystems.database.entity.Book;
 import com.teksystems.database.entity.User;
 import com.teksystems.database.entity.UserRoles;
+import com.teksystems.formbeans.CreateUserFormBean;
 import com.teksystems.formbeans.UserFormBean;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,6 +73,13 @@ public class SlashController {
         return response;
     }
 
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView contact() {
+        log.info("in the cntatct  controller");
+        ModelAndView response = new ModelAndView("contact");
+        return response;
+    }
+
     @GetMapping("/signup")
     public ModelAndView setup(HttpSession session) {
         log.debug("In the signup controller method");
@@ -80,12 +92,31 @@ public class SlashController {
     }
 
     @PostMapping("/signup")
-    public ModelAndView setup(UserFormBean form) {
+    public ModelAndView setup(@Valid CreateUserFormBean form, BindingResult bindingResult, HttpSession session) {
 
         ModelAndView response = new ModelAndView("signup");
         log.debug("In the signup controller post method");
 
         log.debug(form.toString());
+
+        response.addObject("form", form);
+
+        response.addObject("form", form);
+
+        if (StringUtils.equals(form.getPassword(), form.getConfirmPassword()) == false){
+            bindingResult.rejectValue("confirmPassword", "error.confirmPassword", "Passwords do not match");
+        }
+
+        if(bindingResult.hasErrors()) {
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                log.debug("Validation Error on field: " + error.getField());
+
+                log.debug("Validation Error Message: " + error.getDefaultMessage());
+            }
+
+            response.addObject("bindingResult", bindingResult);
+
+        }
 
         User user = new User();
         user.setEmail(form.getEmail());
@@ -96,9 +127,7 @@ public class SlashController {
         String encryptedPassword = passwordEncoder.encode(form.getPassword());
         user.setPassword(encryptedPassword);
 
-
         userDAO.save(user);
-
         UserRoles userRole = new UserRoles();
         userRole.setRoleName("USER");
         userRole.setUserId(user.getId());

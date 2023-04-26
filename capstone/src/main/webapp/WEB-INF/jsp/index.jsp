@@ -254,5 +254,4 @@
     </div>
 </section>
 
-</body>
-</html>
+<jsp:include page="includes/footer.jsp"/>

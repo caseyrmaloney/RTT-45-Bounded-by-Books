@@ -11,8 +11,6 @@ import java.util.Map;
 public interface UserBooksDAO extends JpaRepository<UserBook, Long> {
 
 
-    UserBook findById(Integer id);
-
     @Query(value = "select * from user_books ub, books b\n" +
             "where \n" +
             "ub.book_id = b.id\n" +

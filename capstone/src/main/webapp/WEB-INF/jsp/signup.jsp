@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,6 +81,23 @@
                     <p>Welcome! We're excited to have you.</p>
                 </div>
 
+
+
+                <c:if test="${bindingResult.hasFieldErrors()}">
+                    <section class="pt-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-10 col-md-7 col-xl-5">
+                                    <c:forEach items="${bindingResult.getFieldErrors()}" var="error">
+                                        <div style="color:red;">${error.getDefaultMessage()}</div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </c:if>
+
+
     <div class="container" >
         <div class="row justify-content-center">
             <!-- call form submit -->
@@ -88,8 +107,9 @@
                     >Email address</label
                     >
                     <input
-                            type="email"
+                            type="text"
                             name="email"
+                            value="${form.email}"
                             placeholder="Email Address"
                             class="form-control"
                             id="exampleInputEmail1"
@@ -104,6 +124,7 @@
                     <input
                             type="text"
                             name="firstName"
+                            value="${form.firstName}"
                             class="form-control"
                             id="firstNameInput"
                             aria-describedby="firstNameHelp"
@@ -115,6 +136,7 @@
                     <input
                             type="text"
                             name="lastName"
+                            value="${form.lastName}"
                             class="form-control"
                             id="lastNameInput"
                             aria-describedby="lastNameHelp"
@@ -127,6 +149,7 @@
                             type="password"
                             class="form-control"
                             name="password"
+                            value="${form.password}"
                             id="password"
                             aria-describedby="passwordHelp"
                     />
@@ -142,6 +165,7 @@
                             type="password"
                             class="form-control"
                             name="confirmPassword"
+                            value="${form.confirmPassword}"
                             id="confirmPassword"
                             aria-describedby="confirmPasswordHelp"
                     />
@@ -155,6 +179,7 @@
                 </div>
                 <!-- need to add the type submit for form button -->
                 <button
+                        style="background-color: #D12468; border: #D12468"
                         type="submit"
                         class="btn btn-primary mt-3 me-3"
                         onclick="formSubmit()"
@@ -172,7 +197,7 @@
 
 
 </section>
-<section class="section2">
+<section class="section2" style="margin-top: 3em;">
     <img src="/pub/images/stripes.png" alt="" srcset="" />
 </section>
 

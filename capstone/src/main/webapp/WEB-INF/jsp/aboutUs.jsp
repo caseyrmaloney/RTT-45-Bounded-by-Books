@@ -262,3 +262,6 @@
 <section class="section5">
   <img src="/pub/images/stripes.png" alt="" srcset="" />
 </section>
+
+
+<jsp:include page="includes/footer.jsp"/>

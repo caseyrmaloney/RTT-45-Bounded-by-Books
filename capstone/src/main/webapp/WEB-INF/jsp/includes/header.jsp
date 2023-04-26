@@ -36,6 +36,9 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"
     ></script>
+
+    <script src="/pub/js/contactForm.js"></script>
+    <script src="/pub/js/commentForm.js"></script>
 </head>
 
 <body>
@@ -113,12 +116,31 @@
 
                                 </ul>
                             </li>
-                            <li style="margin-left: 10em" class="nav-item">
-                                <a class="nav-link" href="/login/logout">Logout</a>
+                            <li style="margin-left: 11em" class="nav-item dropdown">
+                                <a
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        id="navbarDropdownMenuLink1"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                    <sec:authentication property="principal.username"/>
+                                </a>
+                                <ul
+                                        class="dropdown-menu"
+                                        aria-labelledby="navbarDropdownMenuLink"
+                                >
+                                    <li>
+                                        <a class="dropdown-item" href="/user/profile">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/login/logout">Logout</a>
+                                    </li>
+
+                                </ul>
                             </li>
-                            <li style="margin-left: 10em" class="nav-item">
-                                <a class="nav-link" href="/user/profile"><sec:authentication property="principal.username"/></a>
-                            </li>
+
                         </sec:authorize>
 
                         <sec:authorize access="hasAnyAuthority('USER')">
@@ -136,12 +158,32 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Community</a>
                             </li>
-                            <li style="margin-left: 10em" class="nav-item">
-                                <a class="nav-link" href="/login/logout">Logout</a>
+
+                            <li style="margin-left: 11em" class="nav-item dropdown">
+                                <a
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        id="navbarDropdownMenuLink2"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                    <sec:authentication property="principal.username"/>
+                                </a>
+                                <ul
+                                        class="dropdown-menu"
+                                        aria-labelledby="navbarDropdownMenuLink"
+                                >
+                                    <li>
+                                        <a class="dropdown-item" href="/user/profile">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/login/logout">Logout</a>
+                                    </li>
+
+                                </ul>
                             </li>
-                            <li style="margin-left: 10em" class="nav-item">
-                                <a class="nav-link" href="/user/profile"><sec:authentication property="principal.username"/></a>
-                            </li>
+
                         </sec:authorize>
                         <sec:authorize access="!isAuthenticated()">
                             <li class="nav-item">
@@ -158,7 +200,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Community</a>
                             </li>
-                            <li style="margin-left: 10em" class="nav-item">
+                            <li style="margin-left: 20em" class="nav-item">
                                 <a class="nav-link" href="/login/login">Login</a>
                             </li>
                         </sec:authorize>

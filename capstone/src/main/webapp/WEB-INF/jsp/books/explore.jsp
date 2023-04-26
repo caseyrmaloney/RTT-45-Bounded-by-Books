@@ -144,6 +144,6 @@
     </div>
 </section>
 
-<section class="section2">
-    <img src="/pub/images/stripes.png" alt="" srcset="" />
-</section>
+
+
+<jsp:include page="../includes/footer.jsp"/>

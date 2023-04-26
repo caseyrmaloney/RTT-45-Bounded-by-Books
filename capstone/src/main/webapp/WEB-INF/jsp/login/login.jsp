@@ -131,6 +131,7 @@
 
                 <!-- need to add the type submit for form button -->
                 <button
+                        style="background-color: #D12468; border: #D12468"
                   type="submit"
                   class="btn btn-primary mt-3 me-3"
                   onclick="formSubmit()"
@@ -157,7 +158,7 @@
     </section>
 
 
-    <section class="section2">
+    <section class="section2" style="margin-top: 3em;">
       <img src="/pub/images/stripes.png" alt="" srcset="" />
     </section>
 

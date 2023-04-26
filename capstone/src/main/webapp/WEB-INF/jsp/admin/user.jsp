@@ -56,10 +56,23 @@
                                 value="${form.email}"
                         />
                     </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label"> Password </label>
+                        <input
+                                type="text-area"
+                                class="form-control"
+                                name="password"
+                                placeholder="password"
+                                aria-label="password"
+                                id="password"
+                                value="${form.password}"
+                        />
+                    </div>
 
 
                     <c:if test="${not empty form.id}">
                         <button
+                                style="background-color: #D12468; border: #D12468"
                                 type="submit"
                                 id="create_btn"
                                 class="btn btn-primary mt-3 me-2"
@@ -75,3 +88,7 @@
         </div>
     </div>
 </section>
+
+
+<jsp:include page="../includes/footer.jsp"/>
+

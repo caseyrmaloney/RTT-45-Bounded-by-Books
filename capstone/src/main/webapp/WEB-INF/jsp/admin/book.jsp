@@ -108,6 +108,7 @@
 
           <c:if test="${empty form.id}">
             <button
+                    style="background-color: #D12468; border: #D12468"
                     type="submit"
                     id="create_btn"
                     class="btn btn-primary mt-3 me-2"
@@ -118,6 +119,7 @@
           </c:if>
           <c:if test="${not empty form.id}">
             <button
+                    style="background-color: #D12468; border: #D12468"
                     type="submit"
                     id="create_btn"
                     class="btn btn-primary mt-3 me-2"
@@ -132,3 +134,7 @@
     </div>
   </div>
 </section>
+
+
+<jsp:include page="../includes/footer.jsp"/>
+

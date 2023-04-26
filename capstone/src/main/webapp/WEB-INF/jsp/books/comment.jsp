@@ -82,7 +82,7 @@
                         type="submit"
                         id="commentButt"
                         class="btn btn-primary mt-3 me-3"
-                        onclick="formSubmit()"
+                        onclick="formSubmitComment()"
                 >
                     Submit
                 </button>
@@ -102,3 +102,6 @@
 <section class="section2">
     <img src="/pub/images/stripes.png" alt="" srcset="" />
 </section>
+
+
+<jsp:include page="../includes/footer.jsp"/>

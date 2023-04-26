@@ -11,9 +11,6 @@
         margin: 3em 3em;
     }
 
-    .title-wrapper {
-        border-top: black solid 1px;
-    }
 
     .card-link {
         text-decoration: none;
@@ -47,19 +44,21 @@
         text-align: center;
         width: 600px;
         border: black solid 1px;
+        background-color: white;
 
     }
 
     .card-content-div {
         margin: 1em 0em;
+        background-color: white;
     }
 
-    .search-link{
+    .search-link {
         text-decoration: none;
         color: #D12468;
     }
 
-    .search-link:hover{
+    .search-link:hover {
         text-decoration: none;
         color: #fe682f;
     }
@@ -67,24 +66,32 @@
 
 </style>
 
-<section class="section3">
+<c:if test="${!hasBooks}">
 
-    <div class="sec3-content-wrapper">
+    <section class="section3">
 
-        <c:if test="${!hasBooks}">
+        <div class="sec3-content-wrapper">
+
+
             <div style="text-align: center" class="title-wrapper">
 
                 <h1 style="margin-top: 1em; "> My Books</h1>
 
-                <h3 style="margin: 2em 2em"> Looks like you don't have any books in your Library. <a class="search-link" href="/books/explore"> Search for some books.</a> </h3>
+                <h3 style="margin: 2em 2em"> Looks like you don't have any books in your Library. <a class="search-link"
+                                                                                                     href="/books/explore">
+                    Search for some books.</a></h3>
 
             </div>
+        </div>
+    </section>
 
-        </c:if>
 
+</c:if>
 
+<c:if test="${hasBooks}">
 
-        <c:if test="${hasBooks}">
+    <section class="section3">
+        <div class="sec3-content-wrapper">
             <div style="text-align: center" class="title-wrapper">
 
                 <h1 style="margin-top: 1em; "> My Books</h1>
@@ -111,15 +118,22 @@
                 </c:forEach>
 
             </div>
-        </c:if>
 
-        <%--        for each book in booksList based on the bookshelf
-                    if bookshelf is something display the book information--%>
 
-        <c:if test="${isReading}">
-            <div style="text-align: center; margin-top: 3em" class="title-wrapper">
+        </div>
 
-                <h1 style="margin-top: 1em; "> Currently Reading </h1>
+
+    </section>
+
+
+</c:if>
+
+<c:if test="${isReading}">
+    <section class="section3" style="background-color: #febe27; padding: 3em 0em; ">
+        <div class="sec3-content-wrapper">
+            <div style="text-align: center; " class="title-wrapper">
+
+                <h1 style="margin-top: 1em;  "> Currently Reading </h1>
 
             </div>
 
@@ -152,9 +166,16 @@
 
             </div>
 
-        </c:if>
+        </div>
 
-        <c:if test="${wantToRead}">
+    </section>
+
+</c:if>
+
+<c:if test="${wantToRead}">
+    <section class="section3" style="background-color: #fe682f; padding: 3em 0em; ">
+        <div class="sec3-content-wrapper">
+
 
             <div style="text-align: center; margin-top: 3em" class="title-wrapper">
 
@@ -191,9 +212,17 @@
 
             </div>
 
-        </c:if>
 
-        <c:if test="${finished}">
+        </div>
+
+
+    </section>
+</c:if>
+
+
+<c:if test="${finished}">
+    <section class="section3" style="background-color: #D12468; padding: 3em 0em; ">
+        <div class="sec3-content-wrapper">
             <div style="text-align: center; margin-top: 3em" class="title-wrapper">
 
                 <h1 style="margin-top: 1em; "> Finished Reading</h1>
@@ -229,13 +258,13 @@
 
             </div>
 
-        </c:if>
 
-    </div>
+        </div>
 
 
-</section>
+    </section>
 
-<section class="border">
-    <img src="/pub/images/stripes.png" alt="" srcset=""/>
-</section>
+</c:if>
+
+
+<jsp:include page="../includes/footer.jsp"/>

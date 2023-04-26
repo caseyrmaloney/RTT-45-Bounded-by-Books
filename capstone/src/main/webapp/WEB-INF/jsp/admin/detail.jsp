@@ -41,3 +41,6 @@
         </table>
     </div>
 </section>
+
+
+<jsp:include page="../includes/footer.jsp"/>

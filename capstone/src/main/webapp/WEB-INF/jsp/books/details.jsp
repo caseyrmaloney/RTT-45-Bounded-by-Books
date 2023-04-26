@@ -64,7 +64,9 @@
                             <option value="Finished Reading"> Finished Reading</option>
                         </select>
 
-                        <button type="submit"
+                        <button
+                                style="background-color: #D12468; border: #D12468"
+                                type="submit"
                                 class="btn btn-primary mt-3 me-3">
                             Edit Status
                         </button>
@@ -188,3 +190,7 @@
 <section class="section2">
     <img src="/pub/images/stripes.png" alt="" srcset=""/>
 </section>
+
+
+
+<jsp:include page="../includes/footer.jsp"/>

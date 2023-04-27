@@ -1,4 +1,5 @@
 <jsp:include page="../includes/header.jsp" />
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <section class="pt-5 pb-5 bg-dark-grey">
     <div class="container text-center">
@@ -32,7 +33,7 @@
             </tr>
             <tr>
                 <td>Publish Date</td>
-                <td>${book.publishDate}</td>
+                <td>value="<fmt:formatDate pattern = "MM/dd/yyyy" value = "${book.publishDate}" />"</td>
             </tr>
             <tr>
                 <td>Page Length</td>

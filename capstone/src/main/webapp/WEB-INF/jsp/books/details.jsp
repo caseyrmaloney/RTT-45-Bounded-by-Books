@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="../includes/header.jsp"/>
 
 <style>
@@ -38,7 +39,7 @@
             <h5 style="color: #fe682f; padding-left: 15px; display: flex"> Page Length: <p
                     style="color: black; margin-left: 3px"> ${books.pageLength} pages</p></h5>
             <h5 style="color: #febe27; padding-left: 15px; display: flex"> Publish Date: <p
-                    style="color: black; margin-left: 3px"> ${books.publishDate}</p></h5>
+                    style="color: black; margin-left: 3px"> <fmt:formatDate pattern = "MM/dd/yyyy" value = "${books.publishDate}" /></p></h5>
 
             <%--        ADD BOOK TO THEIR LIBRARY FORM --%>
 
@@ -167,6 +168,7 @@
 
                 <div>
                     <h3> ${user.firstName} ${user.lastName} </h3>
+                    
                     <h6> ${comments.createDate}</h6>
 
 

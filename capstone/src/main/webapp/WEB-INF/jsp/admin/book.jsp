@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="../includes/header.jsp" />
 
@@ -65,7 +66,9 @@
               placeholder="Publish Date"
               aria-label="Publish Date"
               id="publishDate"
-              value="${form.publishDate}"
+              value="<fmt:formatDate pattern = "MM/dd/yyyy" value = "${form.publishDate}" />"
+
+
             />
           </div>
           <div class="mb-3">

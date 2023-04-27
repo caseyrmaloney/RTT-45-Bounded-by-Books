@@ -148,6 +148,58 @@
                     </div>
                 </div>
 
+
+                <%--                   RADIO BUTTON and CHECKBOXES --%>
+                <div style="display: flex; justify-content: center">
+
+
+                    <div style="margin: 0px 3em">
+                        <label> What is your concern? </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
+                            <label class="form-check-label">Account Management</label>
+
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check2" name="option2" value="something" checked>
+                            <label class="form-check-label">Books</label>
+
+                        </div>
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="checkbox" id="check3" name="option3" value="something" checked>
+                            <label class="form-check-label">Authors</label>
+
+                        </div>
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="checkbox" id="check4" name="option4" value="something" checked>
+                            <label class="form-check-label">Website</label>
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+                        <label> What is your Preferred Method of Contact?  </label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Phone
+                            <label class="form-check-label" for="radio1"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Email
+                            <label class="form-check-label" for="radio2"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">No Preference
+                            <label class="form-check-label" for="radio3"></label>
+                        </div>
+
+                    </div>
+
+                </div>
+
                 <!-- MESSAGE -->
 
                 <div class="message-wrapper">
@@ -164,6 +216,8 @@
                         <div id="messageHelp" class="form-text"></div>
                     </div>
                 </div>
+
+
 
                 <!-- SUBMIT BUTTON -->
                 <button style="background-color: #D12468; border: #D12468"

@@ -11,8 +11,6 @@ public interface BooksDAO  extends JpaRepository<Book, Long> {
     @Query("FROM Book b")
     List<Book> getAllBooks();
 
-
-
     Book findById(Integer id);
 
 

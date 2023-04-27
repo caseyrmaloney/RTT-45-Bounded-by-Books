@@ -72,76 +72,6 @@
 
 
 
-                        <sec:authorize access="hasAnyAuthority('ADMIN')">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/index"
-                                >Home</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/books/explore">Explore</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/user/myBooks">My Books</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Community</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="navbarDropdownMenuLink"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                >
-                                    ADMIN
-                                </a>
-                                <ul
-                                        class="dropdown-menu"
-                                        aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                    <li>
-                                        <a class="dropdown-item" href="/admin/book">Add Book</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/admin/searchBooks"
-                                        >Search Books</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/admin/searchUser">Search User</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li style="margin-left: 11em" class="nav-item dropdown">
-                                <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="navbarDropdownMenuLink1"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                >
-                                    <sec:authentication property="principal.username"/>
-                                </a>
-                                <ul
-                                        class="dropdown-menu"
-                                        aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                    <li>
-                                        <a class="dropdown-item" href="/user/profile">Profile</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/login/logout">Logout</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                        </sec:authorize>
 
                         <sec:authorize access="hasAnyAuthority('USER')">
                             <li class="nav-item">
@@ -158,6 +88,39 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Community</a>
                             </li>
+
+                        <sec:authorize access="hasAnyAuthority('ADMIN')">
+                            <li class="nav-item dropdown">
+                                <a
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        id="navbarDropdownMenuLink3"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                    ADMIN
+                                </a>
+                                <ul
+                                        class="dropdown-menu"
+                                        aria-labelledby="navbarDropdownMenuLink3"
+                                >
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/book">Add Book</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/searchBooks"
+                                        >Search Books</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/searchUser">Search User</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </sec:authorize>
 
                             <li style="margin-left: 11em" class="nav-item dropdown">
                                 <a

@@ -122,6 +122,12 @@ public class AdminController {
             // if so run the qurey that works with both values
             log.debug("Both title and author have a value");
             books = booksDAO.findByTitleContainingOrAuthorContainingIgnoreCase(title, author);
+
+            //stream the list of books and print them out
+            books.stream().forEach(book -> {
+                log.info(book.toString());
+            });
+
         }
 
         // check if the title is not empty and the author is empty
@@ -129,6 +135,10 @@ public class AdminController {
             // we run our query that checks the title field only
             log.debug("Title has a value and author is empty");
             books = booksDAO.findByTitleContainingIgnoreCase(title);
+
+            books.stream().forEach(book -> {
+                log.debug(book.toString());
+            });
         }
 
         // check if the title is empty and the author is not empty
@@ -136,6 +146,10 @@ public class AdminController {
             // we run our query that checks the author field only
             log.debug("Author has a value and title is empty");
             books = booksDAO.findByAuthorContainingIgnoreCase(author);
+
+            books.stream().forEach(book -> {
+                log.debug(book.toString());
+            });
         }
 
         // check if both title and author have a value
@@ -143,6 +157,10 @@ public class AdminController {
             // if so run the qurey that works with both values
             log.debug("Both title and author is empty");
             books = booksDAO.findByTitleContainingOrAuthorContainingIgnoreCase(title, author);
+
+            books.stream().forEach(book -> {
+                log.debug(book.toString());
+            });
         }
 
 
@@ -226,6 +244,10 @@ public class AdminController {
             // if so run the qurey that works with both values
             log.debug("Both first name and last name have a value");
             user = userDAO.findByFirstNameContainingOrLastNameContainingIgnoreCase(firstName, lastName);
+
+            user.stream().forEach(u -> {
+                log.debug(u.toString());
+            });
         }
 
         // check if the first name is not empty and the last name is empty
@@ -233,6 +255,10 @@ public class AdminController {
             // we run our query that checks the fist name field only
             log.debug("First name has a value and last name is empty");
             user = userDAO.findByFirstNameContainingIgnoreCase(firstName);
+
+            user.stream().forEach(u -> {
+                log.debug(u.toString());
+            });
         }
 
         // check if the first name is empty and the last name is not empty
@@ -240,12 +266,20 @@ public class AdminController {
             // we run our query that checks the last name field only
             log.debug("Last name has a value and first name is empty");
             user = userDAO.findByLastNameContainingIgnoreCase(lastName);
+
+            user.stream().forEach(u -> {
+                log.debug(u.toString());
+            });
         }
         // check if the first name is empty and the last name is not empty
         if (StringUtils.isEmpty(firstName) && StringUtils.isEmpty(lastName)) {
             // we run our query that checks the last name field only
             log.debug("Both first name and last name is empty");
             user = userDAO.findByLastNameContainingIgnoreCase(lastName);
+
+            user.stream().forEach(u -> {
+                log.debug(u.toString());
+            });
         }
 
 

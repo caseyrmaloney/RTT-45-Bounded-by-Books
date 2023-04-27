@@ -2,14 +2,16 @@ package com.teksystems.dao;
 
 import com.teksystems.database.dao.UserDAO;
 import com.teksystems.database.entity.User;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UserDAOTest {
+
+
+    private static final String EMAIL = "kc@email.com";
 
     @Autowired
     UserDAO userDAO;
@@ -20,12 +22,12 @@ public class UserDAOTest {
         User given = new User();
         given.setFirstName("KC");
         given.setLastName("M");
-        given.setEmail("kc@email.com");
+        given.setEmail(EMAIL);
         given.setPassword("password");
 
         userDAO.save(given);
 
-        User actual = userDAO.findByEmail("kc@email.com");
+        User actual = userDAO.findByEmail(EMAIL);
 
         Assertions.assertEquals(given.getFirstName(), actual.getFirstName());
         Assertions.assertEquals(given.getLastName(), actual.getLastName());
@@ -38,12 +40,16 @@ public class UserDAOTest {
     @Order(1)
     public void updateUser(){
 
-        User given = userDAO.findByEmail("kc@email.com");
+        User given = userDAO.findByEmail(EMAIL);
+
+
 
         given.setFirstName("Casey");
         given.setLastName("Maloney");
 
-        User actual = userDAO.findByEmail("kc@gmail.com");
+        userDAO.save(given);
+
+        User actual = userDAO.findByEmail(EMAIL);
 
         Assertions.assertEquals(given.getFirstName(), actual.getFirstName());
         Assertions.assertEquals(given.getLastName(), actual.getLastName());
@@ -53,11 +59,11 @@ public class UserDAOTest {
     @Test
     @Order(2)
     public void deleteUser(){
-        User given = userDAO.findByEmail("kc@email.com");
+        User given = userDAO.findByEmail(EMAIL);
 
         userDAO.delete(given);
 
-        User actual = userDAO.findByEmail("kc@email.com");
+        User actual = userDAO.findByEmail(EMAIL);
         Assertions.assertNull(actual);
     }
 

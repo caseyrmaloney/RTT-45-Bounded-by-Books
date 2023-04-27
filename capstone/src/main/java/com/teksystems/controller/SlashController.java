@@ -57,6 +57,9 @@ public class SlashController {
         log.info("in the index controller");
         ModelAndView response = new ModelAndView("index");
 
+        //just testing to see if the error pages work correctly
+        //int i = 100/0;
+
 
 
         List<Book> books = booksDAO.getAllBooks();

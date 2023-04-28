@@ -17,6 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the admin controller
+ * Everything that the admin can do including, editing a user, adding a book, editing a book, etc.
+ */
+
 @Controller
 @RequestMapping("/admin")
 @PreAuthorize("hasAuthority('ADMIN')")
@@ -29,6 +34,12 @@ public class AdminController {
     @Autowired
     private UserDAO userDAO;
 
+
+    /**
+     *
+     * @return
+     * returns the page for admin that is a form for the admin to add a new book into the database
+     */
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     public ModelAndView addBook() {
         log.debug("in the add Book controller");
@@ -38,6 +49,17 @@ public class AdminController {
 
         return response;
     }
+
+    /**
+     *
+     * @param form
+     * @return
+     * Takes in the BookFormBean as a param to submit the book into the database
+     * creates a new book object, checking to see if the form is not null and getting the id
+     * setting all the variables in the form to the book
+     * adding the object of form to the page
+     * and saving the book to the database
+     */
 
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(BookFormBean form) {
@@ -67,6 +89,16 @@ public class AdminController {
         return response;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * returns the response to edit a book in the database
+     * takes in a book id as the param- the id is where we can get the information of the book from the database to edit
+     * creates a new book object and finding it by the id
+     * setting the form variables with the book variables
+     *
+     */
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable Integer id) {
         log.debug("in the edit book controller");
@@ -92,7 +124,14 @@ public class AdminController {
     }
 
 
-
+    /**
+     *
+     * @param id
+     * @return
+     * returns the details page to display the book details for the admin
+     * takes in book id as param and creates a new book object to find the book by the id
+     * add the book to the response
+     */
     @GetMapping("/detail/{id}")
     //the path varaible is what is shown in the URL
     public ModelAndView detail(@PathVariable Integer id){
@@ -106,6 +145,19 @@ public class AdminController {
         log.debug(book + "");
         return response;
     }
+
+    /**
+     *
+     * @param title
+     * @param author
+     * @return
+     * returns the results of the books from a search bar in the admin page
+     * takes in title and author as param since the admin can search from each
+     * creates a new list of books to add the to the response
+     * includes a stream to see the results in the console
+     * checking if the title and author have an input and display the results based on the search engine
+     * adding the booklist to the page and adding the typed in search in the search bar
+     */
 
     @RequestMapping(value = "/searchBooks", method = RequestMethod.GET)
     public ModelAndView bookSearch(@RequestParam(required=false) String title, @RequestParam(required=false) String author) {
@@ -173,6 +225,11 @@ public class AdminController {
         return response;
     }
 
+    /**
+     *
+     * @return
+     * returns the addUser page to create a new user
+     */
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ModelAndView addUser() {
         log.debug("in the add user controller");
@@ -183,6 +240,15 @@ public class AdminController {
         return response;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * returns the form to edit a user
+     * take in the user id as the param
+     * create a new user object and finding the user based on the id
+     * creating a new user form bean to set the form with the users information and adding the response to the page
+     */
     @GetMapping("/editUser/{id}")
     public ModelAndView editUser(@PathVariable Integer id) {
         log.debug("in the edit User book controller");
@@ -203,6 +269,15 @@ public class AdminController {
         return response;
     }
 
+    /**
+     *
+     * @param form
+     * @return
+     * takes in the user form bean as a param
+     * when editing or creating a new user this method is submitting the information to the database
+     * doing a redirect to take it back to search for user again after submitting
+     * creates a new user object and sets the user information based on the form
+     */
     @GetMapping("/createSubmitUser")
     public ModelAndView createSubmitUser(UserFormBean form) {
         log.debug("in the create user submit controller");
@@ -229,6 +304,19 @@ public class AdminController {
         return response;
     }
 
+    /**
+     *
+     * @param firstName
+     * @param lastName
+     * @return
+     * returns the results of the user from a search bar in the admin page
+     *  takes in first and last as param since the admin can search from each
+     *  creates a new list of user to add the to the response
+     *  includes a stream to see the results in the console
+     *  checking if the first and last name have an input and display the results based on the search engine
+     *  adding the userList to the page and adding the typed in search in the search bar
+     *
+     */
     @RequestMapping(value = "/searchUser", method = RequestMethod.GET)
     public ModelAndView userSearch(@RequestParam(required=false) String firstName, @RequestParam(required=false) String lastName) {
         log.debug("In the user search controller method with firstName = " + firstName + " lastName = " + lastName);

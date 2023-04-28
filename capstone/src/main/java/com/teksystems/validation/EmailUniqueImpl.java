@@ -10,7 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-
+/**
+ * fixed email validation see if the email exists in the database or null
+ */
 @Slf4j
 public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String> {
 
@@ -24,6 +26,13 @@ public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String>
 
     }
 
+    /**
+     *
+     * @param value
+     * @param context
+     * @return
+     * validates the email and returns true is the email is not in the database
+     */
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         if (StringUtils.isEmpty(value)) {
@@ -39,11 +48,27 @@ public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String>
         return valid;
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     * use spring data jpa function to see if the email exists
+     */
+
     public boolean existsExample2(String value) {
         // in this method we have used a spring data jpa function to see if the email exists
         boolean exists = userDAO.existsByEmail(value);
         return !exists;
     }
+
+    /**
+     *
+     * @param value
+     * @return
+     * if the record returns it means they exist in the database
+     * if null then the user does not exist
+     * if true validation passes
+     */
 
     public boolean existsExample1(String value) {
         // if a record returns it means they exist in the database

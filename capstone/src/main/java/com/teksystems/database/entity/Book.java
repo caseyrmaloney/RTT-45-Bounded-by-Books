@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * book entity that is the same as the books database table
+ * has two one to many relationships from user books and comments
+ */
 @Getter
 @Setter
 @ToString

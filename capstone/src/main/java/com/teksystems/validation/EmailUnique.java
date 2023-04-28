@@ -8,7 +8,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
+/**
+ * jsr303 validation
+ */
 @Documented
 @Constraint(validatedBy = EmailUniqueImpl.class)
 @Target({ElementType.METHOD, ElementType.FIELD})

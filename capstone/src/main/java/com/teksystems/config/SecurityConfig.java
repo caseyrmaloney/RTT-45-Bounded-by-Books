@@ -1,6 +1,4 @@
 package com.teksystems.config;
-
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,16 +10,35 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+/**
+ *SecurtiyCongif is part of authenticating the user
+ *
+ *
+ */
+
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 @Configuration
 public class SecurityConfig {
 
+
+    /**
+     *
+     * @param http
+     * @return
+     * @throws Exception
+     *
+     * HTTPSecuirty anyting in the URL that is going to require authentication so that if you try to type in path
+     * in the URL there is no access unless you are authenticated
+     * Request methods for the login page and logout URl that is implemented by spring secuirty
+     *
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.csrf().disable()
-                // this line is saying anything with the URL /employee/** is going require authentication
+                // this line is saying anything with the URL /admin/** is going require authentication
                 // you can put any number of URLS that you want to secure here with a comma sepearting them,
                 .authorizeHttpRequests().requestMatchers("/admin/**","/books/**").authenticated()
                 // everything else in the application is going to permitted
@@ -48,10 +65,24 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     *
+     * @return
+     * Returns a BCrypt password to the database so the passwords are encrytped
+     */
     @Bean(name = "passwordEncoder")
     public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    /**
+     *
+     * @param authConfig
+     * @return
+     * @throws Exception
+     *
+     * return the authenticated manager to make sure that the use is authenticated
+     */
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {

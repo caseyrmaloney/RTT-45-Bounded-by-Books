@@ -6,6 +6,10 @@ import lombok.ToString;
 
 import java.util.Date;
 
+/**
+ * comments entity that is the same as the comments table in the database
+ * has two many to ones relationships to books and users
+ */
 @Getter
 @Setter
 @ToString

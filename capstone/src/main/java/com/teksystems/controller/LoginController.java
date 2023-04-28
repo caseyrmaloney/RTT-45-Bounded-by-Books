@@ -9,11 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
+/**
+ * Login Controller to get the setup and returns the login page
+ */
+
 @Controller
 @Slf4j
 
 public class LoginController {
 
+    /**
+     *
+     * @param session
+     * @return
+     * gets mapping for the login page
+     * returns the jsp page for the login
+     */
     @GetMapping("/login/login")
     public ModelAndView setup(HttpSession session) {
 

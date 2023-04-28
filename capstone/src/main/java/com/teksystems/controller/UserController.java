@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * user controller to worry about everything that has to do with the user and displaying their information
+ */
 
 @Controller
 @Slf4j
@@ -38,6 +41,16 @@ public class UserController {
     @Autowired
     private UserBooksDAO userBooksDAO;
 
+
+    /**
+     *
+     * @param session
+     * @return
+     * returns the user profile page to display their books
+     * using the authenticated user to load the current user and setting the users books based on the user
+     * creates a map of the of books objects and users books and returns that maps of objects
+     * creates boolean var to see what shelf the book belongs to
+     */
     //SET THE USER FROM THE AUTHENTICATED USER METHOD
     //USE A QUERY TO DISPLAY ALL BOOKS IN THE USER LIBRARY
     //USE A QUERY TO DISPLAY THE DIFFERENT BOOK SHELVES
@@ -111,6 +124,16 @@ public class UserController {
     }
 
 
+    /**
+     *
+     * @param session
+     * @return
+     *  returns the user my book page to display their books
+     * using the authenticated user to load the current user and setting the users books based on the user
+     * creates a map of the of books objects and users books and returns that maps of objects
+     * creates boolean var to see what shelf the book belongs to
+     *
+     */
     @GetMapping("/user/myBooks")
     public ModelAndView myBooks(HttpSession session) {
 

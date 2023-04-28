@@ -25,6 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+ * slash controller to display the pages that are basic and do not have special controller for
+ */
 @Controller
 @Slf4j
 public class SlashController {
@@ -60,14 +63,21 @@ public class SlashController {
         //just testing to see if the error pages work correctly
         //int i = 100/0;
 
-
-
         List<Book> books = booksDAO.getAllBooks();
         response.addObject("books", books);
 
         return response;
     }
 
+
+    /**
+     *   method to handel incoming request
+     *   setting up the aboutUs.html on the URl this method is going to run
+     *   .GET only respond to get requests
+     *   ModelandView spring uses to build the dynamic jsp page , name of the view
+     *   is the name of the jsp file without jsp
+     *
+     * **/
 
     @RequestMapping(value = "/aboutUs", method = RequestMethod.GET)
     public ModelAndView aboutUs() {
@@ -76,6 +86,14 @@ public class SlashController {
         return response;
     }
 
+    /**
+     *   method to handel incoming request
+     *   setting up the contact.html on the URl this method is going to run
+     *   .GET only respond to get requests
+     *   ModelandView spring uses to build the dynamic jsp page , name of the view
+     *   is the name of the jsp file without jsp
+     *
+     * **/
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public ModelAndView contact() {
         log.info("in the cntatct  controller");
@@ -83,6 +101,14 @@ public class SlashController {
         return response;
     }
 
+    /**
+     *   method to handel incoming request
+     *   setting up the signup.html on the URl this method is going to run
+     *   .GET only respond to get requests
+     *   ModelandView spring uses to build the dynamic jsp page , name of the view
+     *   is the name of the jsp file without jsp
+     *
+     * **/
     @GetMapping("/signup")
     public ModelAndView setup(HttpSession session) {
         log.debug("In the signup controller method");
@@ -93,6 +119,17 @@ public class SlashController {
 
         return response;
     }
+
+    /**
+     *   method to handel incoming request
+     *   setting up the sigup.html on the URl this method is going to run
+     *   .POST only respond to get requests
+     *   ModelandView spring uses to build the dynamic jsp page , name of the view
+     *   is the name of the jsp file without jsp
+     *   using a binding result for errors when signing up and displays errors if something is wrong in the form
+     *   creates a new user and saves it to the database
+     *
+     * **/
 
     @PostMapping("/signup")
     public ModelAndView setup(@Valid CreateUserFormBean form, BindingResult bindingResult, HttpSession session) {

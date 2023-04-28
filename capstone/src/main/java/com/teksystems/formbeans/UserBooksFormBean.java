@@ -3,6 +3,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * user books form bean to get the information on the user books
+ */
 @Getter
 @Setter
 @ToString

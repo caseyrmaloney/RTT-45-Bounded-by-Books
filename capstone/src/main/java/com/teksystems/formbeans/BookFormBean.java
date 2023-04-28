@@ -5,6 +5,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+
+/**
+ * book form bean to get the information on a specific book
+ */
 @Getter
 @Setter
 @ToString

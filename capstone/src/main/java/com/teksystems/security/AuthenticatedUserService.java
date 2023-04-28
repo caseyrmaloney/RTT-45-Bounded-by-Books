@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+/**
+ * authenticated user service to authenticate the current user when signing up and logging in
+ */
 @Component
 public class AuthenticatedUserService {
 
@@ -21,6 +24,12 @@ public class AuthenticatedUserService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    /**
+     *
+     * @param username
+     * @param unencryptedPassword
+     * method that will authenticate a user as if they had logged in through the login page
+     */
     // this method will authenticate a user as if they had logged in through the login page.
     public void changeLoggedInUsername(String username, String unencryptedPassword) {
         // reset security principal to be the new user information
@@ -29,12 +38,22 @@ public class AuthenticatedUserService {
         SecurityContextHolder.getContext().setAuthentication(result);
     }
 
+    /**
+     *
+     * @return
+     * returns the current user to see if they are in the database based on the users email
+     */
     public User loadCurrentUser() {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         User user = userDao.findByEmail(getCurrentUsername());
         return user;
     }
 
+    /**
+     *
+     * @return
+     * returns the current username of the user that is logged in
+     */
     public String getCurrentUsername() {
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null && context.getAuthentication() != null) {

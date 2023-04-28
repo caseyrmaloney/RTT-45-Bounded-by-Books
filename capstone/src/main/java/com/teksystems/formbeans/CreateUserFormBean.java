@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * create a new user form bean to get the information in to the create new user form
+ */
 @Getter
 @Setter
 @ToString

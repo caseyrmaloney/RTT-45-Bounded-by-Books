@@ -25,6 +25,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The Books controller has everything to do with the users and the books relationship
+ * methods to display the books in the database and allowing users to add books to their library
+ */
+
 @Controller
 @RequestMapping("/books")
 @PreAuthorize("hasAuthority('USER')")
@@ -43,10 +48,18 @@ public class BooksController {
     @Autowired
     private UserBooksDAO userBooksDAO;
 
-
     @Autowired
     private AuthenticatedUserService authenticated;
 
+    /**
+     *
+     * @param title
+     * @return
+     * returns the results of books for the explore page
+     * takes in title of book as param so users can search for a book based on the title
+     * creating a new list of books and searching through the database based on the search engine
+     * returning the list of book objects to the page
+     */
     @RequestMapping(value = "/explore", method = RequestMethod.GET)
     public ModelAndView bookSearch(@RequestParam(required = false) String title) {
 
@@ -74,6 +87,14 @@ public class BooksController {
     }
 
 
+    /**
+     *
+     * @param form
+     * @return
+     * this is the submit search method for the explore page
+     * taking in the book form bean as a param and getting the information of the book form the form bean
+     * saving the book in the database and returning the response to the page
+     */
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(BookFormBean form) {
         log.debug("in the create submit controller");
@@ -102,6 +123,14 @@ public class BooksController {
         return response;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * this is the book comment method that displays the comments to post a comment for the individual book
+     * takes in the book id as the parma to find the book based on the id
+     * returns the book information to display on the page
+     */
     @GetMapping("/comment/{id}")
     //the path varaible is what is shown in the URL
     public ModelAndView bookComments(@PathVariable Integer id) {
@@ -118,6 +147,16 @@ public class BooksController {
         return response;
     }
 
+    /**
+     *
+     * @param form
+     * @return
+     * this is the comment submit method that saves the comment in the database for each book based on the user
+     * it takes in the comment form bean to get the information the user inputted
+     * it creates a new user object and uses the authenticated user method to set the user
+     * creates a new comment object and sets the object from the form description
+     * redirects you back to the book details page to display all of the comments
+     */
     // inside the method - use the authenticated user service to load the user
     // then add the user object to the comment
     // then the use book id to query the book
@@ -156,6 +195,13 @@ public class BooksController {
         return response;
     }
 
+    /**
+     *
+     * @param form
+     * @return
+     * this is the post mapping for comments that display the comments of the book
+     * takes in the comment form bean and creates a new comment object and sets the comment and saves it in the database
+     */
     @PostMapping("/comment")
     public ModelAndView bookComments(CommentFormBean form) {
         ModelAndView response = new ModelAndView("books/comment");
@@ -169,7 +215,16 @@ public class BooksController {
     }
 
 
-
+    /**
+     *
+     * @param id
+     * @return
+     * returns the book detail page to display all the books information and the comments to the book
+     * takes in book id as a param and sets the book object to the book based on the id
+     * query in the comments to display the comments
+     * add the response of books details and comments to the page
+     *
+     */
 
     @GetMapping("/details/{id}")
     //the path varaible is what is shown in the URL
@@ -197,6 +252,18 @@ public class BooksController {
         return response;
     }
 
+    /**
+     *
+     * @param form
+     * @return
+     * returns the page to add a book to the users library
+     * takes in the user form bean as a param and redirects once submitted to the users books page
+     * loads the current user from the authenticated user method and creates a new user book object
+     * the user book object is set from the form to get the book id and the user if
+     * it makes a new book object and then checks to see if the user books is null
+     * if its null then it sets the user, book id, and sets the book to the user
+     * if the book is already in their library it updated the bookshelf
+     */
     @GetMapping("/addBookToUserSubmit")
     public ModelAndView addBookToUserSubmit(UserBooksFormBean form) {
 

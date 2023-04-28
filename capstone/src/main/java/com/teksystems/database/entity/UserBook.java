@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+/**
+ * user books entity that is the same as the user books table in the database
+ * has two many to one realtionships to user and book
+ */
 @Getter
 @Setter
 @ToString

@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * comment form bean to get the comment information
+ */
 @Getter
 @Setter
 @ToString
